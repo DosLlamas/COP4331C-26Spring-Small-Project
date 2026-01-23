@@ -1,0 +1,28 @@
+name: Deploy Dev
+
+on:
+  push:
+    branches: [ "dev" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to DigitalOcean (dev)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.DEV_USER }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          script: |
+            set -e
+            cd /var/www/dev.smallproject.nathanfoss.me
+
+            git config --global --add safe.directory /var/www/dev.smallproject.nathanfoss.me
+
+            git fetch origin
+            git checkout dev
+            git pull origin dev
+
+            chown -R www-data:www-data /var/www/dev.smallproject.nathanfoss.me
+            systemctl reload apache2
