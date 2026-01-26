@@ -2,49 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Small Project – COP 4331C</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .card {
-            background: white;
-            padding: 2rem 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 700px;
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-    </style>
+    <title>Small Project – COP 4331C Login</title>
+    <script type="text/javascript" src="js/code.js"></script>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<main>
+    <h1 id="title">Contact Manager</h1>
     <div class="card">
-        <h1>Small Project – COP 4331C</h1>
-        <p>
-            PROC OBJECT ORIENTED SOFTWARE
-        </p>
-        <p>
-            <strong>Team members:</strong><br>
-            Travis Burns,<br>
-            Nathan Foss,<br>
-            Reagan Lewis,<br>
-            Eduard Uy,<br>
-            Beldrin Shaju Poonoly
-        </p>
+        <div class="card-columns">
+
+            <!--LOGIN-->
+            <section class="login">
+                <h1>Welcome</h1>
+
+                <form id="login-form">
+                    <div>
+                        <label for="login-username"></label>
+                        <input id="login-username"
+                               name="username"
+                               placeholder="Username"
+                               class="card-input"
+                               required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="login-password"></label>
+                        <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Password"
+                                class="card-input"
+                                required
+                        >
+                    </div>
+
+                    <button type="submit" class="login-button">Sign In</button>
+                    <p id="login-message"></p>
+                </form>
+            </section>
+
+            <!--REGISTER-->
+            <section class="register">
+                <h2>Don't Have An Account?</h2>
+                <p>Create an account to get started.</p>
+
+                <a href="register.html" class="register-button">
+                    Register Here
+                </a>
+            </section>
+        </div>
     </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                doLogin();
+            });
+        }
+    });
+</script>
 </body>
 </html>
 

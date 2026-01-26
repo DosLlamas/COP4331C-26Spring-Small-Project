@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#title{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.card h1{
+    font-size: 2.5rem;
+    margin-bottom:1rem;
+}
+
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card-columns{
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.card-input {
+    width: 100%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.card input:focus {
+    border-color: #2e9bff;
+    box-shadow: 0 0 20px rgb(31, 78, 122);
+}
+
+
+.login, .register{
+    flex: 1;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.login-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #000000;
+    padding: 0.8rem 1.8rem;
+}
+
+.login-button:hover {
+    transform: scale(1.1); /* grow by 10% */
+}
+
+
+.register{
+    background-color: #2e9bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-button{
+    background-color: #2e9bff;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: .8rem 2rem;
+    cursor: pointer;
+    color: #000000;
+}
+
+.register-button:hover {
+    transform: scale(1.1); /* grow by 10% */
+}
+
+#register-form .register-button{
+    display:inline-block;
+    margin: 0 auto 1rem auto;
+}
+
+.card-columns.vertical{
+    display: block;
+    gap: 0;
+}
+
+.login-button.reg{
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #2e9bff;
+    padding: 0.8rem 1.8rem;
+}
+.login-button.reg:hover {
+    transform: scale(1.1); /* grow by 10% */
+}
