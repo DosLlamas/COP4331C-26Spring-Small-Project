@@ -86,7 +86,7 @@ function doRegister()
             {
                 const res = JSON.parse(xhr.responseText);
 
-                if(res.success){
+                if(res.error === ""){
                     registerMessage.textContent = "Registration successful! Redirecting to login";
                     registerMessage.style.color = "blue";
 
