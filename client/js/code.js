@@ -70,7 +70,7 @@ function doRegister()
     registerMessage.textContent = "";
 //	var hash = md5( password );
 
-    const tmp = {login: username, password: password};
+    const tmp = {username: username, password: password};
 //	var tmp = {login:login,password:hash};
     const jsonPayload = JSON.stringify( tmp );
     const url = urlBase + '/Register.' + extension;
