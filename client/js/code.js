@@ -64,13 +64,13 @@ function doRegister()
     firstName = "";
     lastName = "";
 
-    const login = document.getElementById("register-username").value;
+    const username = document.getElementById("register-username").value;
     const password = document.getElementById("register-password").value;
     const registerMessage = document.getElementById("register-message");
     registerMessage.textContent = "";
 //	var hash = md5( password );
 
-    const tmp = {login, password};
+    const tmp = {login: username, password: password};
 //	var tmp = {login:login,password:hash};
     const jsonPayload = JSON.stringify( tmp );
     const url = urlBase + '/Register.' + extension;
@@ -91,7 +91,7 @@ function doRegister()
                     registerMessage.style.color = "blue";
 
                     setTimeout(() => {
-                        window.location.href = "landing.html";
+                        window.location.href = "index.html";
                     }, 1500);
                 } else {
                     registerMessage.textContent = res.message || "Registration failed.";
