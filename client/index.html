@@ -1,54 +1,72 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>COP 4331 Small Project Contacts</title>
-	<script type="text/javascript" src="code.js"></script>
-    <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function() 
-		{
-			readCookie();
-		}, false);
-		</script>
-	
-	
+    <meta charset="UTF-8">
+    <title>Small Project – COP 4331C Login</title>
+    <script type="text/javascript" src="js/code.js"></script>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <main>
-<!--Title-->
-<h1 id="title">Contacts</h1>
-<div class="card">
+    <h1 id="title">Contact Manager</h1>
+    <div class="card">
+        <div class="card-columns">
 
-		<!--Search for contact-->
-		<section class = "search">
-			<h3>Look Up Contact</h3>
-			<input type="text" id="searchText" class= "card-input" placeholder="Contact To Search For..."/>
-			<button type="button" class="search-button" onclick="searchContact();"> Search</button>
-			<span id="contactSearchResult"></span>
-			<p id="contactList">
-			</p>
-		</section>
-		
-		<!-- Add new contact -->
-		<section class = "add">
-			<h3>Create New Contact</h3>
-			<input type="text" id="addFirst" class= "card-input2" placeholder="First Name">
-			<input type="text" id="addLast" class= "card-input2" placeholder="Last Name">
-			<input type="text" id="addPhone" class= "card-input2" placeholder="Phone">
-			<input type="text" id="addEmail" class= "card-input2" placeholder="Email">
-			<button type="button" 
-				class="search-button" 
-				onclick="addContact();"> Submit
-			</button>
-			<span id="contactAddResult"></span>
-		</section>
-	
-			
-		<!--Logout-->
-		<a href="index.html" class="logout-button" onclick="doLogout();"> Log Out</a>
-</div>
+            <!--LOGIN-->
+            <section class="login">
+                <h1>Welcome</h1>
+
+                <form id="login-form">
+                    <div>
+                        <label for="login-username"></label>
+                        <input id="login-username"
+                               name="username"
+                               placeholder="Username"
+                               class="card-input"
+                               required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="login-password"></label>
+                        <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Password"
+                                class="card-input"
+                                required
+                        >
+                    </div>
+
+                    <button type="submit" class="login-button">Sign In</button>
+                    <p id="login-message"></p>
+                </form>
+            </section>
+
+            <!--REGISTER-->
+            <section class="register">
+                <h2>Don't Have An Account?</h2>
+                <p>Create an account to get started.</p>
+
+                <a href="register.html" class="register-button">
+                    Register Here
+                </a>
+            </section>
+        </div>
+    </div>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                doLogin();
+            });
+        }
+    });
+</script>
 </body>
 </html>
-
-
