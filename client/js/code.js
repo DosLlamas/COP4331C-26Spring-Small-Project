@@ -213,7 +213,7 @@ function addContact()
 	let first = document.getElementById("addFirst").value;
 	let last = document.getElementById("addLast").value;
 	let email = document.getElementById("addEmail").value;
-	let phone = document.getElementById("add").value;
+	let phone = document.getElementById("addPhone").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
 	let tmp = { userId: userId,
