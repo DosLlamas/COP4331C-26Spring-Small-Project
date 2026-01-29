@@ -25,7 +25,7 @@ if ($firstName==="" || $lastName==="") {
 }
 
 // Pulls the function getDbConnection from the db.php file
-require_once __DIR__ . "/helpers/db.php"
+require_once __DIR__ . "/helpers/db.php";
 
 
 // Use a try and catch statement to catch any fk ups when trying to grab user

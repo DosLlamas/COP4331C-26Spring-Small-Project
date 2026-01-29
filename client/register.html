@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Project – COP 4331C Register</title>
+    <script type="text/javascript" src="js/code.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+    <h1 id="title">Contact Manager</h1>
+    <div class="card">
+        <div class="card-columns vertical">
+
+            <h1>Create Account</h1>
+
+            <!--REGISTER-->
+            <form id="register-form">
+
+                <label for="register-username"></label>
+                <input
+                        id="register-username"
+                        name="username"
+                        placeholder="Username"
+                        class="card-input"
+                        required
+                >
+
+                <label for="register-password"></label>
+                <input
+                        type="password"
+                        id="register-password"
+                        name="password"
+                        placeholder="Password"
+                        class="card-input"
+                        required
+                >
+                <button type="submit" class="register-button">Sign Up</button>
+                <p id="register-message"></p>
+            </form>
+
+            <p>
+                Already have an account? <a href="index.html" class="login-button reg">
+                Sign In
+            </a>
+            </p>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const registerForm = document.getElementById('register-form');
+        if (registerForm) {
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                doRegister();
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+
