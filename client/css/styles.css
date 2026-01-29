@@ -1,185 +1,198 @@
-body 
-{
-    background-color: #567b97;
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-#title 
-{
-    font-size: 45px;
+#title{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.card h1{
+    font-size: 2.5rem;
+    margin-bottom:1rem;
+}
+
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-columns{
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.card-input {
     width: 100%;
-    margin: 5%;
-    margin-left: 1.5%;
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    color: #FFFFFF;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
 }
 
-#loginDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+.card input:focus {
+    border-color: #2e9bff;
+    box-shadow: 0 0 20px rgb(31, 78, 122);
 }
 
-#loggedInDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+
+.login, .register, .search, .add, .logut{
+    flex: 1;
+    padding: 2rem;
+    border-radius: 10px;
 }
 
-#accessUIDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 12%;
-    padding: 25px;
-    background-color: #a1d3db;
+.login-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #000000;
+    padding: 0.8rem 1.8rem;
 }
 
-.buttons
-{
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
+.login-button:hover {
+    transform: scale(1.1); /* grow by 10% */
 }
 
-.buttons:hover{
-    background-color: #2838b14f;
-    color: #FFFFFF;
-    opacity: 50%;
+
+.register{
+    background-color: #2e9bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#loginName
-{
-	font-size: 30px;
-}
-#loginPassword
-{
-	font-size: 30px;
-}
-#searchText
-{
-	font-size: 30px;
-}
-#colorText
-{
-	font-size: 30px;
+.register-button{
+    background-color: #2e9bff;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: .8rem 2rem;
+    cursor: pointer;
+    color: #000000;
 }
 
-input[type="text"],input[type="password"]{
-    border-radius: 25px;
-    text-align: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-}
-input[type="addContact"]{
-    border-radius: 25px;
-    text-align: center;
-    width: 15%;
-    margin-left: 3%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-}
-input[type="addContactS"]{
-    border-radius: 25px;
-    text-align: center;
-    width: 15%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+.register-button:hover {
+    transform: scale(1.1); /* grow by 10% */
 }
 
-.buttons
-{
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
+#register-form .register-button{
+    display:inline-block;
+    margin: 0 auto 1rem auto;
 }
 
-#inner-title{
+.card-columns.vertical{
+    display: block;
+    gap: 0;
+}
+
+.login-button.reg{
     display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #2e9bff;
+    padding: 0.8rem 1.8rem;
+}
+.login-button.reg:hover {
+    transform: scale(1.1); /* grow by 10% */
 }
 
-#loginResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+/* Search */
+.search{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#userName{
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    text-align: center;
+.search-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+    padding: 0.2rem 1rem;
 }
 
-#logoutButton{
-    width: 20%;
-    margin-left: 40%;
-    margin-top: 2%;
+.search-button:hover {
+    transform: scale(1.1); /* grow by 10% */
 }
 
-#addContactButton{
-    width: 15%;
-    margin-left: 3%;
-    font-size: 30px;
-    border-radius: 25px;
+.logout-button{
+    background-color: #2e9bff;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: .1rem 2rem;
+    cursor: pointer;
+    color: #000000;
+}
+.logout-button:hover {
+    transform: scale(1.1); /* grow by 10% */
 }
 
-select{
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 2%;
-    font-size: 0.75em;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-#colorSearchResult{
+.add-contact {
     display: none;
+    margin-top: 1.5rem;
 }
 
-#colorAddResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
-}
-
-#AddDiv {
-    display: none;
-  }
-
-.container {
-    white-space: nowrap; /* Prevent line breaks */
-}
-.container input {
-    margin-right: 0px;
+.card-input2 {
+    width: 24%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
 }

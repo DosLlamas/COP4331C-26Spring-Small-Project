@@ -158,55 +158,58 @@ function searchColor()
 //adds a contact to the database using AddContact API
 function addContact()
 {
-	let firstInput = document.getElementById("addFirst");
-	let lastInput  = document.getElementById("addLast");
-	let phoneInput = document.getElementById("addPhone");
-	let emailInput = document.getElementById("addEmail");
-
-	// Defensive check (great for debugging)
-	if (!firstInput || !lastInput || !phoneInput || !emailInput)
-	{
-		document.getElementById("contactAddResult").innerHTML =
-			"Form elements not found.";
-		return;
-	}
-
-	let first = firstInput.value;
-	let last  = lastInput.value;
-	let phone = phoneInput.value;
-	let email = emailInput.value;
-
+	// Get values from contacts HTML
+	let first = document.getElementById("addFirst").value;
+	let last = document.getElementById("addLast").value;
+	let email = document.getElementById("addEmail").value;
+	let phone = document.getElementById("add").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	let tmp = {
-		userId: userId,
-		firstName: first,
-		lastName: last,
-		phone: phone,
-		email: email
-	};
+	let tmp = { userId: userId,
+  				firstName: first,
+  				lastName: last,
+  				phone: phone,
+  				email: email
+			};
 
-	let jsonPayload = JSON.stringify(tmp);
-	console.log(jsonPayload);
+	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/AddContact.' + extension;
-
+	
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-	xhr.onreadystatechange = function ()
+	try
 	{
-		if (this.readyState === 4 && this.status === 200)
+		xhr.onreadystatechange = function() 
 		{
-			document.getElementById("contactAddResult").innerHTML =
-				"Contact has been added";
-		}
-	};
-
-	xhr.send(jsonPayload);
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactAddResult").innerHTML = err.message;
+	}
+	
 }
 
+//Extends the add Contact menu
+function openAdd() {
+  const section = document.getElementById("section");
+  const btn = document.getElementById("searchContactButton");
+
+  if (section.style.display === "none" || section.style.display === "") {
+    section.style.display = "block";
+    btn.textContent = "Close";
+  } else {
+    section.style.display = "none";
+    btn.textContent = "Add Contact";
+  }
+}
 
 //NOT FUNCTIONAL YET!
 function searchContact()
