@@ -34,6 +34,11 @@ body {
     margin-bottom: 1rem;
 }
 
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 .card-columns{
     display: flex;
     gap: 2rem;
@@ -58,7 +63,7 @@ body {
 }
 
 
-.login, .register{
+.login, .register, .search, .add, .logut{
     flex: 1;
     padding: 2rem;
     border-radius: 10px;
@@ -132,4 +137,62 @@ body {
 }
 .login-button.reg:hover {
     transform: scale(1.1); /* grow by 10% */
+}
+
+/* Search */
+.search{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+    padding: 0.2rem 1rem;
+}
+
+.search-button:hover {
+    transform: scale(1.1); /* grow by 10% */
+}
+
+.logout-button{
+    background-color: #2e9bff;
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: .1rem 2rem;
+    cursor: pointer;
+    color: #000000;
+}
+.logout-button:hover {
+    transform: scale(1.1); /* grow by 10% */
+}
+
+.add-contact {
+    display: none;
+    margin-top: 1.5rem;
+}
+
+.card-input2 {
+    width: 24%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
 }
