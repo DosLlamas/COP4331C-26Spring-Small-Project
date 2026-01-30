@@ -76,7 +76,7 @@ try {
 // Prints reason why it failed in the server logs.
 catch (Throwable $e) {
   // Send detail back (dev only) + also log to Apache error log
-  error_log("AddContact.php exception: " . $e->getMessage());
+  error_log("searchContactsNumber.php exception: " . $e->getMessage());
   echo json_encode([
     "error" => "Server exception",
     "message" => $e->getMessage()
@@ -84,4 +84,5 @@ catch (Throwable $e) {
 
 }
 ?>
+
 
