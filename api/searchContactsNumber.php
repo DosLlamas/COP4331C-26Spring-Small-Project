@@ -47,7 +47,7 @@ try {
   }
 
   // Uses $number as the parameters to find the contact
-  $stmt->bind_param("i", $number);
+  $stmt->bind_param("s", $number);
 
   // Simutaneously executes the prepared, binded statement and prints
   // Whether the execution was successful
@@ -84,3 +84,4 @@ catch (Throwable $e) {
 
 }
 ?>
+
