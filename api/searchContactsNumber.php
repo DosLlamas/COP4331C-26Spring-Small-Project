@@ -15,7 +15,7 @@ $in = json_decode(file_get_contents('php://input'), true); // Reads the user inp
 
 
 // Initializes variable to hold user input for phone number. If number has letters, it will remove the letters
-$number = trim($in["phone"] ?? "")
+$number = filter_var(trim($in["phone"] ?? ""), FILTER_SANITIZE_NUMBER_INT);
 
 
 // At least one contact field required
@@ -47,7 +47,7 @@ try {
   }
 
   // Uses $number as the parameters to find the contact
-  $stmt->bind_param("s", $number);
+  $stmt->bind_param("i", $number);
 
   // Simutaneously executes the prepared, binded statement and prints
   // Whether the execution was successful
@@ -83,5 +83,4 @@ catch (Throwable $e) {
   ]);
 
 }
-
 ?>
