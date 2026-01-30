@@ -81,4 +81,7 @@ catch (Throwable $e) {
     "error" => "Server exception",
     "message" => $e->getMessage()
   ]);
+
 }
+
+?>
