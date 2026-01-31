@@ -226,18 +226,23 @@ body {
 .contact-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-auto-rows: minmax(1.5rem, auto);
+    gap: 0.75rem;
 
     background-color: #b7babe;
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;
 
-    min-height: 400px;
-    width: 100%;
+    min-height: 120px; /* keeps size even when empty */
 }
 
-.contact-columns span {
-    min-height: 1.2em;
-    display: inline-block;
+.grid-header {
+    font-weight: bold;
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.25rem;
+}
+
+.contact-columns > div {
+    text-align: left;
 }
