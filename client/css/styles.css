@@ -146,9 +146,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 6;
-    padding: 1rem 4rem;
-    border-radius: 10px;
+    justify-content: center;
 }
 
 .search-button{
@@ -187,20 +185,8 @@ body {
     margin-top: 1.5rem;
 }
 
-.card-inputadd {
-    width: 70%;
-    font-size: 0.75rem;
-    padding: .4rem .4rem;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-    box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    margin-bottom: 1.5rem;
-}
-
-.card-input3 {
-    width: 150%;
+.card-input2 {
+    width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
     border: 2px solid #ccc;
@@ -209,16 +195,4 @@ body {
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
     margin-bottom: 1.5rem;
-}
-
-.add{
-    background-color: #2e9bff;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 2;
-    padding: 0.5rem 2rem;
-    border-radius: 10px;
 }

@@ -2,15 +2,16 @@
 <head>
 	<title>COP 4331 Small Project Contacts</title>
 	<script type="text/javascript" src="js/code.js"></script>
-    <link href="style.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function() 
-		{
-			readCookie();
-		}, false);
-		</script>
-	
+    <link href="style.css" rel="stylesheet">
+	<!--
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+			<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() 
+			{
+				readCookie();
+			}, false);
+			</script>
+	-->
 	
 </head>
 <body>
@@ -18,11 +19,11 @@
 <!--Title-->
 <h1 id="title">Contacts</h1>
 <div class="card">
-
+	<div class="card-columns">
 		<!--Search for contact-->
 		<section class = "search">
 			<h3>Look Up Contact</h3>
-			<input type="text" id="searchText" class= "card-input" placeholder="Contact To Search For..."/>
+			<input type="text" id="searchText" class= "card-input3" placeholder="Contact To Search For..."/>
 			<button type="button" class="search-button" onclick="searchContact();"> Search</button>
 			<span id="contactSearchResult"></span>
 			<p id="contactList">
@@ -32,19 +33,21 @@
 		<!-- Add new contact -->
 		<section class = "add">
 			<h3>Create New Contact</h3>
-			<input type="text" id="addFirst" class= "card-input2" placeholder="First Name">
-			<input type="text" id="addLast" class= "card-input2" placeholder="Last Name">
-			<input type="text" id="addPhone" class= "card-input2" placeholder="Phone">
-			<input type="text" id="addEmail" class= "card-input2" placeholder="Email">
-			<button type="button" 
-				class="search-button" 
-				onclick="addContact();"> Submit
-			</button>
+				First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
+				Last Name: <input type="text" id="addLast" class= "card-inputadd" placeholder="Last Name">
+				Phone: <input type="text" id="addPhone" class= "card-inputadd" placeholder="Phone">
+				Email: <input type="text" id="addEmail" class= "card-inputadd" placeholder="Email">
+				<button type="button" 
+					class="search-button" 
+					onclick="addContact();"> Add Contact
+				</button><br>
 			<span id="contactAddResult"></span>
 		</section>
+	</div>
 	
 			
 		<!--Logout-->
+		<br>
 		<a href="index.html" class="logout-button" onclick="doLogout();"> Log Out</a>
 </div>
 </main>
