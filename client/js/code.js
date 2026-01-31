@@ -305,8 +305,10 @@ function searchContact()
                 // Display contact
                 resultDiv.innerHTML = `
                     <strong>Contact Found:</strong><br>
-                    First Name: ${jsonObject.Contact.FirstName}<br>
+                    First Name: ${jsonObject.Contact.FirstName}
                     Last Name: ${jsonObject.Contact.LastName}
+                    Phone: ${jsonObject.Contact.Phone}
+                    Email: ${jsonObject.Contact.Email}
                 `;
             }
         };
