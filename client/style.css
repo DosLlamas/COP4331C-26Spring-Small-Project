@@ -230,19 +230,18 @@ body {
     grid-auto-rows: minmax(1.5rem, auto);
     gap: 0.75rem;
 
-    background-color: #b7babe;
+    background-color: #c8cacc;
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;
 
-    min-height: 200px; /* keeps size even when empty */
-    min-width: 300px;
+    min-height: 350px; /* keeps size even when empty */
+    min-width: 600px;
 }
 
 .grid-header {
     font-weight: bold;
-    border-bottom: 2px solid #444;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0rem;
 }
 
 .contact-columns > div {
