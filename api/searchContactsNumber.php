@@ -1,9 +1,9 @@
 <?php
 
 # Made by Eduard Uy
-# The following php script is code for searching for a user via First and Last name.
+# The following php script is code for searching for a user via phone number
 # This is a script that will automatically traverse the database and 
-# returns the first unique contact with First and Last name
+# returns the first unique contact with a phone number
 
 # A lot of the code is based on Nathan Foss's addContact.php; therefore,
 # there is a lot of code that resembles when a error occurs.
@@ -14,13 +14,13 @@ $in = json_decode(file_get_contents('php://input'), true); // Reads the user inp
 
 
 
-// List the variables and what content the user is searching for
-$firstName = trim($in["firstName"] ?? "");
-$lastName  = trim($in["lastName"] ?? "");
+// Initializes variable to hold user input for phone number. If number has letters, it will remove the letters
+$number = filter_var(trim($in["phone"] ?? ""), FILTER_SANITIZE_NUMBER_INT);
+
 
 // At least one contact field required
-if ($firstName==="" || $lastName==="") {
-  echo json_encode(["error"=>"Both fields are required"]);
+if ($number === "") {
+  echo json_encode(["error"=>"Please enter a phone number."]);
   exit;
 }
 
@@ -36,8 +36,8 @@ try {
 
   // Prepares the variable to find a user from contacts *Supposedly unique individual*
   $stmt = $conn->prepare(
-    "SELECT FirstName, LastName FROM Contacts
-     WHERE FirstName = ? AND LastName = ?"
+    "SELECT Phone FROM Contacts
+     WHERE Phone = ?"
   );
 
   // If no user is selected from the database, return an error
@@ -46,8 +46,8 @@ try {
     exit;
   }
 
-  // Uses $firstName and $lastName as the parameters to find the contact
-  $stmt->bind_param("ss", $firstName, $lastName);
+  // Uses $number as the parameters to find the contact
+  $stmt->bind_param("s", $number);
 
   // Simutaneously executes the prepared, binded statement and prints
   // Whether the execution was successful
@@ -76,13 +76,13 @@ try {
 // Prints reason why it failed in the server logs.
 catch (Throwable $e) {
   // Send detail back (dev only) + also log to Apache error log
-  error_log("searchContactFirstNameLastName.php exception: " . $e->getMessage());
+  error_log("searchContactsNumber.php exception: " . $e->getMessage());
   echo json_encode([
     "error" => "Server exception",
     "message" => $e->getMessage()
   ]);
 
 }
-
 ?>
+
 
