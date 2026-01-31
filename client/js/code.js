@@ -214,7 +214,8 @@ function addContact()
 	let last = document.getElementById("addLast").value;
 	let email = document.getElementById("addEmail").value;
 	let phone = document.getElementById("addPhone").value;
-	document.getElementById("contactAddResult").innerHTML = "";
+	
+    document.getElementById("contactAddResult").innerHTML = "";
 
 	let tmp = { userId: userId,
   				firstName: first,
@@ -253,6 +254,10 @@ function searchContact()
 {
     let srch = document.getElementById("searchText").value.trim();
     let resultDiv = document.getElementById("contactSearchResult");
+    let firstRes = document.getElementById("contactSearchResult-First");
+    let lastRes = document.getElementById("contactSearchResult-Last");
+    let phoneRes = document.getElementById("contactSearchResult-Phone");
+    let emailRes = document.getElementById("contactSearchResult-Email");
     resultDiv.innerHTML = "";
 
     if (srch === "")
@@ -303,18 +308,18 @@ function searchContact()
                 }
 
                 // Display contact
-                resultDiv.innerHTML = `
-                    <strong>Contact Found:</strong><br>
-                    First Name: ${jsonObject.Contact.FirstName}
-                    Last Name: ${jsonObject.Contact.LastName}
-                    Phone: ${jsonObject.Contact.Phone}
-                    Email: ${jsonObject.Contact.Email}
-                `;
+                resultDiv.innerHTML = `<Strong>Contact Found</Strong>:`;
+            
+                firstRes.innerHTML = `${jsonObject.Contact.FirstName}`;
+                lastRes.innerHTML = `${jsonObject.Contact.LastName}`;
+                phoneRes.innerHTML = `${jsonObject.Contact.Phone}`;
+                emailRes.innerHTML = `${jsonObject.Contact.Email}`;
             }
-        };
+        }
 
         xhr.send(jsonPayload);
     }
+    
     catch (err)
     {
         resultDiv.innerHTML = err.message;

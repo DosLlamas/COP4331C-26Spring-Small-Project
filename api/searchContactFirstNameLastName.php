@@ -36,7 +36,7 @@ try {
 
   // Prepares the variable to find a user from contacts *Supposedly unique individual*
   $stmt = $conn->prepare(
-    "SELECT FirstName, LastName FROM Contacts
+    "SELECT FirstName, LastName, Phone, Email FROM Contacts
      WHERE FirstName = ? AND LastName = ?"
   );
 
