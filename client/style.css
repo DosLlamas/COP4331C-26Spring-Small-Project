@@ -235,7 +235,8 @@ body {
     border-radius: 8px;
     margin-top: 1rem;
 
-    min-height: 120px; /* keeps size even when empty */
+    min-height: 200px; /* keeps size even when empty */
+    min-width: 300px;
 }
 
 .grid-header {
