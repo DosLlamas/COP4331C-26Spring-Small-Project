@@ -251,51 +251,72 @@ function addContact()
 //NOT FUNCTIONAL YET!
 function searchContact()
 {
-    let srch = document.getElementById("searchText").value;
-    document.getElementById("contactSearchResult").innerHTML = "";
+    let srch = document.getElementById("searchText").value.trim();
+    let resultDiv = document.getElementById("contactSearchResult");
+    resultDiv.innerHTML = "";
+
+    if (srch === "")
+    {
+        resultDiv.innerHTML = "Please enter a first and last name";
+        return;
+    }
 
     let array = srch.split(" ");
-    let first = array[0];
-    let last = array[1];
+    let first = array[0] || "";
+    let last  = array[1] || "";
 
-    let contactList = "";
+    if (last === "")
+    {
+        resultDiv.innerHTML = "Please enter both first and last name";
+        return;
+    }
 
-    let tmp = {firstName: first ,lastName:last};
-    let jsonPayload = JSON.stringify( tmp );
+    let tmp = { firstName: first, lastName: last };
+    let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/searchContactFirstNameLastName.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
     try
     {
         xhr.onreadystatechange = function()
         {
-            if (this.readyState == 4 && this.status == 200)
+            if (this.readyState === 4 && this.status === 200)
             {
-                document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-                let jsonObject = JSON.parse( xhr.responseText );
+                let jsonObject = JSON.parse(xhr.responseText);
 
-                for( let i=0; i<jsonObject.results.length; i++ )
+                // Handle server-side error
+                if (jsonObject.error && jsonObject.error !== "")
                 {
-                    contactList += jsonObject.results[i];
-                    if( i < jsonObject.results.length - 1 )
-                    {
-                        contactList += "<br />\r\n";
-                    }
+                    resultDiv.innerHTML = jsonObject.error;
+                    return;
                 }
 
-                document.getElementsByTagName("p")[0].innerHTML = contactList;
+                // Handle no contact found
+                if (!jsonObject.Contact)
+                {
+                    resultDiv.innerHTML = "No contact found";
+                    return;
+                }
+
+                // Display contact
+                resultDiv.innerHTML = `
+                    <strong>Contact Found:</strong><br>
+                    First Name: ${jsonObject.Contact.FirstName}<br>
+                    Last Name: ${jsonObject.Contact.LastName}
+                `;
             }
         };
+
         xhr.send(jsonPayload);
     }
-    catch(err)
+    catch (err)
     {
-        document.getElementById("contactsSearchResult").innerHTML = err.message;
+        resultDiv.innerHTML = err.message;
     }
-
 }
 
 function deleteContact()
