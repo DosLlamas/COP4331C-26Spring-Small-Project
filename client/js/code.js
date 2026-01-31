@@ -274,7 +274,7 @@ function searchContact()
         {
             if (this.readyState == 4 && this.status == 200)
             {
-                document.getElementById("colorSearchResult").innerHTML = "Contact(s) has been retrieved";
+                document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
                 let jsonObject = JSON.parse( xhr.responseText );
 
                 for( let i=0; i<jsonObject.results.length; i++ )
@@ -293,7 +293,7 @@ function searchContact()
     }
     catch(err)
     {
-        document.getElementById("colorSearchResult").innerHTML = err.message;
+        document.getElementById("contactsSearchResult").innerHTML = err.message;
     }
 
 }
