@@ -149,6 +149,7 @@ body {
     flex: 6;
     padding: 1rem 4rem;
     border-radius: 10px;
+    width: 400px
 }
 
 .search-button{
@@ -200,7 +201,7 @@ body {
 }
 
 .card-input3 {
-    width: 150%;
+    width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
     border: 2px solid #ccc;
