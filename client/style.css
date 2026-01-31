@@ -222,3 +222,22 @@ body {
     padding: 0.5rem 2rem;
     border-radius: 10px;
 }
+
+.contact-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+
+    background-color: #b7babe;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+
+    min-height: 400px;
+    width: 100%;
+}
+
+.contact-columns span {
+    min-height: 1.2em;
+    display: inline-block;
+}
