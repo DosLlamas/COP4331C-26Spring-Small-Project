@@ -227,8 +227,8 @@ body {
 .contact-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(1.5rem, auto);
-    gap: 0.75rem;
+    grid-auto-rows: minmax(0.5rem, auto);
+    gap: 0.5rem;
 
     background-color: #c8cacc;
     padding: 1rem;
