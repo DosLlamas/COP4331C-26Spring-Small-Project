@@ -227,16 +227,17 @@ body {
 .contact-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(0.5rem, auto);
-    gap: 0.5rem;
+    grid-template-rows: auto auto; /* header row + first result row */
+    gap: 0.3rem;
 
     background-color: #c8cacc;
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;
 
-    min-height: 350px; /* keeps size even when empty */
+    min-height: 350px;
     min-width: 600px;
+    align-content: start;
 }
 
 .grid-header {
