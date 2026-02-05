@@ -355,7 +355,7 @@ function getContacts(){
             }
 
             // Create an entry for each found contact
-            res.results.forEach(contact =>
+            res.Contacts.forEach(contact =>
             {
                 const row = document.createElement("div");
                 row.className = "contact-row";
