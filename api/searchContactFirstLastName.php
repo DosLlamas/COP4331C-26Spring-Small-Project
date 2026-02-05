@@ -55,7 +55,7 @@
 		echo json_encode( "No Contacts Found" );
 	}
 	else{
-          echo json_encode(array("error"=>"", $result->fetch_all()));
+          echo json_encode(array("error"=>"", "Relevant Contacts"=>$result->fetch_all(MYSQLI_ASSOC)));
      }
 
      // Close links to the database.
@@ -65,3 +65,4 @@
 
 
 ?>
+
