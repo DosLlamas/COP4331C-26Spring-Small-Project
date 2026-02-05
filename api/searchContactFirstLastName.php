@@ -55,12 +55,13 @@
 		echo json_encode( "No Contacts Found" );
 	}
 	else{
-          echo json_encode(array("error"=>"", $result->fetch_assoc()));
+          echo json_encode(array("error"=>"", $result->fetch_all()));
      }
 
      // Close links to the database.
 	$stmt->close();
 	$conn->close();
+
 
 
 ?>
