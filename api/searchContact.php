@@ -36,7 +36,7 @@
      $requestingUserID = $requestedData["UserID"];
 
      // Bind the variables to the statement's query
-     $stmt->bind_param("sssi", $requestedFirstName, $requestedLastName, $requestedPhone, $requestedEmail, $requestingUserID);
+     $stmt->bind_param("ssssi", $requestedFirstName, $requestedLastName, $requestedPhone, $requestedEmail, $requestingUserID);
 
      // Execute statement and if return false, then return error messages.
      if (!$stmt->execute()) {
@@ -67,6 +67,7 @@
 
 
 ?>
+
 
 
 
