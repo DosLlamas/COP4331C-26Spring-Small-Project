@@ -20,8 +20,10 @@
     // Prepares statement to delete a row with a matching ID tag and UserID
     $stmt = $conn->prepare("DELETE FROM Contacts where ID = ? AND UserID = ?");
     // Binds the input statements into the parameter.
-    // Casts inputs into Integers, both ID and UserID
-    $stmt->bindParam("ii", intval($requestedData["Insert_ContactID"]), intval($requestedData["Insert_UserID"]));
+    // Initializes variables and casts inputs into Integers, both ID and UserID
+    $ContactID = intval($requestedData["Insert_ContactID"]);
+    $requestingUserID = intval($requestedData["Insert_UserID"];
+    $stmt->bindParam("ii", $ContactID, $requestingUserID));
     
     // If statement to catch if statement failed
     if (!$stmt->execute()) {
@@ -35,4 +37,5 @@
 
     $stmt->close();
     $conn->close();
+
 ?>
