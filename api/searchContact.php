@@ -31,7 +31,7 @@
      // Ex. If last name were empty, it'll still use the First Name to search.
      $requestedFirstName = "%" . $requestedData["Enter_First_Name"] . "%";
      $requestedLastName = "%". $requestedData["Enter_Last_Name"] . "%";
-	 $requestedPhone = "%" . $requestedData["Enter_Phone_Number"] . "%";
+	 $requestedPhone = "%" . intval($requestedData["Enter_Phone_Number"]) . "%";
 	 $requestedEmail = "%" . $requestedData["Enter_Email"] . "%";
      $requestingUserID = $requestedData["UserID"];
 
@@ -67,5 +67,6 @@
 
 
 ?>
+
 
 
