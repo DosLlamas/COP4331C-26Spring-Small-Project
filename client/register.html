@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Small Project – COP 4331C Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/code.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+
 </head>
 <body>
 <main>
@@ -12,36 +15,48 @@
     <div class="card">
         <div class="card-columns vertical">
 
-            <h1>Create Account</h1>
+            <h1 id="create-account">Create Account</h1>
 
             <!--REGISTER-->
             <form id="register-form">
 
-                <label for="register-username"></label>
-                <input
-                        id="register-username"
-                        name="username"
-                        placeholder="Username"
-                        class="card-input"
-                        required
-                >
+                <label for="register-username">Username</label>
+                <div class="input-container">
+                    <input
+                            id="register-username"
+                            name="username"
+                            placeholder="Username"
+                            class="card-input"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            required
+                    >
+                    <img
+                        id="username-error-img"
+                        src="images/invalidField.png"
+                        alt="Error"
+                        style="display: none;"
+                        >
+                </div>
 
-                <label for="register-password"></label>
+                <label for="register-password">Password</label>
                 <input
                         type="password"
                         id="register-password"
                         name="password"
                         placeholder="Password"
                         class="card-input"
+                        autocapitalize="none"
+                        spellcheck="false"
                         required
                 >
-                <button type="submit" class="register-button">Sign Up</button>
+                <button type="submit" class="register-button">Create Account</button>
                 <p id="register-message"></p>
             </form>
 
-            <p>
+            <p id="have-account">
                 Already have an account? <a href="index.html" class="login-button reg">
-                Sign In
+                Login!
             </a>
             </p>
         </div>
@@ -50,11 +65,23 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        document.getElementById('username-error-img').style.display = 'hidden'; //hide error icon on load
+
         const registerForm = document.getElementById('register-form');
         if (registerForm) {
             registerForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 doRegister();
+            });
+        }
+
+        //on input remove error icon
+        const usernameInput = document.getElementById('register-username');
+        if (usernameInput) {
+            usernameInput.addEventListener('input', function() {
+                const icon = document.getElementById('username-error-img');
+                if (icon) icon.style.display = 'none';
             });
         }
     });

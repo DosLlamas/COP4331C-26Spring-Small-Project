@@ -5,6 +5,29 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+
+function validateEmail(email){
+
+    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+
+    return regex.test(email);
+}
+
+function validatePhoneNumber(phone){
+
+    let regex = /^\d{10}$|^\d{3}-\d{3}-\d{4}$/;
+
+    return regex.test(phone);
+}
+
+//ADD DASHES TO PHONE NUMBER FOR VIEWING XXX-XXX-XXXX
+function normalizePhoneNumber(phone){
+
+    let stripped = phone.replace(/\D/g, ''); //strip dashes if already exist
+
+    return stripped.replace(/^(\d{3})(\d{3})(\d{4})$/, '$1-$2-$3'); //return phone number with dashes
+}
+
 function doLogin()
 {
     userId = 0;
@@ -60,15 +83,19 @@ function doLogin()
 
 function doRegister()
 {
-    userId = 0;
-    firstName = "";
-    lastName = "";
 
     const username = document.getElementById("register-username").value;
     const password = document.getElementById("register-password").value;
     const registerMessage = document.getElementById("register-message");
     registerMessage.textContent = "";
 //	var hash = md5( password );
+
+    if(username === "test"){
+        showUserNameError();
+        registerMessage.textContent = "Username Taken";
+        registerMessage.style.color = "red";
+        return;
+    }
 
     const tmp = {username: username, password: password};
 //	var tmp = {login:login,password:hash};
@@ -87,6 +114,7 @@ function doRegister()
                 const res = JSON.parse(xhr.responseText);
 
                 if(res.error === ""){
+                    hideUserNameError();
                     registerMessage.textContent = "Registration successful! Redirecting to login";
                     registerMessage.style.color = "blue";
 
@@ -94,8 +122,10 @@ function doRegister()
                         window.location.href = "index.html";
                     }, 1500);
                 } else {
-                    registerMessage.textContent = res.message || "Registration failed.";
-                    registerMessage.style.color = "blue";
+                    showUserNameError();
+                    registerMessage.textContent = res.message || "Username taken.";
+                    registerMessage.style.color = "red";
+
                 }
             }
         };
@@ -104,10 +134,19 @@ function doRegister()
     catch(err)
     {
         registerMessage.textContent = err.message;
-        registerMessage.style.color = "blue";
+        registerMessage.style.color = "red";
     }
 
 }
+
+function showUserNameError(){
+    const image = document.getElementById("username-error-img").style.display = "inline";
+}
+
+function hideUserNameError(){
+    const image = document.getElementById("username-error-img").style.display = "none";
+}
+
 
 function saveCookie()
 {
@@ -216,6 +255,19 @@ function addContact()
 	let phone = document.getElementById("addPhone").value;
 	
     document.getElementById("contactAddResult").innerHTML = "";
+
+    let validEmail = validateEmail(email);
+    if(!validEmail){
+        document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
+        return;
+    }
+
+    let validPhone = validatePhoneNumber(phone);
+    if(!validPhone){
+        document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
+        return;
+    }
+    phone = normalizePhoneNumber(phone);
 
 	let tmp = { userId: userId,
   				firstName: first,

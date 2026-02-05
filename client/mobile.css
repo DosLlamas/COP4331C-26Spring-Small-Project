@@ -1,0 +1,65 @@
+@media (max-width: 768px) {
+    body {
+        display: block;
+        height: auto;
+        padding: 1rem;
+    }
+
+    /*shrink card*/
+    .card {
+        max-width: 95%;
+        padding: 2rem;
+        font-size: 1rem;
+        margin: 1rem auto;
+    }
+
+
+    /*change columns to be vertical*/
+    .card-columns {
+        flex-direction: column !important;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+
+    .card-columns.vertical {
+        display: block !important;
+        gap: 1rem;
+    }
+
+    /*shrink headers*/
+    .card h1 {
+        font-size: 2rem;
+    }
+    .card h2 {
+        font-size: 1.6rem;
+    }
+    .card h3 {
+        font-size: 1.3rem;
+    }
+
+    #register-form label {
+        min-width: 100%;
+        font-size: 0.85rem;
+    }
+
+    /*shrink buttons*/
+    .register-button, .login-button.log, .login-button.reg {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.5rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .login-button.reg{
+        display: inline-block;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        padding: 1.2rem 0.2rem;
+    }
+
+    #have-account {
+        font-size: 1.2rem;
+    }
+
+}

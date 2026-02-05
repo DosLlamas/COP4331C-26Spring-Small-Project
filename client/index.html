@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Small Project – COP 4331C Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/code.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 <main>
@@ -14,32 +16,36 @@
 
             <!--LOGIN-->
             <section class="login">
-                <h1>Welcome</h1>
+                <h1 id="welcome">Welcome</h1>
 
                 <form id="login-form">
                     <div>
-                        <label for="login-username"></label>
+                        <label for="login-username">Username</label>
                         <input id="login-username"
                                name="username"
                                placeholder="Username"
                                class="card-input"
+                               autocapitalize="none"
+                               spellcheck="false"
                                required
                         >
                     </div>
 
                     <div>
-                        <label for="login-password"></label>
+                        <label for="login-password">Password</label>
                         <input
                                 type="password"
                                 id="login-password"
                                 name="password"
                                 placeholder="Password"
                                 class="card-input"
+                                autocapitalize="none"
+                                spellcheck="false"
                                 required
                         >
                     </div>
 
-                    <button type="submit" class="login-button">Sign In</button>
+                    <button type="submit" class="login-button log">Sign In</button>
                     <p id="login-message"></p>
                 </form>
             </section>

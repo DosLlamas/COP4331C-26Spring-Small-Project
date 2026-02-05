@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f8;
+    background: #ede6df;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,13 +9,22 @@ body {
 }
 
 #title{
+    color: #091d26;
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
 }
 
+#welcome {
+    color: #ede6df;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgb(9, 29, 38);
+}
+
 .card {
-    background: white;
+    background: #094044;
     padding: 3rem 4rem;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -46,6 +55,7 @@ body {
 }
 
 .card-input {
+    max-width: 900px;
     width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
@@ -58,8 +68,8 @@ body {
 }
 
 .card input:focus {
-    border-color: #2e9bff;
-    box-shadow: 0 0 20px rgb(31, 78, 122);
+    border-color: #FFF573FF;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.37);
 }
 
 
@@ -69,17 +79,18 @@ body {
     border-radius: 10px;
 }
 
-.login-button{
-    background-color: transparent;
+.login-button.log{
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    color: #000000;
-    padding: 0.8rem 1.8rem;
+    background-color: #fff573;
+    color: #091d26;
+    padding: .8rem 2rem;
+    box-shadow: 0 0 20px rgb(9, 29, 38);
 }
 
 .login-button:hover {
@@ -88,36 +99,86 @@ body {
 
 
 .register{
-    background-color: #2e9bff;
-    color: white;
+    background-color: #091d26;
+    color: #ede6df;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 20px rgb(9, 29, 38);
+}
+
+#register-form label{
+    min-width: 500px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: .9rem;
+    color: #ede6df;
+    padding: .2rem;
+    text-shadow: 0 0 12px rgb(9, 29, 38);
+}
+
+#register-message {
+    min-height: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: red;
+    text-align: center;
+}
+
+#create-account {
+    color: #ede6df;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgb(9, 29, 38);
 }
 
 .register-button{
-    background-color: #2e9bff;
+    border: none;
+    cursor: pointer;
     transition: transform 0.2s ease;
-    font-weight: bold;
     font-size: 1.4rem;
+    font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
+    background-color: #fff573;
+    color: #091d26;
     padding: .8rem 2rem;
-    cursor: pointer;
-    color: #000000;
+    box-shadow: 0 0 20px rgb(9, 29, 38);
 }
 
 .register-button:hover {
     transform: scale(1.1); /* grow by 10% */
 }
 
-#register-form .register-button{
-    display:inline-block;
-    margin: 0 auto 1rem auto;
+.input-container {
+    position: relative;
+    width: 100%;
 }
 
-.card-columns.vertical{
+.card-input {
+    width: 100%;
+    padding-right: 36px;
+    height: 36px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-container img {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border: none;
+    background: none;
+}
+
+
+.card-columns.vertical {
     display: block;
     gap: 0;
 }
@@ -130,14 +191,35 @@ body {
     transition: transform 0.2s ease;
     font-size: 1rem;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
     border-radius: 5px;
-    color: #2e9bff;
-    padding: 0.8rem 1.8rem;
+    color: #fff573;
+    padding: 1.2rem 0.2rem;
+    text-shadow: 0 0 10px rgb(9, 29, 38);
 }
+
+#have-account {
+    color: #ede6df;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgb(9, 29, 38);
+}
+
 .login-button.reg:hover {
     transform: scale(1.1); /* grow by 10% */
 }
+
+
+#login-form label{
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: .9rem;
+    color: #ede6df;
+    padding: .2rem;
+    text-shadow: 0 0 12px rgb(9, 29, 38);
+}
+
 
 /* Search */
 .search{
@@ -160,7 +242,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
-    color: #000000;
+    color: #ea2929;
     padding: 0.2rem 1rem;
 }
 
@@ -169,7 +251,7 @@ body {
 }
 
 .logout-button{
-    background-color: #2e9bff;
+    background-color: #091d26;
     transition: transform 0.2s ease;
     font-weight: bold;
     font-size: 1.4rem;
@@ -213,7 +295,7 @@ body {
 }
 
 .add{
-    background-color: #2e9bff;
+    background-color: #091d26;
     color: white;
     display: flex;
     flex-direction: column;
