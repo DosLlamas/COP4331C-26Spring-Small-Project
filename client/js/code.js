@@ -156,7 +156,7 @@ function doLogout()
     firstName = "";
     lastName = "";
     document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-    window.location.href = "contact.html";
+    window.location.href = "index.html";
 }
 
 /*
@@ -252,79 +252,134 @@ function addContact()
 //NOT FUNCTIONAL YET!
 function searchContact()
 {
-    let srch = document.getElementById("searchText").value.trim();
-    let resultDiv = document.getElementById("contactSearchResult");
-    let firstRes = document.getElementById("contactSearchResult-First");
-    let lastRes = document.getElementById("contactSearchResult-Last");
-    let phoneRes = document.getElementById("contactSearchResult-Phone");
-    let emailRes = document.getElementById("contactSearchResult-Email");
+    const srch = document.getElementById("searchText").value.trim(); // Get text from search bar
+    const resultDiv = document.getElementById("contactSearchResult"); // Space to display search results
+    const resultsContainer = document.getElementById("contactResults"); // Space to display contacts
+
     resultDiv.innerHTML = "";
+    resultsContainer.innerHTML = "";
 
-    if (srch === "")
+    if (srch === "") // Nothing in search bar
     {
-        resultDiv.innerHTML = "Please enter a first and last name";
+        resultDiv.innerHTML = "Please enter a search term";
         return;
     }
 
-    let array = srch.split(" ");
-    let first = array[0] || "";
-    let last  = array[1] || "";
+    let array = srch.split(" "); 
+    let first = array[0] || ""; 
+    let last = array[1] || "";
 
-    if (last === "")
-    {
-        resultDiv.innerHTML = "Please enter both first and last name";
-        return;
-    }
+    let tmp = { //json entry
+        //userId: userId,
+        firstName: first,
+        lastName: last
+    };
 
-    let tmp = { firstName: first, lastName: last };
     let jsonPayload = JSON.stringify(tmp);
-
     let url = urlBase + '/searchContactFirstNameLastName.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-    try
+    xhr.onreadystatechange = function()
     {
-        xhr.onreadystatechange = function()
+        if (this.readyState === 4 && this.status === 200)
         {
-            if (this.readyState === 4 && this.status === 200)
+            const res = JSON.parse(xhr.responseText);
+
+            if (res.error !== "") // If there is an error
             {
-                let jsonObject = JSON.parse(xhr.responseText);
-
-                // Handle server-side error
-                if (jsonObject.error && jsonObject.error !== "")
-                {
-                    resultDiv.innerHTML = jsonObject.error;
-                    return;
-                }
-
-                // Handle no contact found
-                if (!jsonObject.Contact)
-                {
-                    resultDiv.innerHTML = "No contact found";
-                    return;
-                }
-
-                // Display contact
-                resultDiv.innerHTML = `<Strong>Contact Found</Strong>:`;
-            
-                firstRes.innerHTML = `${jsonObject.Contact.FirstName}`;
-                lastRes.innerHTML = `${jsonObject.Contact.LastName}`;
-                phoneRes.innerHTML = `${jsonObject.Contact.Phone}`;
-                emailRes.innerHTML = `${jsonObject.Contact.Email}`;
+                resultDiv.innerHTML = res.error; // Display the error
+                return;
             }
-        }
 
-        xhr.send(jsonPayload);
-    }
-    
-    catch (err)
-    {
-        resultDiv.innerHTML = err.message;
-    }
+            if (!res.results || res.results.length === 0) // No contacts found
+            {
+                resultDiv.innerHTML = "No contacts found";
+                return;
+            }
+
+            // Create an entry for each found contact
+            res.results.forEach(contact =>
+            {
+                const row = document.createElement("div");
+                row.className = "contact-row";
+
+                row.innerHTML = `
+                    <div>${contact.FirstName}</div>
+                    <div>${contact.LastName}</div>
+                    <div>${contact.Phone}</div>
+                    <div>${contact.Email}</div>
+                    <button class="delete-button"
+                        onclick="deleteContact('${contact.Phone}')">
+                        Delete
+                    </button>
+                `;
+
+                resultsContainer.appendChild(row);
+            });
+        }
+    };
+
+    xhr.send(jsonPayload);
 }
+
+function getContacts(){
+    const resultDiv = document.getElementById("contactSearchResult"); // Space to display retrieval results
+    const resultsContainer = document.getElementById("contactResults"); // Space to display contacts
+
+    resultsContainer.innerHTML = ""; // Ensure container is empty
+
+    let tmp = { //json entry
+        userId: userId,
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/GetContacts.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+     xhr.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200)
+        {
+            const res = JSON.parse(xhr.responseText);
+
+            if (res.error !== "") // If there is an error
+            {
+                resultDiv.innerHTML = res.error; // Display the error
+                return;
+            }
+
+            // Create an entry for each found contact
+            res.results.forEach(contact =>
+            {
+                const row = document.createElement("div");
+                row.className = "contact-row";
+
+                row.innerHTML = `
+                    <div>${contact.FirstName}</div>
+                    <div>${contact.LastName}</div>
+                    <div>${contact.Phone}</div>
+                    <div>${contact.Email}</div>
+                    <button class="delete-button"
+                        onclick="deleteContact('${contact.Phone}')">
+                        Delete
+                    </button>
+                `;
+
+                resultsContainer.appendChild(row);
+            });
+        }
+    };
+
+    xhr.send(jsonPayload);
+
+}
+
 
 function deleteContact()
 {

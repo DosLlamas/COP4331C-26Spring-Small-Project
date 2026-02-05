@@ -8,6 +8,13 @@
 			document.addEventListener('DOMContentLoaded', function() 
 			{
 				readCookie();
+
+			}, false);
+
+			document.addEventListener('DOMContentLoaded', function() 
+			{
+				getContacts();
+
 			}, false);
 		</script>
 
@@ -39,10 +46,7 @@
 					<div class="grid-header">Email</div>
 
 					<!-- Results row -->
-					<div id="contactSearchResult-First"></div>
-					<div id="contactSearchResult-Last"></div>
-					<div id="contactSearchResult-Phone"></div>
-					<div id="contactSearchResult-Email"></div>
+					<div id="contactResults"></div>
 
     			</div>
 			<div>
