@@ -23,7 +23,7 @@
      // Returns rows of relevant contacts to First + Last Name with UserID
      $stmt = $conn->prepare("SELECT FirstName, LastName, Phone, Email, 
           ID FROM Contacts
-          WHERE FirstName LIKE ? AND LastName LIKE ? AND UserID = ?");
+          WHERE FirstName LIKE ? AND LastName LIKE ? AND Phone LIKE ? AND Email LIKE ? AND UserID = ?");
 
      // Initialize variables and equate to inputted data.
      // Even if one of the inputs were empty, it'll return at least SOMETHING
@@ -31,10 +31,12 @@
      // Ex. If last name were empty, it'll still use the First Name to search.
      $requestedFirstName = "%" . $requestedData["Enter_First_Name"] . "%";
      $requestedLastName = "%". $requestedData["Enter_Last_Name"] . "%";
+	 $requestedPhone = "%" . $requestedData["Enter_Phone_Number"] . "%";
+	 $requestedEmail = "%" . $requestedData["Enter_Email"] . "%";
      $requestingUserID = $requestedData["UserID"];
 
      // Bind the variables to the statement's query
-     $stmt->bind_param("ssi", $requestedFirstName, $requestedLastName, $requestingUserID);
+     $stmt->bind_param("ssisi", $requestedFirstName, $requestedLastName, $requestedPhone, $requestedEmail, $requestingUserID);
 
      // Execute statement and if return false, then return error messages.
      if (!$stmt->execute()) {
@@ -65,4 +67,5 @@
 
 
 ?>
+
 
