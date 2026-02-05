@@ -6,7 +6,7 @@ $in = json_decode(file_get_contents('php://input'), true);
 $userId    = intval($in["userId"] ?? 0);
 $firstName = trim($in["firstName"] ?? "");
 $lastName  = trim($in["lastName"] ?? "");
-$phone     = filter_var(trim($in["phone"] ?? ""), FILTER_SANITIZE_NUMBER_INT);
+$phone     = trim($in["phone"] ?? "");
 $email     = trim($in["email"] ?? "");
 
 if ($userId <= 0) {
