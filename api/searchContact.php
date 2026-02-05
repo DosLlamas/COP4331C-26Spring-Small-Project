@@ -31,12 +31,12 @@
      // Ex. If last name were empty, it'll still use the First Name to search.
      $requestedFirstName = "%" . $requestedData["Enter_First_Name"] . "%";
      $requestedLastName = "%". $requestedData["Enter_Last_Name"] . "%";
-	 $requestedPhone = "%" . intval($requestedData["Enter_Phone_Number"]) . "%";
+	 $requestedPhone = "%" . $requestedData["Enter_Phone_Number"] . "%";
 	 $requestedEmail = "%" . $requestedData["Enter_Email"] . "%";
      $requestingUserID = $requestedData["UserID"];
 
      // Bind the variables to the statement's query
-     $stmt->bind_param("ssisi", $requestedFirstName, $requestedLastName, $requestedPhone, $requestedEmail, $requestingUserID);
+     $stmt->bind_param("sssi", $requestedFirstName, $requestedLastName, $requestedPhone, $requestedEmail, $requestingUserID);
 
      // Execute statement and if return false, then return error messages.
      if (!$stmt->execute()) {
@@ -67,6 +67,7 @@
 
 
 ?>
+
 
 
 
