@@ -355,24 +355,13 @@ function getContacts(){
             }
 
             // Create an entry for each found contact
-            res.Contacts.forEach(contact =>
-            {
-                const row = document.createElement("div");
-                row.className = "contact-row";
-
-                row.innerHTML = `
-                    <div>${contact.FirstName}</div>
-                    <div>${contact.LastName}</div>
-                    <div>${contact.Phone}</div>
-                    <div>${contact.Email}</div>
-                    <button class="delete-button"
-                        onclick="deleteContact('${contact.Phone}')">
-                        Delete
-                    </button>
-                `;
-
-                resultsContainer.appendChild(row);
-            });
+            res.Contacts.forEach(contact => {
+                ["FirstName", "LastName", "Phone", "Email"].forEach(key => {
+                    const cell = document.createElement("div");
+                    cell.textContent = contact[key];
+                    document.getElementById("contactResults").appendChild(cell);
+                });
+});
         }
     };
 
