@@ -387,3 +387,29 @@ function editContact()
 {
 
 }
+
+function toggleTheme() {
+
+    const root = document.documentElement;
+    if (root.getAttribute("data-theme") === "alternate1") {
+
+        root.setAttribute("data-theme", "alternate2");
+        localStorage.setItem("theme", "alternate2");
+    }
+    else if (root.getAttribute("data-theme") === "alternate2") {
+
+        root.removeAttribute("data-theme");
+        localStorage.removeItem("theme");
+    }
+    else{
+        root.setAttribute("data-theme", "alternate1");
+        localStorage.setItem("theme", "alternate1");
+    }
+
+}
+
+const themeSaved = localStorage.getItem("theme");
+
+if (themeSaved) {
+    document.documentElement.setAttribute("data-theme", themeSaved);
+}

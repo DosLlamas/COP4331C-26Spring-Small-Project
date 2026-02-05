@@ -1,6 +1,59 @@
+:root {
+    --bg-main: #ede6df;
+    --bg-card: #094044;
+    --bg-inner-card: #091d26;
+
+    --text-title: #091d26;
+    --text-inner-title: #ede6df;
+    --text-card: #ede6df;
+    --text-button: #fff573;
+
+    --shadow-dark: rgb(9, 29, 38);
+    --border-input: #ccc;
+    --focus-glow: rgba(255, 255, 255, 0.37);
+}
+
+[data-theme="alternate1"] {
+    --bg-main: #ffffff;
+    --bg-card: rgb(255, 255, 255);
+    --bg-inner-card: rgba(37, 55, 39, 0.96);
+
+    --text-title: #222222;
+    --text-inner-title: rgba(0, 0, 0, 0.96);
+    --text-card: #FAF3E1;
+    --text-button: #ffffff;
+
+    --shadow-dark: rgba(66, 66, 66, 0.62);
+    --border-input: rgba(37, 55, 39, 0.96);
+    --focus-glow: rgba(245, 231, 198, 0.37);
+}
+
+[data-theme="alternate2"] {
+    --bg-main: #000000;
+    --bg-card: #fff6ee;
+    --bg-inner-card: rgba(183, 167, 255, 0.91);
+
+    --text-title: #ffffff;
+    --text-inner-title: #FFFFF;
+    --text-card: #000000;
+    --text-button: #000000;
+
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+    --border-input: #ccc;
+    --focus-glow: rgba(0, 0, 0, 0.58);
+}
+
+* {
+    transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: #ede6df;
+    background: var(--bg-main);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,22 +62,22 @@ body {
 }
 
 #title{
-    color: #091d26;
+    color: var(--text-title);
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
 }
 
 #welcome {
-    color: #ede6df;
+    color: var(--text-inner-title);
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px rgb(9, 29, 38);
+    text-shadow: 0 0 10px var(--shadow-dark);
 }
 
 .card {
-    background: #094044;
+    background: var(--bg-card);
     padding: 3rem 4rem;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -59,7 +112,7 @@ body {
     width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
-    border: 2px solid #ccc;
+    border: 2px solid var(--border-input);
     border-radius: 10px;
     outline: none;
     box-sizing: border-box;
@@ -68,8 +121,8 @@ body {
 }
 
 .card input:focus {
-    border-color: #FFF573FF;
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.37);
+    border-color: var(--text-button);
+    box-shadow: 0 0 16px var(--focus-glow);
 }
 
 
@@ -87,10 +140,10 @@ body {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    background-color: #fff573;
-    color: #091d26;
+    background-color: var(--text-button);
+    color: var(--bg-inner-card);
     padding: .8rem 2rem;
-    box-shadow: 0 0 20px rgb(9, 29, 38);
+    box-shadow: 0 0 20px var(--shadow-dark);
 }
 
 .login-button:hover {
@@ -99,13 +152,13 @@ body {
 
 
 .register{
-    background-color: #091d26;
-    color: #ede6df;
+    background-color: var(--bg-inner-card);
+    color: var(--text-card);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgb(9, 29, 38);
+    box-shadow: 0 0 20px var(--shadow-dark);
 }
 
 #register-form label{
@@ -114,9 +167,9 @@ body {
     text-align: left;
     font-weight: bold;
     font-size: .9rem;
-    color: #ede6df;
+    color: var(--text-card);
     padding: .2rem;
-    text-shadow: 0 0 12px rgb(9, 29, 38);
+    text-shadow: 0 0 12px var(--shadow-dark);
 }
 
 #register-message {
@@ -128,11 +181,11 @@ body {
 }
 
 #create-account {
-    color: #ede6df;
+    color: var(--text-card);
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px rgb(9, 29, 38);
+    text-shadow: 0 0 10px var(--shadow-dark);
 }
 
 .register-button{
@@ -143,10 +196,10 @@ body {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    background-color: #fff573;
-    color: #091d26;
+    background-color: var(--text-button);
+    color: var(--bg-inner-card);
     padding: .8rem 2rem;
-    box-shadow: 0 0 20px rgb(9, 29, 38);
+    box-shadow: 0 0 20px var(--shadow-dark);
 }
 
 .register-button:hover {
@@ -193,16 +246,16 @@ body {
     font-weight: bold;
     text-decoration: underline;
     border-radius: 5px;
-    color: #fff573;
+    color: var(--text-button);
     padding: 1.2rem 0.2rem;
-    text-shadow: 0 0 10px rgb(9, 29, 38);
+    text-shadow: 0 0 10px var(--shadow-dark);
 }
 
 #have-account {
-    color: #ede6df;
+    color: var(--text-card);
     font-size: 1rem;
     font-weight: bold;
-    text-shadow: 0 0 12px rgb(9, 29, 38);
+    text-shadow: 0 0 12px var(--shadow-dark);
 }
 
 .login-button.reg:hover {
@@ -215,9 +268,9 @@ body {
     text-align: left;
     font-weight: bold;
     font-size: .9rem;
-    color: #ede6df;
+    color: var(--text-inner-title);
     padding: .2rem;
-    text-shadow: 0 0 12px rgb(9, 29, 38);
+    text-shadow: 0 0 12px var(--shadow-dark);
 }
 
 
