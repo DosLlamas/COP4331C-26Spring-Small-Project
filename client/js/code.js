@@ -408,8 +408,34 @@ function toggleTheme() {
 
 }
 
+const root = document.documentElement;
+let NORMAL_FONT = parseFloat(getComputedStyle(root).fontSize);
+let multiplier = parseFloat(localStorage.getItem("fontMultiplier")) || 1;
+function increaseTextSize(){
+    multiplier = Math.min(multiplier + .1, 2);
+    setTextSize()
+}
+
+function decreaseTextSize(){
+    multiplier = Math.max(multiplier - .1, .5);
+    setTextSize()
+}
+
+function resetTextSize(){
+    multiplier = 1;
+    setTextSize();
+}
+
+function setTextSize(){
+    root.style.fontSize = `${NORMAL_FONT * multiplier}px`;
+    localStorage.setItem("fontMultiplier", multiplier);
+}
+
 const themeSaved = localStorage.getItem("theme");
 
 if (themeSaved) {
     document.documentElement.setAttribute("data-theme", themeSaved);
 }
+
+
+setTextSize();
