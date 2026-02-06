@@ -12,7 +12,7 @@ if ($username === "" || $password === "") {
 
 require_once __DIR__ . "/helpers/db.php";
 
-try {
+
   $conn = getDbConnection();
 
   // Optional but recommended: hash passwords
@@ -36,6 +36,4 @@ try {
 
   $stmt->close();
   $conn->close();
-} catch (Exception $e) {
-  echo json_encode(["error"=>"Server error"]);
-}
+
