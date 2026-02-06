@@ -6,8 +6,17 @@ $in = json_decode(file_get_contents('php://input'), true);
 $username = trim($in["username"] ?? "");
 $password = $in["password"] ?? "";
 
-if ($username === "" || $password === "") {
+if ($username === "" && $password === "") {
   echo json_encode(["error" => "username and password required", "id" => 0]);
+  exit;
+}
+
+if ($username === ""){
+  echo json_encode(["error" => "Username required", "id" => 0]);
+  exit;
+}
+else if($password === ""){
+  echo json_encode(["error" => "Password required", "id" => 0]);
   exit;
 }
 
@@ -44,7 +53,7 @@ try {
     exit;
   }
 
-  echo json_encode(["error" => "", "id" => $userId]);
+  echo json_encode(["error" => "", "id" => $userId, "Login Successful."]);
 
   $stmt->close();
   $conn->close();
