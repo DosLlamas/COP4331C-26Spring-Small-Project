@@ -225,11 +225,6 @@ body {
 }
 
 .contact-columns {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto; /* header row + first result row */
-    gap: 0.3rem;
-
     background-color: #c8cacc;
     padding: 1rem;
     border-radius: 8px;
@@ -238,6 +233,13 @@ body {
     min-height: 350px;
     min-width: 600px;
     align-content: start;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 3fr 20px 20px;
+    /* Adjust sizes as needed - First, Last, Phone, Email, Edit, Delete */
+    gap: 10px;
 }
 
 .grid-header {

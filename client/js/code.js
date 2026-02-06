@@ -282,7 +282,7 @@ function searchContact()
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-    xhr.onreadystatechange = function()
+      xhr.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200)
         {
@@ -294,30 +294,13 @@ function searchContact()
                 return;
             }
 
-            if (!res.results || res.results.length === 0) // No contacts found
-            {
-                resultDiv.innerHTML = "No contacts found";
-                return;
-            }
-
             // Create an entry for each found contact
-            res.results.forEach(contact =>
-            {
-                const row = document.createElement("div");
-                row.className = "contact-row";
-
-                row.innerHTML = `
-                    <div>${contact.FirstName}</div>
-                    <div>${contact.LastName}</div>
-                    <div>${contact.Phone}</div>
-                    <div>${contact.Email}</div>
-                    <button class="delete-button"
-                        onclick="deleteContact('${contact.Phone}')">
-                        Delete
-                    </button>
-                `;
-
-                resultsContainer.appendChild(row);
+            res.Contacts.forEach(contact => {
+                ["FirstName", "LastName", "Phone", "Email"].forEach(key => {
+                    const cell = document.createElement("div");
+                    cell.textContent = contact[key];
+                    document.getElementById("contactResults").appendChild(cell);
+                });
             });
         }
     };
