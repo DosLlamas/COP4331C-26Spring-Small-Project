@@ -42,7 +42,7 @@ try{
   $stmt->close();
   $conn->close();
 }
-  catch(exeption $e){
+  catch(Exception $e){
     echo json_encode(["Username already exists."]);
   }
 
