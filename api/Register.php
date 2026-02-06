@@ -32,7 +32,7 @@ require_once __DIR__ . "/helpers/db.php";
   }
 
   $userId = $conn->insert_id;
-  echo json_encode(["error"=>"", "id"=>$userId]);
+  echo json_encode(["error"=>"", "id"=>$userId, "Registered!"]);
 
   $stmt->close();
   $conn->close();
