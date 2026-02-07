@@ -12,7 +12,7 @@ if ($username === "" || $password === "") {
 
 require_once __DIR__ . "/helpers/db.php";
 
-try {
+try{
   $conn = getDbConnection();
 
   // Optional but recommended: hash passwords
@@ -21,6 +21,11 @@ try {
   $stmt = $conn->prepare("INSERT INTO Users (Username, Password) VALUES (?, ?)");
   $stmt->bind_param("ss", $username, $hash);
 
+  $stmt->execute();
+
+
+  # Code below is not functioning properly - Eduard Uy
+  /*
   if (!$stmt->execute()) {
     // Duplicate username triggers MySQL error 1062
     if ($conn->errno === 1062) {
@@ -29,13 +34,15 @@ try {
       echo json_encode(["error"=>"DB error: " . $conn->error]);
     }
     exit;
-  }
+  }*/
 
   $userId = $conn->insert_id;
-  echo json_encode(["error"=>"", "id"=>$userId]);
+  echo json_encode(["error"=>"", "id"=>$userId, "Registered!"]);
 
   $stmt->close();
   $conn->close();
-} catch (Exception $e) {
-  echo json_encode(["error"=>"Server error"]);
 }
+  catch(Exception $e){
+    echo json_encode(["Username already exists."]);
+  }
+

@@ -325,7 +325,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
-    color: #ea2929;
+    color: #000000;
     padding: 0.2rem 1rem;
 }
 
@@ -378,7 +378,7 @@ body {
 }
 
 .add{
-    background-color: #091d26;
+    background-color: #2e9bff;
     color: white;
     display: flex;
     flex-direction: column;
@@ -390,11 +390,6 @@ body {
 }
 
 .contact-columns {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto; /* header row + first result row */
-    gap: 0.3rem;
-
     background-color: #c8cacc;
     padding: 1rem;
     border-radius: 8px;
@@ -403,6 +398,13 @@ body {
     min-height: 350px;
     min-width: 600px;
     align-content: start;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 3fr 40px 40px;
+    /* Adjust sizes as needed - First, Last, Phone, Email, Edit, Delete */
+    gap: 10px;
 }
 
 .grid-header {
@@ -497,4 +499,25 @@ body {
 
 #theme-header {
     color: var(--text-navbar);
+}
+
+.edit-button, .delete-button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent; /* or a light color */
+    font-size: 18px; /* Makes icons bigger */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-button:hover {
+    background-color: #e3f2fd; /* Light blue on hover */
+}
+
+.delete-button:hover {
+    background-color: #ffebee; /* Light red on hover */
 }

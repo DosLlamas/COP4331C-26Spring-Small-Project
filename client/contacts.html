@@ -2,72 +2,78 @@
 <head>
 	<title>COP 4331 Small Project Contacts</title>
 	<script type="text/javascript" src="js/code.js"></script>
-    <link href="style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<script type="text/javascript">
-			document.addEventListener('DOMContentLoaded', function() 
-			{
-				readCookie();
-			}, false);
-		</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function()
+		{
+			readCookie();
+
+		}, false);
+
+		document.addEventListener('DOMContentLoaded', function()
+		{
+			getContacts();
+
+		}, false);
+
+	</script>
 
 </head>
 <body>
 <main>
-<div class="card">
-	<div class="card-columns">
-		<!--Search for contact-->
-		<section class="search">
-			<h3>Look Up Contact</h3>
+	<div class="card">
+		<div class="card-columns">
+			<!--Search for contact-->
+			<section class="search">
+				<h3>Look Up Contact</h3>
 
-			<input type="text" id="searchText" class="card-input3"
-				placeholder="Contact To Search For..." />
+				<input type="text" id="searchText" class="card-input3"
+					   placeholder="Contact To Search For..." />
 
-			<button type="button" class="search-button" onclick="searchContact();">
-				Search
-			</button>
+				<button type="button" class="search-button" onclick="searchContact();">
+					Search
+				</button>
 
-			<span id="contactSearchResult"></span>
+				<span id="contactSearchResult"></span>
 
-			<div id="contactList" class="contactList">
-    			<div class="contact-columns">
+				<div id="contactList" class="contactList">
+					<div class="contact-columns">
+						<div class="contact-grid" id="contactResults">
+							<!-- Headers -->
+							<div class="grid-header">First</div>
+							<div class="grid-header">Last</div>
+							<div class="grid-header">Phone</div>
+							<div class="grid-header">Email</div>
+							<div class="grid-header"></div>
+							<div class="grid-header"></div>
 
-					<!-- Headers -->
-					<div class="grid-header">First</div>
-					<div class="grid-header">Last</div>
-					<div class="grid-header">Phone</div>
-					<div class="grid-header">Email</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-					<!-- Results row -->
-					<div id="contactSearchResult-First"></div>
-					<div id="contactSearchResult-Last"></div>
-					<div id="contactSearchResult-Phone"></div>
-					<div id="contactSearchResult-Email"></div>
-
-    			</div>
-			</div>
-		</section>
-
-		<!-- Add new contact -->
-		<section class = "add">
-			<h3>Create New Contact</h3>
+			<!-- Add new contact -->
+			<section class = "add">
+				<h3>Create New Contact</h3>
 				First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
 				Last Name: <input type="text" id="addLast" class= "card-inputadd" placeholder="Last Name">
 				Phone: <input type="text" id="addPhone" class= "card-inputadd" placeholder="Phone">
 				Email: <input type="text" id="addEmail" class= "card-inputadd" placeholder="Email">
 				<button type="button"
-					class="search-button"
-					onclick="addContact();"> Add Contact
+						class="search-button"
+						onclick="addContact();"> Add Contact
 				</button><br>
-			<span id="contactAddResult"></span>
-		</section>
-	</div>
+				<span id="contactAddResult"></span>
+			</section>
+		</div>
 
 
 		<!--Logout-->
 		<br>
 		<a href="index.html" class="logout-button" onclick="doLogout();"> Log Out</a>
-</div>
+	</div>
 </main>
 </body>
 </html>
