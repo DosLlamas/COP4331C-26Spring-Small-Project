@@ -264,6 +264,10 @@ body {
     cursor: pointer;
     background: transparent; /* or a light color */
     font-size: 18px; /* Makes icons bigger */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .edit-button:hover {

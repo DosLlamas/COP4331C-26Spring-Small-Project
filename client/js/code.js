@@ -229,14 +229,17 @@ function searchContact()
     let first = array[0] || ""; 
     let last = array[1] || "";
 
-    let tmp = { //json entry
-        //userId: userId,
-        firstName: first,
-        lastName: last
+    let tmp = 
+    {
+        Enter_First_Name: first,
+        Enter_Last_Name: last,
+        Enter_Phone_Number: "",
+        Enter_Email: "",        
+        UserID: userId     
     };
 
     let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/searchContactFirstNameLastName.' + extension;
+    let url = urlBase + '/searchContact.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -254,7 +257,7 @@ function searchContact()
                 return;
             }
 
-            res.Contacts.forEach(contact => {
+            res["Relevant Contacts"].forEach(contact => {
                 // Add the 4 data cells
                 ["FirstName", "LastName", "Phone", "Email"].forEach(key => 
                 {
