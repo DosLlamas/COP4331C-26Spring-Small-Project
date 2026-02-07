@@ -159,53 +159,6 @@ function doLogout()
     window.location.href = "index.html";
 }
 
-/*
-function searchColor()
-{
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
-
-	let colorList = "";
-
-	let tmp = {search:srch,userId:userId};
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/SearchColors.' + extension;
-
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
-				let jsonObject = JSON.parse( xhr.responseText );
-
-				for( let i=0; i<jsonObject.results.length; i++ )
-				{
-					colorList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						colorList += "<br />\r\n";
-					}
-				}
-
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("colorSearchResult").innerHTML = err.message;
-	}
-
-}
-*/
-
 //adds a contact to the database using AddContact API
 function addContact()
 {
@@ -249,7 +202,6 @@ function addContact()
 	
 }
 
-//NOT FUNCTIONAL YET!
 function searchContact()
 {
     const srch = document.getElementById("searchText").value.trim(); // Get text from search bar
@@ -302,18 +254,33 @@ function searchContact()
                 return;
             }
 
-            // Create an entry for each found contact
             res.Contacts.forEach(contact => {
-                ["FirstName", "LastName", "Phone", "Email", "", ""].forEach(key => {
+                // Add the 4 data cells
+                ["FirstName", "LastName", "Phone", "Email"].forEach(key => 
+                {
                     const cell = document.createElement("div");
                     cell.textContent = contact[key];
-                    document.getElementById("contactResults").appendChild(cell);
+                    resultsContainer.appendChild(cell);
                 });
+                
+                // Add Edit button
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "Edit";
+                editBtn.className = "edit-button";
+                editBtn.onclick = () => editContact(contact.ID); // Assuming contact has an ID
+                resultsContainer.appendChild(editBtn);
+                
+                // Add Delete button
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.className = "delete-button";
+                deleteBtn.onclick = () => deleteContact(contact.ID);
+                resultsContainer.appendChild(deleteBtn);
             });
-        }
     };
 
     xhr.send(jsonPayload);
+    }
 }
 
 function getContacts(){
@@ -353,14 +320,29 @@ function getContacts(){
                 return;
             }
 
-            // Create an entry for each found contact
             res.Contacts.forEach(contact => {
-                ["FirstName", "LastName", "Phone", "Email", "", ""].forEach(key => {
+                // Add the 4 data cells
+                ["FirstName", "LastName", "Phone", "Email"].forEach(key => 
+                {
                     const cell = document.createElement("div");
                     cell.textContent = contact[key];
-                    document.getElementById("contactResults").appendChild(cell);
+                    resultsContainer.appendChild(cell);
                 });
-});
+                
+                // Add Edit button
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "Edit";
+                editBtn.className = "edit-button";
+                editBtn.onclick = () => editContact(contact.ID); // Assuming contact has an ID
+                resultsContainer.appendChild(editBtn);
+                
+                // Add Delete button
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.className = "delete-button";
+                deleteBtn.onclick = () => deleteContact(contact.ID);
+                resultsContainer.appendChild(deleteBtn);
+            });
         }
     };
 
