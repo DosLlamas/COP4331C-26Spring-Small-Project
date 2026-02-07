@@ -412,7 +412,7 @@ const root = document.documentElement;
 let NORMAL_FONT = parseFloat(getComputedStyle(root).fontSize);
 let multiplier = parseFloat(localStorage.getItem("fontMultiplier")) || 1;
 function increaseTextSize(){
-    multiplier = Math.min(multiplier + .1, 2);
+    multiplier = Math.min(multiplier + .1, 1.5);
     setTextSize()
 }
 
