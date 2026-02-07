@@ -23,7 +23,7 @@
     // Initializes variables and casts inputs into Integers, both ID and UserID
     $ContactID = intval($requestedData["Enter_ContactID"]);
     $requestingUserID = intval($requestedData["Enter_UserID"];
-    $stmt->bindParam("ii", $ContactID, $requestingUserID));
+    $stmt->bind_param("ii", $ContactID, $requestingUserID);
     
     // If statement to catch if statement failed
     if (!$stmt->execute()) {
