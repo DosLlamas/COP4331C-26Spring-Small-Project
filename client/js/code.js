@@ -259,6 +259,14 @@ function searchContact()
     resultDiv.innerHTML = "";
     resultsContainer.innerHTML = "";
 
+    const headers = ["First", "Last", "Phone", "Email", "", ""];
+    headers.forEach(header => {
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "grid-header";
+        headerDiv.textContent = header;
+        resultsContainer.appendChild(headerDiv);
+    });
+
     if (srch === "") // Nothing in search bar
     {
         resultDiv.innerHTML = "Please enter a search term";
@@ -296,7 +304,7 @@ function searchContact()
 
             // Create an entry for each found contact
             res.Contacts.forEach(contact => {
-                ["FirstName", "LastName", "Phone", "Email"].forEach(key => {
+                ["FirstName", "LastName", "Phone", "Email", "", ""].forEach(key => {
                     const cell = document.createElement("div");
                     cell.textContent = contact[key];
                     document.getElementById("contactResults").appendChild(cell);
@@ -313,6 +321,14 @@ function getContacts(){
     const resultsContainer = document.getElementById("contactResults"); // Space to display contacts
 
     resultsContainer.innerHTML = ""; // Ensure container is empty
+
+    const headers = ["First", "Last", "Phone", "Email", "", ""];
+    headers.forEach(header => {
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "grid-header";
+        headerDiv.textContent = header;
+        resultsContainer.appendChild(headerDiv);
+    });
 
     let tmp = { //json entry
         userId: userId,
@@ -339,7 +355,7 @@ function getContacts(){
 
             // Create an entry for each found contact
             res.Contacts.forEach(contact => {
-                ["FirstName", "LastName", "Phone", "Email"].forEach(key => {
+                ["FirstName", "LastName", "Phone", "Email", "", ""].forEach(key => {
                     const cell = document.createElement("div");
                     cell.textContent = contact[key];
                     document.getElementById("contactResults").appendChild(cell);
