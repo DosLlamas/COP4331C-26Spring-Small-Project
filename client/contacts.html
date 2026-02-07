@@ -73,6 +73,23 @@
 		<br>
 		<a href="index.html" class="logout-button" onclick="doLogout();"> Log Out</a>
 </div>
+	<!-- Edit Contact Modal -->
+	<div id="editModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h3>Edit Contact</h3>
+			
+			<input type="text" id="editFirst" placeholder="First Name">
+			<input type="text" id="editLast" placeholder="Last Name">
+			<input type="text" id="editPhone" placeholder="Phone">
+			<input type="text" id="editEmail" placeholder="Email">
+			
+			<button onclick="saveEdit()">Save Changes</button>
+			<button onclick="closeModal()">Cancel</button>
+			
+			<input type="hidden" id="editContactId"> <!-- Store the ID -->
+		</div>
+	</div>
 </main>
 </body>
 </html>

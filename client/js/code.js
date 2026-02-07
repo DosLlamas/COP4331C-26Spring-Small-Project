@@ -268,14 +268,14 @@ function searchContact()
                 
                 // Edit button
                 const editBtn = document.createElement("button");
-                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>'; // Edit Icon
                 editBtn.className = "edit-button";
                 editBtn.onclick = () => editContact(contact.ID);
                 resultsContainer.appendChild(editBtn);
 
                 // Delete button
                 const deleteBtn = document.createElement("button");
-                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>'; // Delete Icon
                 deleteBtn.className = "delete-button";
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
@@ -353,13 +353,48 @@ function getContacts(){
 
 }
 
-
-function deleteContact()
+function editContact(contactId) // Edit the contact using modal
 {
-
+    // Get the modal
+    const modal = document.getElementById("editModal");
+    
+    // Store the contact ID
+    document.getElementById("editContactId").value = contactId;
+    
+    // TODO: Fetch current contact data and populate fields
+    // For now, just show the modal
+    modal.style.display = "block";
 }
 
-function editContact()
+function closeModal() // Close modal on click
+{
+    document.getElementById("editModal").style.display = "none";
+}
+
+function saveEdit() // Send edits to API
+{
+    const id = document.getElementById("editContactId").value;
+    const first = document.getElementById("editFirst").value;
+    const last = document.getElementById("editLast").value;
+    const phone = document.getElementById("editPhone").value;
+    const email = document.getElementById("editEmail").value;
+    
+    // TODO: Send update to Edit API
+    console.log("Saving:", {id, first, last, phone, email});
+    
+    closeModal();
+}
+
+
+window.onclick = function(event) // Close modal when clicking outside of it
+{
+    const modal = document.getElementById("editModal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+function deleteContact()
 {
 
 }
