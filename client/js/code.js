@@ -391,7 +391,43 @@ window.onclick = function(event) // Close modal when clicking outside of it
     }
 }
 
-function deleteContact()
+function deleteContact(contactId)
 {
+    // Confirm before deleting
+    if (!confirm("Are you sure you want to delete this contact?")) {
+        return;
+    }
 
+    let tmp = {
+        Enter_ContactID: contactId,
+        Enter_UserID: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/DeleteContact.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    xhr.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200)
+        {
+            const res = JSON.parse(xhr.responseText);
+
+            if (res.error !== "")
+            {
+                alert("Error: " + res.error);
+                return;
+            }
+
+            // Success - refresh the contact list
+            alert("Contact deleted successfully!");
+            searchContact(); // Re-run search to refresh the list
+            // Or use: getContacts(); if you want to show all contacts again
+        }
+    };
+
+    xhr.send(jsonPayload);
 }
