@@ -404,7 +404,7 @@ function deleteContact(contactId)
     };
 
     let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/DeleteContact.' + extension;
+    let url = urlBase + '/deleteContactwithID.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
