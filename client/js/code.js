@@ -204,9 +204,9 @@ function addContact()
 
 function searchContact()
 {
-    const srch = document.getElementById("searchText").value.trim(); // Get text from search bar
-    const resultDiv = document.getElementById("contactSearchResult"); // Space to display search results
-    const resultsContainer = document.getElementById("contactResults"); // Space to display contacts
+    const srch = document.getElementById("searchText").value.trim();
+    const resultDiv = document.getElementById("contactSearchResult");
+    const resultsContainer = document.getElementById("contactResults");
 
     resultDiv.innerHTML = "";
     resultsContainer.innerHTML = "";
@@ -219,7 +219,7 @@ function searchContact()
         resultsContainer.appendChild(headerDiv);
     });
 
-    if (srch === "") // Nothing in search bar
+    if (srch === "")
     {
         resultDiv.innerHTML = "Please enter a search term";
         return;
@@ -245,20 +245,19 @@ function searchContact()
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-      xhr.onreadystatechange = function()
+    xhr.onreadystatechange = function()
     {
         if (this.readyState === 4 && this.status === 200)
         {
             const res = JSON.parse(xhr.responseText);
 
-            if (res.error !== "") // If there is an error
+            if (res.error !== "")
             {
-                resultDiv.innerHTML = res.error; // Display the error
+                resultDiv.innerHTML = res.error;
                 return;
             }
 
             res["Relevant Contacts"].forEach(contact => {
-                // Add the 4 data cells
                 ["FirstName", "LastName", "Phone", "Email"].forEach(key => 
                 {
                     const cell = document.createElement("div");
@@ -266,24 +265,22 @@ function searchContact()
                     resultsContainer.appendChild(cell);
                 });
                 
-                // Edit button
                 const editBtn = document.createElement("button");
-                editBtn.innerHTML = '<i class="fas fa-edit"></i>'; // Edit Icon
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
                 editBtn.onclick = () => editContact(contact.ID);
                 resultsContainer.appendChild(editBtn);
 
-                // Delete button
                 const deleteBtn = document.createElement("button");
-                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>'; // Delete Icon
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
                 deleteBtn.className = "delete-button";
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
             });
+        }
     };
 
     xhr.send(jsonPayload);
-    }
 }
 
 function getContacts(){
