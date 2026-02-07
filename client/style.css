@@ -237,7 +237,7 @@ body {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 3fr 20px 20px;
+    grid-template-columns: 2fr 2fr 2fr 3fr 40px 40px;
     /* Adjust sizes as needed - First, Last, Phone, Email, Edit, Delete */
     gap: 10px;
 }
@@ -258,18 +258,18 @@ body {
 }
 
 .edit-button, .delete-button {
-    padding: 5px 10px;
+    padding: 8px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    background: transparent; /* or a light color */
+    font-size: 18px; /* Makes icons bigger */
 }
 
-.edit-button {
-    background-color: #4CAF50;
-    color: white;
+.edit-button:hover {
+    background-color: #e3f2fd; /* Light blue on hover */
 }
 
-.delete-button {
-    background-color: #f44336;
-    color: white;
+.delete-button:hover {
+    background-color: #ffebee; /* Light red on hover */
 }

@@ -263,16 +263,16 @@ function searchContact()
                     resultsContainer.appendChild(cell);
                 });
                 
-                // Add Edit button
+                // Edit button
                 const editBtn = document.createElement("button");
-                editBtn.textContent = "Edit";
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
-                editBtn.onclick = () => editContact(contact.ID); // Assuming contact has an ID
+                editBtn.onclick = () => editContact(contact.ID);
                 resultsContainer.appendChild(editBtn);
-                
-                // Add Delete button
+
+                // Delete button
                 const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "Delete";
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
                 deleteBtn.className = "delete-button";
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
@@ -329,16 +329,16 @@ function getContacts(){
                     resultsContainer.appendChild(cell);
                 });
                 
-                // Add Edit button
+                // Edit button
                 const editBtn = document.createElement("button");
-                editBtn.textContent = "Edit";
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
-                editBtn.onclick = () => editContact(contact.ID); // Assuming contact has an ID
+                editBtn.onclick = () => editContact(contact.ID);
                 resultsContainer.appendChild(editBtn);
-                
-                // Add Delete button
+
+                // Delete button
                 const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "Delete";
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
                 deleteBtn.className = "delete-button";
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
