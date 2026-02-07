@@ -382,11 +382,50 @@ function saveEdit() // Send edits to API
     const phone = document.getElementById("editPhone").value;
     const email = document.getElementById("editEmail").value;
     
-    // TODO: Send update to Edit API
-    console.log("Saving:", {id, first, last, phone, email});
-    
-    closeModal();
+    let tmp = 
+    {
+        Enter_ContactID: parseInt(id),
+        Change_First_Name: first,
+        Change_Last_Name: last,
+        Change_Phone: phone,
+        Change_Email: email,
+        Enter_UserID: userId
+    };
+
+    let jsonPayload = JSON.stringify(tmp);
+    let url = urlBase + '/updateContact.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    xhr.onreadystatechange = function()
+    {
+        if (this.readyState === 4 && this.status === 200)
+        {
+            const res = JSON.parse(xhr.responseText);
+
+            if (res.error !== "")
+            {
+                console.log("Error:", res.error);
+                return;
+            }
+
+            closeModal();
+            
+            // Refresh the contact list
+            const searchText = document.getElementById("searchText").value.trim();
+            if (searchText === "") {
+                getContacts();
+            } else {
+                searchContact();
+            }
+        }
+    };
+
+    xhr.send(jsonPayload);
 }
+
 
 
 window.onclick = function(event) // Close modal when clicking outside of it
