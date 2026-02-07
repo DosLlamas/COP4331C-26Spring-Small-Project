@@ -268,7 +268,7 @@ function searchContact()
                 const editBtn = document.createElement("button");
                 editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
-                editBtn.onclick = () => editContact(contact.ID);
+                editBtn.onclick = () => editContact(contact);
                 resultsContainer.appendChild(editBtn);
 
                 const deleteBtn = document.createElement("button");
@@ -333,7 +333,7 @@ function getContacts(){
                 const editBtn = document.createElement("button");
                 editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
-                editBtn.onclick = () => editContact(contact.ID);
+                editBtn.onclick = () => editContact(contact);
                 resultsContainer.appendChild(editBtn);
 
                 // Delete button
@@ -350,13 +350,19 @@ function getContacts(){
 
 }
 
-function editContact(contactId) // Edit the contact using modal
+function editContact(contact) // Edit the contact using modal
 {
     // Get the modal
     const modal = document.getElementById("editModal");
+
+    // Store ContactID
+    document.getElementById("editContactId").value = contact.ID;
     
-    // Store the contact ID
-    document.getElementById("editContactId").value = contactId;
+    // Pre-fill the form fields with current data
+    document.getElementById("editFirst").value = contact.FirstName;
+    document.getElementById("editLast").value = contact.LastName;
+    document.getElementById("editPhone").value = contact.Phone;
+    document.getElementById("editEmail").value = contact.Email;
     
     // TODO: Fetch current contact data and populate fields
     // For now, just show the modal
