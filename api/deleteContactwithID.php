@@ -10,7 +10,8 @@
 
     //Import helper library    
     require_once __DIR__ . "/helper/db.php";
-
+    // Create json object/header
+    header("Content-Type: application/json");
     // Returns requested contents from user to the variable
     $requestedData = json_decode(file_get_contents('php://input'), true);
 
@@ -20,10 +21,10 @@
     // Prepares statement to delete a row with a matching ID tag and UserID
     $stmt = $conn->prepare("DELETE FROM Contacts where ID = ? AND UserID = ?");
     // Binds the input statements into the parameter.
-    // Initializes variables and casts inputs into Integers, both ID and UserID
-    $ContactID = intval($requestedData["Enter_ContactID"]);
-    $requestingUserID = intval($requestedData["Enter_UserID"];
-    $stmt->bind_param("ii", $ContactID, $requestingUserID);
+    // Casts inputs into Integers, both ID and UserID
+    $contactID = intval($requestedData["Insert_ContactID"]);
+    $userID = intval($requestedData["Insert_UserID"]);
+    $stmt->bind_param("ii", $contactID, $userID);
     
     // If statement to catch if statement failed
     if (!$stmt->execute()) {
@@ -37,6 +38,4 @@
 
     $stmt->close();
     $conn->close();
-
 ?>
-
