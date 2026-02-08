@@ -85,14 +85,6 @@ function doLogin()
     const loginMessage = document.getElementById("login-message");
     loginMessage.textContent = "";
 
-    // let testError = "Invalid username or password";
-    //
-    // //TESTING
-    // if(username === "test" && password === "test"){
-    //     showLoginErrorImg(testError);
-    //     loginMessage.textContent = jsonObject.error;
-    //     return;
-    // }
 
     let tmp = {username: username,password: password};
 //	var tmp = {login:login,password:hash};

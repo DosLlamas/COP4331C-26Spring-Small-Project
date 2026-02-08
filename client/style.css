@@ -87,8 +87,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding-top: 80px;
+    box-sizing: border-box;
 }
 
 #title{
@@ -230,6 +232,10 @@ body {
     color: var(--bg-inner-card);
     padding: .8rem 2rem;
     box-shadow: 0 0 20px var(--shadow-dark);
+}
+
+a.register-button {
+    max-width: 90%;
 }
 
 .register-button:hover {
@@ -564,6 +570,77 @@ body {
 
 .close:hover {
     color: red;
+}
+
+.about-title{
+    text-shadow: 0 0 10px var(--shadow-dark);
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--text-inner-title);
+    margin-bottom: 1rem;
+
+}
+.title-card {
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 290px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;    /* stack name and role */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    background: var(--bg-card);
+}
+
+
+.about-card {
+    background-color: var(--bg-inner-card);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 1000px;
+}
+
+.inner-card {
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    max-width: 290px;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.member-name {
+    color: var(--text-navbar);
+    font-size: 1.8rem;
+    font-weight: bold;
+
+}
+
+.member-role{
+    color: var(--text-navbar);
+    font-size: 1.1rem;
+
+}
+
+.git-link{
+    color: var(--text-navbar);
+    font-size: 1.0rem;
 }
 
 /*---------------------------------------------------*/
