@@ -10,7 +10,7 @@
 
     //Import helper library    
     require_once __DIR__ . "/helper/db.php";
-    // Create json object/header
+
     header("Content-Type: application/json");
     // Returns requested contents from user to the variable
     $requestedData = json_decode(file_get_contents('php://input'), true);
@@ -18,6 +18,7 @@
     // Calls a connection to the database
     $conn = getDbConnection();
 
+    try{
     // Prepares statement to delete a row with a matching ID tag and UserID
     $stmt = $conn->prepare("DELETE FROM Contacts where ID = ? AND UserID = ?");
     // Binds the input statements into the parameter.
@@ -38,4 +39,9 @@
 
     $stmt->close();
     $conn->close();
+    }
+    catch(PDOException $e) {
+        echo json_encode(["error"=> "", "Message" => "SOMETHING WENT WRONG IN THE CODE"]);
+        exit;
+    }
 ?>
