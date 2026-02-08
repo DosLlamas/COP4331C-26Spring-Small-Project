@@ -28,6 +28,50 @@ function normalizePhoneNumber(phone){
     return stripped.replace(/^(\d{3})(\d{3})(\d{4})$/, '$1-$2-$3'); //return phone number with dashes
 }
 
+
+function showRegUsernameError() {
+    document.getElementById("register-error-img").style.display = "inline";
+}
+function hideRegUsernameError() {
+    document.getElementById("register-error-img").style.display = "none";
+}
+
+function showLogUsernameError() {
+    document.getElementById("login-username-error-img").style.display = "inline";
+}
+
+function hideLogUsernameError() {
+    document.getElementById("login-username-error-img").style.display = "none";
+}
+
+function showLogPasswordError() {
+    document.getElementById("login-password-error-img").style.display = "inline";
+}
+
+function hideLogPasswordError() {
+    document.getElementById("login-password-error-img").style.display = "none";
+}
+
+function showLoginErrorImg(error){
+
+    switch(error){
+
+        case "Username required":
+            showLogUsernameError();
+            return;
+
+        case "Password required":
+            showLogPasswordError();
+            return;
+
+        default:
+            showLogUsernameError();
+            showLogPasswordError();
+            return;
+    }
+}
+
+
 function doLogin()
 {
     userId = 0;
@@ -38,7 +82,17 @@ function doLogin()
     let password = document.getElementById("login-password").value;
 //	var hash = md5( password );
 
-    document.getElementById("login-message").innerHTML = "";
+    const loginMessage = document.getElementById("login-message");
+    loginMessage.textContent = "";
+
+    let testError = "Invalid username or password";
+
+    //TESTING
+    if(username === "test" && password === "test"){
+        showLoginErrorImg(testError);
+        loginMessage.textContent = jsonObject.error;
+        return;
+    }
 
     let tmp = {username: username,password: password};
 //	var tmp = {login:login,password:hash};
@@ -56,20 +110,24 @@ function doLogin()
             if (this.readyState == 4 && this.status == 200)
             {
                 let jsonObject = JSON.parse( xhr.responseText );
-                userId = jsonObject.id;
 
-                if( userId < 1 )
-                {
-                    document.getElementById("login-message").innerHTML = "User/Password combination incorrect";
+                if(jsonObject.error && jsonObject.error !== ""){
+                    showLoginErrorImg(jsonObject.error);
+                    loginMessage.textContent = jsonObject.error;
                     return;
                 }
 
+                hideLogUsernameError();
+                hideLogPasswordError();
+
+                userId = jsonObject.id;
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
                 saveCookie();
 
                 window.location.href = "contacts.html";
+
             }
         };
         xhr.send(jsonPayload);
@@ -80,6 +138,7 @@ function doLogin()
     }
 
 }
+
 
 function doRegister()
 {
@@ -107,7 +166,7 @@ function doRegister()
                 const res = JSON.parse(xhr.responseText);
 
                 if(res.error === ""){
-                    hideUserNameError();
+                    hideRegUsernameError();
                     registerMessage.textContent = "Registration successful! Redirecting to login";
                     registerMessage.style.color = "blue";
 
@@ -115,7 +174,7 @@ function doRegister()
                         window.location.href = "index.html";
                     }, 1500);
                 } else {
-                    showUserNameError();
+                    showRegUsernameError();
                     registerMessage.textContent = res.message || "Username taken.";
                     registerMessage.style.color = "red";
 
@@ -131,13 +190,7 @@ function doRegister()
     }
 
 }
-    function showUserNameError() {
-        const image = document.getElementById("username-error-img").style.display = "inline";
-    }
 
-    function hideUserNameError() {
-        const image = document.getElementById("username-error-img").style.display = "none";
-    }
 
 
     function saveCookie() {

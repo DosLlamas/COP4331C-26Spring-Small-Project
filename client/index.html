@@ -36,6 +36,7 @@
                 <form id="login-form">
                     <div>
                         <label for="login-username">Username</label>
+                        <div class="input-container">
                         <input id="login-username"
                                name="username"
                                placeholder="Username"
@@ -44,10 +45,18 @@
                                spellcheck="false"
                                required
                         >
+                        <img
+                                id="login-username-error-img"
+                                src="images/invalidField.png"
+                                alt="Error"
+                                style="display: none;"
+                        >
+                        </div>
                     </div>
 
                     <div>
                         <label for="login-password">Password</label>
+                        <div class="input-container">
                         <input
                                 type="password"
                                 id="login-password"
@@ -58,6 +67,13 @@
                                 spellcheck="false"
                                 required
                         >
+                        <img
+                                id="login-password-error-img"
+                                src="images/invalidField.png"
+                                alt="Error"
+                                style="display: none;"
+                        >
+                        </div>
                     </div>
 
                     <button type="submit" class="login-button log">Sign In</button>
@@ -85,6 +101,11 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        document.getElementById('login-username-error-img').style.display = 'hidden'; //hide error icon on load
+        document.getElementById('login-password-error-img').style.display = 'hidden'; //hide error icon on load
+
+        let testMessage = ""
         const loginForm = document.getElementById('login-form');
         if (loginForm) {
             loginForm.addEventListener('submit', function(e) {
@@ -92,16 +113,20 @@
                 doLogin();
             });
         }
-    });
-</script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const loginForm = document.getElementById('login-form');
-        if (loginForm) {
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                doLogin();
+        const usernameInput = document.getElementById('login-username');
+        if (usernameInput) {
+            usernameInput.addEventListener('input', function() {
+                const icon = document.getElementById('login-username-error-img');
+                if (icon) icon.style.display = 'none';
+            });
+        }
+
+        const passwordInput = document.getElementById('login-password');
+        if (passwordInput) {
+            passwordInput.addEventListener('input', function() {
+                const icon = document.getElementById('login-password-error-img');
+                if (icon) icon.style.display = 'none';
             });
         }
     });

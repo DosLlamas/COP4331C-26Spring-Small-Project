@@ -48,7 +48,7 @@
                             required
                     >
                     <img
-                        id="username-error-img"
+                            id="register-error-img"
                         src="images/invalidField.png"
                         alt="Error"
                         style="display: none;"
@@ -82,7 +82,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-        document.getElementById('username-error-img').style.display = 'hidden'; //hide error icon on load
+        document.getElementById('register-error-img').style.display = 'hidden'; //hide error icon on load
 
         const registerForm = document.getElementById('register-form');
         if (registerForm) {
@@ -96,7 +96,7 @@
         const usernameInput = document.getElementById('register-username');
         if (usernameInput) {
             usernameInput.addEventListener('input', function() {
-                const icon = document.getElementById('username-error-img');
+                const icon = document.getElementById('register-error-img');
                 if (icon) icon.style.display = 'none';
             });
         }
