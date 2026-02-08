@@ -225,16 +225,12 @@ function searchContact()
         return;
     }
 
-    let array = srch.split(" "); 
-    let first = array[0] || ""; 
-    let last = array[1] || "";
-
     let tmp = 
     {
-        Enter_First_Name: first,
-        Enter_Last_Name: last,
-        Enter_Phone_Number: "",
-        Enter_Email: "",        
+        Enter_First_Name: srch,     
+        Enter_Last_Name: srch,     
+        Enter_Phone_Number: srch,   
+        Enter_Email: srch,         
         UserID: userId     
     };
 
