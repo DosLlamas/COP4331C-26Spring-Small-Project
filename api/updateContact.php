@@ -36,7 +36,7 @@
     if($changeFirstName !== ""){
         // Creates a statement variable that will send instructions to database
         // Readies to update just the first name of the Contacts row
-        $stmt = $conn->prepare("UPDATE FirstName FROM Contacts
+        $stmt = $conn->prepare("UPDATE Contacts
             SET FirstName = ? WHERE UserID = ? AND ID = ?");
 
         $stmt->bind_param("sii", $changeFirstName, $UserID, $changingContactID);
@@ -53,7 +53,7 @@
     if($changeLastName !== ""){
         // Creates a statement variable that will send instructions to database
         // Readies to update just the Last Name of the Contacts row
-        $stmt = $conn->prepare("UPDATE LastName FROM Contacts
+        $stmt = $conn->prepare("UPDATE Contacts
             SET LastName = ? WHERE UserID = ? AND ID = ?");
 
         $stmt->bind_param("sii", $changeLastName, $UserID, $changingContactID);
@@ -70,7 +70,7 @@
     if($changePhone !== ""){
         // Creates a statement variable that will send instructions to database
         // Readies to update just the phone number of the Contacts row
-        $stmt = $conn->prepare("UPDATE Phone FROM Contacts
+        $stmt = $conn->prepare("UPDATE Contacts
             SET Phone = ? WHERE UserID = ? AND ID = ?");
 
         $stmt->bind_param("sii", $changePhone, $UserID, $changingContactID);
@@ -87,7 +87,7 @@
     if($changeEmail !== ""){
         // Creates a statement variable that will send instructions to database
         // Readies to update just the Email of the Contacts row
-        $stmt = $conn->prepare("UPDATE Email FROM Contacts
+        $stmt = $conn->prepare("UPDATE Contacts
             SET Email = ? WHERE UserID = ? AND ID = ?");
 
         $stmt->bind_param("sii", $changeEmail, $UserID, $changingContactID);
@@ -102,9 +102,8 @@
     }
 
     // Echoes whether the contact has been edited.
-    echo json_encode(["error"=>"", (string) $changingContactID . " ID: Contact has been edited."]);
+    echo json_encode(["error"=>"", "Message" => $changingContactID . " ID: Contact has been edited."]);
 
-    $stmt->close();
     $conn->close();
     
 ?>
