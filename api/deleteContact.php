@@ -8,17 +8,30 @@
 
     */
 
-    //Import helper library    
-    require_once __DIR__ . "/helper/db.php";
+        // Imports helper library
+     require_once __DIR__ . "/helpers/db.php";
 
-    header("Content-Type: application/json");
-    // Returns requested contents from user to the variable
-    $requestedData = json_decode(file_get_contents('php://input'), true);
+     // Header will return json object
+     header('Content-Type: application/json');
+
+     // Returns requested contents from user to the variable
+     $requestedData = json_decode(
+     file_get_contents('php://input'), true);
+
+        if ($requestedData === null) {
+            echo json_encode(["error" => "Invalid JSON received"]);
+            exit;
+        }
+        
+        if (!isset($requestedData["Insert_ContactID"]) || !isset($requestedData["Insert_UserID"])) {
+            echo json_encode(["error" => "Missing required fields"]);
+            exit;
+        }
+
 
     // Calls a connection to the database
     $conn = getDbConnection();
 
-    try{
     // Prepares statement to delete a row with a matching ID tag and UserID
     $stmt = $conn->prepare("DELETE FROM Contacts where ID = ? AND UserID = ?");
     // Binds the input statements into the parameter.
@@ -35,14 +48,14 @@
     }
 
             // Echoes whether the contact has been deleted.
-    echo json_encode(["error"=>"", "Contact has been deleted."]);
+           // Check if a row was actually deleted
+        if ($stmt->affected_rows === 0) {
+            echo json_encode(["error" => "", "message" => "No contact found with that ID"]);
+        } else {
+            echo json_encode(["error" => "", "message" => "Contact has been deleted"]);
+        }
 
-    $stmt->close();
+        $stmt->close();
     $conn->close();
-    }
-    catch(Exception $e) {
-        echo json_encode(["error"=> "", "Message" => "SOMETHING WENT WRONG IN THE CODE"]);
-        exit;
-    }
-?>
 
+?>
