@@ -35,21 +35,21 @@
       <h2 id="size-header">Change Font Size</h2>
 
       <div class="settings-buttons">
-        <button onclick="increaseTextSize('root')">Increase Size:
+        <button type="button" onclick="increaseTextSize('root')">Increase Size:
           <img
                   id="increase-font"
                   src="images/increaseFont.png"
                   alt="Increase Font Size"
           >
         </button>
-        <button onclick="decreaseTextSize('root')">Decrease Size:
+        <button type="button" onclick="decreaseTextSize('root')">Decrease Size:
           <img
                   id="decrease-font"
                   src="images/decreaseFont.png"
                   alt="Decrease Font Size"
           >
         </button>
-        <button onclick="resetTextSize('root')">Reset Size:
+        <button type="button" onclick="resetTextSize('root')">Default Size:
           <img
                   id="reset-font"
                   src="images/resetFont.png"
@@ -65,11 +65,10 @@
 
     <section class="change-theme-color">
       <h2 id="theme-header">Not feeling the colors?</h2>
-      <button type="button" 
-					class="search-button" 
-					onclick="toggleTheme('root')"
-          id="cycle-theme">Click Here
-				</button><br>
+    	<button type="button"
+			onclick="toggleTheme('root')"
+          	id="cycle-theme">Click Here
+		</button><br>
     </section>
   </div>
 
