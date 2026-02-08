@@ -40,8 +40,9 @@
     $stmt->close();
     $conn->close();
     }
-    catch(PDOException $e) {
+    catch(Exception $e) {
         echo json_encode(["error"=> "", "Message" => "SOMETHING WENT WRONG IN THE CODE"]);
         exit;
     }
 ?>
+
