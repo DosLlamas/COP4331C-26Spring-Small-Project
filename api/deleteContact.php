@@ -18,15 +18,17 @@
      $requestedData = json_decode(
      file_get_contents('php://input'), true);
 
-        if ($requestedData === null) {
-            echo json_encode(["error" => "Invalid JSON received"]);
-            exit;
-        }
-        
-        if (!isset($requestedData["Insert_ContactID"]) || !isset($requestedData["Insert_UserID"])) {
-            echo json_encode(["error" => "Missing required fields"]);
-            exit;
-        }
+    // Debugging. If reader was written correctly.
+    if ($requestedData === null) {
+        echo json_encode(["error" => "Invalid JSON received"]);
+        exit;
+    }
+
+    // Debugging. It's missing one of the two.
+    if (!isset($requestedData["Insert_ContactID"]) || !isset($requestedData["Insert_UserID"])) {
+        echo json_encode(["error" => "Missing required fields"]);
+        exit;
+    }
 
 
     // Calls a connection to the database
@@ -55,7 +57,9 @@
             echo json_encode(["error" => "", "message" => "Contact has been deleted"]);
         }
 
-        $stmt->close();
+    // Closes statements
+    $stmt->close();
     $conn->close();
 
 ?>
+
