@@ -41,7 +41,7 @@
      // Execute statement and if return false, then return error messages.
      if (!$stmt->execute()) {
           // stmt->error is usually the best detail here
-          echo json_encode(["error" => "Execute failed","mysql_errno" => $stmt->errno,"mysql_error" => $stmt->error]);
+          echo json_encode(["error" => "","mysql_errno" => $stmt->errno,"mysql_error" => $stmt->error]);
           exit;
      }
 
@@ -67,6 +67,7 @@
 
 
 ?>
+
 
 
 
