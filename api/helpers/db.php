@@ -12,6 +12,7 @@ function getDbConnection(): mysqli
     $conn = new mysqli($cfg['host'], $cfg['user'], $cfg['pass'], $cfg['db']);
     if ($conn->connect_error) {
         throw new Exception("DB connection failed");
+        echo json_encode(["DB connection failed"]);
     }
 
     $conn->set_charset("utf8mb4");
