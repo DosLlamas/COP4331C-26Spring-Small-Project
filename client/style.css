@@ -109,13 +109,11 @@ body {
 }
 
 .card {
-    background: var(--bg-card);
-    padding: 3rem 4rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    max-width: 800px;
-    text-align: center;
-    font-size: 1.1rem;
+      background-image: url('images/sunset-beach.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
 
 .card h1{
