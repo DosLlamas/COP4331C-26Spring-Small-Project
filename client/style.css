@@ -86,7 +86,7 @@ html {
     --border-outline: #B7A7FF;
     --focus-glow: rgba(0, 0, 0, 0.58);
 
-    background-image: url('images/sunset-beach.jpg');
+    background-image: "sunset-beach.jpg";
     background-size: cover;           /* Covers entire area */
     background-position: center;      /* Centers the image */
     background-repeat: no-repeat;     /* Prevents tiling */
