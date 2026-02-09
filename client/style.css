@@ -29,9 +29,15 @@ html {
 }
 
 [data-theme="alternate1"] {
-    --bg-main: #ffffff;
+    /*--bg-main: #ffffff;
     --bg-card: rgb(255, 255, 255);
-    --bg-inner-card: rgba(37, 55, 39, 0.96);
+    --bg-inner-card: rgba(37, 55, 39, 0.96);*/
+
+    background-image: url('../images/sunset-beach.jpg');
+    background-size: cover;           /* Covers entire area */
+    background-position: center;      /* Centers the image */
+    background-repeat: no-repeat;     /* Prevents tiling */
+    background-attachment: fixed;
 
     --text-navbar: #000000;
     --text-title: #222222;
