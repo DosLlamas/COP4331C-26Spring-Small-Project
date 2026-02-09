@@ -5,13 +5,12 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
-/*
 function validateEmail(email){
 
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     return regex.test(email);
-}*/
+}
 
 function validatePhoneNumber(phone){
 
@@ -242,12 +241,12 @@ function addContact()
 	
     document.getElementById("contactAddResult").innerHTML = "";
 
-		/*
+		
         let validEmail = validateEmail(email);
         if (!validEmail) {
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
             return;
-        }*/
+        }
 
         let validPhone = validatePhoneNumber(phone);
         if (!validPhone) {
