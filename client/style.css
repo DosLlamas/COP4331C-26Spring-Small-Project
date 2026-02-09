@@ -50,7 +50,7 @@ html {
 }
 
 [data-theme="alternate2"] {
-    /*--bg-main: #000000;
+    --bg-main: #000000;
     --bg-card: #fff6ee;
     --bg-inner-card: rgba(183, 167, 255, 0.91);
 
@@ -65,32 +65,10 @@ html {
     --text-card-register-logbutton: #B7A7FF;
 
 
-    --shadow-dark: rgba(0, 0, 0, 0.7);
-    --border-input: #ccc;
-    --border-outline: #B7A7FF;
-    --focus-glow: rgba(0, 0, 0, 0.58);*/
-
-       --bg-main: #000000;
-    --bg-card: #fff6ee;
-    --bg-inner-card: rgba(183, 167, 255, 0.91);
-    --text-navbar: #000000;
-    --text-title: #ffffff;
-    --text-inner-title: #FFFFF;
-    --text-card: #000000;
-    --text-card-register-title: #000000;
-    --text-card-register-label: #000000;
-    --text-button: #000000;
-    --text-card-register-logbutton: #B7A7FF;
     --shadow-dark: rgba(0, 0, 0, 0.7);
     --border-input: #ccc;
     --border-outline: #B7A7FF;
     --focus-glow: rgba(0, 0, 0, 0.58);
-
-    background-image: "sunset-beach.jpg";
-    background-size: cover;           /* Covers entire area */
-    background-position: center;      /* Centers the image */
-    background-repeat: no-repeat;     /* Prevents tiling */
-    background-attachment: fixed; 
 }
 
 * {
