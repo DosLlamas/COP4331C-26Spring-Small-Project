@@ -9,8 +9,9 @@ html {
 
 :root {
     --bg-main: #ede6df;
-    --bg-card: #094044;
-    --bg-inner-card: #091d26;
+    /*--bg-card: #094044;
+    --bg-inner-card: #091d26;*/
+        --bg-image: url("../images/sunset-beach.jpg");
 
     --text-navbar: #ede6df;
     --text-title: #091d26;
@@ -33,11 +34,8 @@ html {
     --bg-card: rgb(255, 255, 255);
     --bg-inner-card: rgba(37, 55, 39, 0.96);*/
 
-    background-image: url('../images/sunset-beach.jpg');
-    background-size: cover;           /* Covers entire area */
-    background-position: center;      /* Centers the image */
-    background-repeat: no-repeat;     /* Prevents tiling */
-    background-attachment: fixed;
+    --bg-main:#ffffff;
+    --bg-image: url("../images/sunset-beach.jpg");
 
     --text-navbar: #000000;
     --text-title: #222222;
@@ -57,8 +55,9 @@ html {
 
 [data-theme="alternate2"] {
     --bg-main: #000000;
-    --bg-card: #fff6ee;
-    --bg-inner-card: rgba(183, 167, 255, 0.91);
+    /*--bg-card: #fff6ee;
+    --bg-inner-card: rgba(183, 167, 255, 0.91);*/
+        --bg-image: url("../images/sunset-beach.jpg");
 
     --text-navbar: #000000;
     --text-title: #ffffff;
@@ -89,7 +88,7 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background: var(--bg-main);
+    background: var(--bg-image);
     display: flex;
     justify-content: center;
     align-items: center;
