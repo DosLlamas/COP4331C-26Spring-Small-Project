@@ -519,12 +519,16 @@ function saveEdit() // Send edits to API
 
             closeModal();
 
-            // Refresh the contact list
-            const searchText = document.getElementById("searchText").value.trim();
-            if (searchText === "") {
-                getContacts();
-            } else {
-                searchContact();
+            // Refresh the contacts list
+            // If there is an element in any search bar
+            if (document.getElementById("searchFirst") != "" || document.getElementById("searchLast") != "" ||
+            document.getElementById("SearchPhone") != "" || document.getElementById("SearchEmail") != "")
+            {
+                searchContact(); // Refresh with the same search
+            } 
+            else
+            {
+                getContacts(); // Refresh with all contacts
             }
         }
     };
@@ -575,8 +579,18 @@ function deleteContact(contactId)
 
             // Success - refresh the contact list
             alert("Contact deleted successfully!");
-            searchContact(); // Re-run search to refresh the list
-            // Or use: getContacts(); if you want to show all contacts again
+
+            //Refresh contacts
+            //If there is an element in any search bar
+            if (document.getElementById("searchFirst") != "" || document.getElementById("searchLast") != "" ||
+            document.getElementById("SearchPhone") != "" || document.getElementById("SearchEmail") != "")
+            {
+                searchContact(); // Refresh with the same search
+            } 
+            else
+            {
+                getContacts(); // Refresh with all contacts
+            }
         }
     };
 
