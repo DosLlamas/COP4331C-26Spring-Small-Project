@@ -21,33 +21,44 @@
 <div class="card">
 	<div class="card-columns">
 		<!--Search for contact-->
-		<section class="search">
-			<h3>Look Up Contact</h3>
+		<!--Search for contact-->
+			<section class="search">
+				<h3>Look Up Contact</h3>
 
-			<input type="text" id="searchText" class="card-input3"
-				placeholder="Contact To Search For..." />
-
-			<button type="button" class="search-button" onclick="searchContact();">
-				Search
-			</button>
-
-			<span id="contactSearchResult"></span>
-
-			<div id="contactList" class="contactList">
-    			<div class="contact-columns">
-    				<div class="contact-grid" id="contactResults">
-						<!-- Headers -->
-						<div class="grid-header">First</div>
-						<div class="grid-header">Last</div>
-						<div class="grid-header">Phone</div>
-						<div class="grid-header">Email</div>
-						<div class="grid-header"></div>
-						<div class="grid-header"></div>
-        
-    				</div>
+				<div class="search-inputs">
+					<input type="text" id="searchFirst" class="card-input-search"
+						placeholder="First Name" />
+					
+					<input type="text" id="searchLast" class="card-input-search"
+						placeholder="Last Name" />
+					
+					<input type="text" id="searchPhone" class="card-input-search"
+						placeholder="Phone" />
+					
+					<input type="text" id="searchEmail" class="card-input-search"
+						placeholder="Email" />
 				</div>
-			</div>
-		</section>
+
+				<button type="button" class="search-button" onclick="searchContact();">
+					Search
+				</button>
+
+				<span id="contactSearchResult"></span>
+
+				<div id="contactList" class="contactList">
+					<div class="contact-columns">
+						<div class="contact-grid" id="contactResults">
+							<!-- Headers -->
+							<div class="grid-header">First</div>
+							<div class="grid-header">Last</div>
+							<div class="grid-header">Phone</div>
+							<div class="grid-header">Email</div>
+							<div class="grid-header"></div>
+							<div class="grid-header"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 		
 		<!-- Add new contact -->
 		<section class = "add">

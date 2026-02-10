@@ -373,7 +373,7 @@ a.register-button {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr 2fr 2.5fr 50px 50px;
+    grid-template-columns: 1.5fr 1.5fr 2fr 2.5fr 90px 90px;
     gap: 0;
     border-radius: 6px;
     overflow: hidden;
@@ -690,4 +690,29 @@ body:has(.contactList) .card {
     max-width: 1400px;
     width: 95%;
     padding: 3rem 5rem;
+}
+
+/* Search input container */
+.search-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.card-input-search {
+    width: 100%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-input-search:focus {
+    border-color: var(--border-outline);
+    box-shadow: 0 0 16px var(--focus-glow);
 }

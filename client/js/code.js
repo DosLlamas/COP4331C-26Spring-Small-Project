@@ -290,7 +290,10 @@ function addContact()
 
 function searchContact()
 {
-    const srch = document.getElementById("searchText").value.trim();
+    let searchFirst = document.getElementById("searchFirst").value.trim();
+    let searchLast = document.getElementById("searchLast").value.trim();
+    let searchPhone = document.getElementById("searchPhone").value.trim();
+    let searchEmail = document.getElementById("searchEmail").value.trim();
     const resultDiv = document.getElementById("contactSearchResult");
     const resultsContainer = document.getElementById("contactResults");
 
@@ -298,7 +301,7 @@ function searchContact()
     resultsContainer.innerHTML = "";
 
     // Set the headers in the grid
-    const headers = ["First", "Last", "Phone", "Email", "", ""];
+    const headers = ["First", "Last", "Phone", "Email", "Edit", "Delete"];
     headers.forEach(header => {
         const headerDiv = document.createElement("div");
         headerDiv.className = "grid-header";
@@ -314,12 +317,11 @@ function searchContact()
     }
 
     //Json format
-    let tmp =
-    {
-        Enter_First_Name: srch,
-        Enter_Last_Name: srch,
-        Enter_Phone_Number: srch,
-        Enter_Email: srch,
+    let tmp = {
+        Enter_First_Name: searchFirst,
+        Enter_Last_Name: searchLast,
+        Enter_Phone_Number: searchPhone,
+        Enter_Email: searchEmail,
         UserID: userId     
     };
 
@@ -377,7 +379,7 @@ function getContacts(){
 
     resultsContainer.innerHTML = ""; // Ensure container is empty
 
-    const headers = ["First", "Last", "Phone", "Email", "", ""];
+    const headers = ["First", "Last", "Phone", "Email", "Edit", "Delete"];
     headers.forEach(header => {
         const headerDiv = document.createElement("div");
         headerDiv.className = "grid-header";
