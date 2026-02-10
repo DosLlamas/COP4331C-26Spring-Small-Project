@@ -276,7 +276,30 @@ function addContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+				 // Success - clear the fields
+                document.getElementById("addFirst").value = "";
+                document.getElementById("addLast").value = "";
+                document.getElementById("addPhone").value = "";
+                document.getElementById("addEmail").value = "";
+                
+                document.getElementById("contactAddResult").innerHTML = "Contact added successfully!";
+                
+                // Refresh contact list
+                //If there is an element in any search bar
+                if (document.getElementById("searchFirst") != "" || document.getElementById("searchLast") != "" ||
+                document.getElementById("SearchPhone") != "" || document.getElementById("SearchEmail") != "")
+                {
+                    searchContact(); // Refresh with the same search
+                } 
+                else
+                {
+                    getContacts(); // Refresh with all contacts
+                }
+                // Clear success message after 3 seconds
+                setTimeout(() => {
+                    document.getElementById("contactAddResult").innerHTML = "";
+                }, 3000);
+
 			}
 		};
 		xhr.send(jsonPayload);
