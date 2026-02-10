@@ -297,6 +297,7 @@ function searchContact()
     resultDiv.innerHTML = "";
     resultsContainer.innerHTML = "";
 
+    // Set the headers in the grid
     const headers = ["First", "Last", "Phone", "Email", "", ""];
     headers.forEach(header => {
         const headerDiv = document.createElement("div");
@@ -305,12 +306,14 @@ function searchContact()
         resultsContainer.appendChild(headerDiv);
     });
 
+    // No search entered
     if (srch === "")
     {
         resultDiv.innerHTML = "Please enter a search term";
         return;
     }
 
+    //Json format
     let tmp =
     {
         Enter_First_Name: srch,
@@ -332,6 +335,9 @@ function searchContact()
         if (this.readyState === 4 && this.status === 200)
         {
             const res = JSON.parse(xhr.responseText);
+
+            console.log("Full response:", res);
+            console.log("Contacts array:", res["Relevant Contacts"]);
 
             if (res.error !== "")
             {
