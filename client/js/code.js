@@ -479,6 +479,7 @@ function editContact(contact) // Edit the contact using modal
 function closeModal() // Close modal on click
 {
     document.getElementById("editModal").style.display = "none";
+    document.getElementById("editResult").innerHTML = "";
 }
 
 function saveEdit() // Send edits to API
