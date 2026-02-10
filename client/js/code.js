@@ -484,11 +484,11 @@ function closeModal() // Close modal on click
 
 function saveEdit() // Send edits to API
 {
-    const id = document.getElementById("editContactId").value;
-    const first = document.getElementById("editFirst").value;
-    const last = document.getElementById("editLast").value;
-    const phone = document.getElementById("editPhone").value;
-    const email = document.getElementById("editEmail").value;
+    let id = document.getElementById("editContactId").value;
+    let first = document.getElementById("editFirst").value;
+    let last = document.getElementById("editLast").value;
+    let phone = document.getElementById("editPhone").value;
+    let email = document.getElementById("editEmail").value;
 
     let validEmail = validateEmail(email);
         if (!validEmail) {
@@ -508,8 +508,8 @@ function saveEdit() // Send edits to API
         Enter_ContactID: parseInt(id),
         Change_First_Name: first,
         Change_Last_Name: last,
-        Change_Phone: validPhone,
-        Change_Email: validEmail,
+        Change_Phone: phone,
+        Change_Email: email,
         Enter_UserID: userId
     };
 
