@@ -227,8 +227,8 @@ body {
     padding: 2rem;
     min-width: 500px;
     width: 100%;
-    box-sizing: border-box; /* ADD THIS */
-    overflow: hidden; /* ADD THIS - prevents overflow */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .search h3 {

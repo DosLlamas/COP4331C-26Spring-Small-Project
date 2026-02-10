@@ -241,13 +241,14 @@ function addContact()
 	
     document.getElementById("contactAddResult").innerHTML = "";
 
-		
+        // Validate Email
         let validEmail = validateEmail(email);
         if (!validEmail) {
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
             return;
         }
 
+        // Validate Phone
         let validPhone = validatePhoneNumber(phone);
         if (!validPhone) {
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
@@ -488,13 +489,26 @@ function saveEdit() // Send edits to API
     const phone = document.getElementById("editPhone").value;
     const email = document.getElementById("editEmail").value;
 
+    let validEmail = validateEmail(email);
+        if (!validEmail) {
+            document.getElementById("editResult").innerHTML = "Invalid Email Address.";
+            return;
+        }
+
+    let validPhone = validatePhoneNumber(phone);
+    if (!validPhone) {
+        document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
+        return;
+    }
+    phone = normalizePhoneNumber(phone);
+
     let tmp =
     {
         Enter_ContactID: parseInt(id),
         Change_First_Name: first,
         Change_Last_Name: last,
-        Change_Phone: phone,
-        Change_Email: email,
+        Change_Phone: validPhone,
+        Change_Email: validEmail,
         Enter_UserID: userId
     };
 
