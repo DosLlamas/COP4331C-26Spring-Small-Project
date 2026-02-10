@@ -309,13 +309,6 @@ function searchContact()
         resultsContainer.appendChild(headerDiv);
     });
 
-    // No search entered
-    if (srch === "")
-    {
-        resultDiv.innerHTML = "Please enter a search term";
-        return;
-    }
-
     //Json format
     let tmp = {
         Enter_First_Name: searchFirst,
