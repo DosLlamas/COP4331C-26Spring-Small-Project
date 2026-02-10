@@ -217,6 +217,11 @@ body {
     box-shadow: 0 0 20px var(--shadow-dark);
 }
 
+.register{
+    justify-content: center;
+}
+
+
 .search {
     flex: 8;
     padding: 2rem;
@@ -362,13 +367,13 @@ a.register-button {
     max-width: 100%;
     align-content: start;
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* ADD THIS */
-    overflow: hidden; /* ADD THIS */
+    box-sizing: border-box; 
+    overflow: hidden;
 }
 
 .contactList {
     width: 100%;
-    box-sizing: border-box; /* ADD THIS */
+    box-sizing: border-box;
 }
 
 .contact-grid {
@@ -379,8 +384,8 @@ a.register-button {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 100%; /* ADD THIS */
-    box-sizing: border-box; /* ADD THIS */
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .grid-header {
