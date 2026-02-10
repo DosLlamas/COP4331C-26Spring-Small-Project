@@ -532,8 +532,8 @@ function deleteContact(contactId)
     }
 
     let tmp = {
-        Enter_ContactID: contactId,
-        Enter_UserID: userId
+        Insert_ContactID: contactId,
+        Insert_UserID: userId
     };
 
     let jsonPayload = JSON.stringify(tmp);
