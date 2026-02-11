@@ -401,8 +401,17 @@ a.register-button {
     letter-spacing: 0.5px;
 }
 
-.grid-header-edit{
+.grid-header-edit {
+    font-weight: bold;
+    padding: 1rem 0.75rem;
+    color: var(--text-title);
+    text-shadow: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .contact-columns > div {
