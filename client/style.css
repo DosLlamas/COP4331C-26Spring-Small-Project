@@ -401,6 +401,10 @@ a.register-button {
     letter-spacing: 0.5px;
 }
 
+.grid-header-edit{
+    text-align: center;
+}
+
 .contact-columns > div {
     text-align: left;
     color: var(--text-title);
