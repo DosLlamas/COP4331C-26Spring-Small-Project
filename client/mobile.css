@@ -5,19 +5,25 @@
         padding: 1rem;
     }
 
-    /*shrink card*/
-    .card, .search, .add {
+    .card {
         box-sizing: border-box !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 1.5rem !important;
-        margin: 1rem 0 !important;
+        width: 95% !important;
+        padding: 1rem !important;
+        margin: 1rem auto !important;
+        display: block !important;
     }
 
-    .search, #register-form label {
-        min-width: 0 !important;
+    /*shrink card*/
+    .search, .add {
+        box-sizing: border-box !important;
         width: 100% !important;
+        min-width: 0 !important;
+        padding: 1.5rem !important;
+        margin: 0 0 1.5rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
+
 
     /*change columns to be vertical*/
     .card-columns {
@@ -90,4 +96,4 @@
         width: 100%;
     }
 
-    }
+}
