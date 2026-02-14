@@ -6,13 +6,17 @@
     }
 
     /*shrink card*/
-    .card, .add{
+    .card, .add, .search{
         max-width: 95%;
         padding: 2rem;
         font-size: 1rem;
         margin: 1rem auto;
     }
 
+    .contact-grid {
+        display: block !important;
+        width: 100%;
+    }
 
     /*change columns to be vertical*/
     .card-columns {
