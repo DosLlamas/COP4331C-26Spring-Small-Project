@@ -91,6 +91,10 @@
         grid-template-columns: 1fr !important; /* Stack them vertically */
     }
 
+    .grid-header, .grid-header-edit {
+        display: none !important;
+    }
+
     .contact-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -103,8 +107,8 @@
         width: 100%;
         padding: 0.5rem 1rem !important;
         border-bottom: none !important;
-        background-color: var(--bg-card) !important;
-        color: var(--text-card) !important;
+        background-color: var(--text-card) !important;
+        color: var(--bg-card) !important;
     }
 
     .contact-grid > div:nth-child(6n+1) {
