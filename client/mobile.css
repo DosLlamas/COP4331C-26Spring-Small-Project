@@ -91,9 +91,6 @@
         grid-template-columns: 1fr !important;
     }
 
-    .grid-header, .grid-header-edit {
-        display: none !important;
-    }
 
     .contact-grid {
         display: flex !important;
