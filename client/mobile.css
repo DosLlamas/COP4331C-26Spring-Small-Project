@@ -75,4 +75,10 @@
         text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
+    .add{
+        width: 95%;
+        padding: 1rem;
+    }
+
+
 }
