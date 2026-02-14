@@ -6,16 +6,17 @@
     }
 
     /*shrink card*/
-    .card, .add, .search{
-        max-width: 95%;
-        padding: 2rem;
-        font-size: 1rem;
-        margin: 1rem auto;
+    .card, .search, .add {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 1rem 0 !important;
     }
 
-    .contact-grid {
-        display: block !important;
-        width: 100%;
+    .search, #register-form label {
+        min-width: 0 !important;
+        width: 100% !important;
     }
 
     /*change columns to be vertical*/
@@ -80,4 +81,13 @@
     }
 
 
-}
+    .search-inputs {
+        grid-template-columns: 1fr !important; /* Stack them vertically */
+    }
+
+    .contact-grid {
+        display: block !important; /* Grid with 6 columns cannot fit on mobile */
+        width: 100%;
+    }
+
+    }
