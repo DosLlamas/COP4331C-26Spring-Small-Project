@@ -92,8 +92,35 @@
     }
 
     .contact-grid {
-        display: block !important; /* Grid with 6 columns cannot fit on mobile */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem;
+        border: none !important;
+        background: transparent !important;
+    }
+
+    .contact-grid > div:not(.grid-header) {
         width: 100%;
+        padding: 0.5rem 1rem !important;
+        border-bottom: none !important;
+        background-color: var(--bg-card) !important;
+        color: var(--text-card) !important;
+    }
+
+    .contact-grid > div:nth-child(6n+1) {
+        margin-top: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-left: 4px solid var(--border-outline);
+    }
+
+    .contact-grid > div:nth-child(6n+6) {
+        border-radius: 0 0 8px 8px;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: flex-end; /* Put Edit/Delete buttons on the right */
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 
 }
