@@ -365,7 +365,7 @@ function searchContact()
 
             if (res.error !== "")
             {
-                resultDiv.innerHTML = res.error;
+                resultDiv.innerHTML = "No results found.";
                 return;
             }
 
