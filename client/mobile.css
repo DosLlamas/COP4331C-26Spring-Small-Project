@@ -88,7 +88,7 @@
 
 
     .search-inputs {
-        grid-template-columns: 1fr !important; /* Stack them vertically */
+        grid-template-columns: 1fr !important;
     }
 
     .grid-header, .grid-header-edit {
@@ -107,8 +107,8 @@
         width: 100%;
         padding: 0.5rem 1rem !important;
         border-bottom: none !important;
-        background-color: var(--text-card) !important;
-        color: var(--bg-card) !important;
+        background-color: var(--bg-card) !important;
+        color: var(--text-card) !important;
     }
 
     .contact-grid > div:nth-child(6n+1) {
@@ -123,7 +123,7 @@
         border-radius: 0 0 8px 8px;
         margin-bottom: 1rem;
         display: flex;
-        justify-content: flex-end; /* Put Edit/Delete buttons on the right */
+        justify-content: flex-end;
         border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 
