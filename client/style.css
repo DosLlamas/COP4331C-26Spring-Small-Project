@@ -201,10 +201,6 @@ body {
     background: none;
 }
 
-.field-wrapper {
-    position: relative;
-    width: 100%;
-}
 
 /* Sections */
 .login, .register, .search, .add, .logout {
