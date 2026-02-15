@@ -264,15 +264,19 @@ function addContact()
         let validEmail = validateEmail(email);
         if (!validEmail) {
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
             return;
         }
+        hideEmailError();
 
         // Validate Phone
         let validPhone = validatePhoneNumber(phone);
         if (!validPhone) {
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
+            showPhoneError();
             return;
         }
+        hidePhoneError();
         phone = normalizePhoneNumber(phone);
 
         let tmp = {
@@ -522,18 +526,14 @@ function saveEdit() // Send edits to API
     let validEmail = validateEmail(email);
         if (!validEmail) {
             document.getElementById("editResult").innerHTML = "Invalid Email Address.";
-            showEmailError();
             return;
         }
 
-    hideEmailError();
     let validPhone = validatePhoneNumber(phone);
     if (!validPhone) {
         document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
-        showPhoneError();
         return;
     }
-    hidePhoneError();
     phone = normalizePhoneNumber(phone);
 
     let tmp =
