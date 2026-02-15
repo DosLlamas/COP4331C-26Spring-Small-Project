@@ -201,6 +201,18 @@ body {
     background: none;
 }
 
+.addContact-container img {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border: none;
+    background: none;
+}
+
 
 /* Sections */
 .login, .register, .search, .add, .logout {
