@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>COP 4331 Small Project Contacts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +38,6 @@
 
 <div class="card">
 	<div class="card-columns">
-		<!--Search for contact-->
 		<!--Search for contact-->
 			<section class="search">
 				<h3>Look Up Contact</h3>
@@ -80,7 +80,9 @@
 		<!-- Add new contact -->
 		<section class = "add">
 			<h3>Create New Contact</h3>
-				First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
+
+			<div class="input-container">
+			First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
 				Last Name: <input type="text" id="addLast" class= "card-inputadd" placeholder="Last Name">
 				Phone: <input type="text" id="addPhone" class= "card-inputadd" placeholder="Phone">
 				<img
@@ -96,6 +98,8 @@
 						alt="Error"
 						style="display: none;"
 				>
+			</div>
+
 				<button type="button" 
 					class="search-button" 
 					onclick="addContact();"> Add Contact
@@ -132,8 +136,8 @@
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 
-		document.getElementById('phone-error-img').style.display = 'hidden'; //hide error icon on load
-		document.getElementById('email-error-img').style.display = 'hidden'; //hide error icon on load
+		document.getElementById('phone-error-img').style.display = 'none'; //hide error icon on load
+		document.getElementById('email-error-img').style.display = 'none'; //hide error icon on load
 
 		const phoneInput = document.getElementById('addPhone');
 		if (phoneInput) {
