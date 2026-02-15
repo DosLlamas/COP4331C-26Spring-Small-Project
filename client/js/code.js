@@ -51,6 +51,23 @@ function hideLogPasswordError() {
     document.getElementById("login-password-error-img").style.display = "none";
 }
 
+
+function showPhoneError() {
+    document.getElementById("phone-error-img").style.display = "inline";
+}
+
+function hidePhoneError() {
+    document.getElementById("phone-error-img").style.display = "none";
+}
+
+function showEmailError() {
+    document.getElementById("email-error-img").style.display = "inline";
+}
+
+function hideEmailError() {
+    document.getElementById("email-error-img").style.display = "none";
+}
+
 function showLoginErrorImg(error){
 
     switch(error){
@@ -69,6 +86,8 @@ function showLoginErrorImg(error){
             return;
     }
 }
+
+
 
 
 function doLogin()
@@ -503,14 +522,18 @@ function saveEdit() // Send edits to API
     let validEmail = validateEmail(email);
         if (!validEmail) {
             document.getElementById("editResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
             return;
         }
 
+    hideEmailError();
     let validPhone = validatePhoneNumber(phone);
     if (!validPhone) {
         document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
+        showPhoneError();
         return;
     }
+    hidePhoneError();
     phone = normalizePhoneNumber(phone);
 
     let tmp =
