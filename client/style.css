@@ -185,7 +185,7 @@ body {
     box-shadow: 0 0 16px var(--focus-glow);
 }
 
-.input-container {
+.input-container, .add-contact-container {
     position: relative;
     width: 100%;
 }
@@ -194,6 +194,17 @@ body {
     position: absolute;
     right: 10px;
     top: 8px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border: none;
+    background: none;
+}
+
+.add-contact-container img {
+    position: absolute;
+    right: 30px;
+    top: 34px;
     width: 20px;
     height: 20px;
     pointer-events: none;
