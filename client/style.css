@@ -202,31 +202,6 @@ body {
 }
 
 
-.add-contact-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.input-anchor img {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-    display: none;
-}
-
-.input-anchor {
-    position: relative;
-    width: 70%;
-}
-
 
 /* Sections */
 .login, .register, .search, .add, .logout {
