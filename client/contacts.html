@@ -81,25 +81,23 @@
 		<section class = "add">
 			<h3>Create New Contact</h3>
 
-			<div class="input-container">
-			First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
+				First Name: <input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
 				Last Name: <input type="text" id="addLast" class= "card-inputadd" placeholder="Last Name">
-				Phone: <input type="text" id="addPhone" class= "card-inputadd" placeholder="Phone">
-				<img
-						id="phone-error-img"
-						src="images/invalidField.png"
-						alt="Error"
-						style="display: none;"
-				>
-				Email: <input type="text" id="addEmail" class= "card-inputadd" placeholder="Email">
-				<img
-						id="email-error-img"
-						src="images/invalidField.png"
-						alt="Error"
-						style="display: none;"
-				>
-			</div>
+				<div class="input-container">
+					Phone:
+					<div class="field-wrapper">
+						<input type="text" id="addPhone" class="card-inputadd" placeholder="Phone">
+						<img id="phone-error-img" src="images/invalidField.png" alt="Error">
+					</div>
+				</div>
 
+				<div class="input-container">
+					Email:
+					<div class="field-wrapper">
+						<input type="text" id="addEmail" class="card-inputadd" placeholder="Email">
+						<img id="email-error-img" src="images/invalidField.png" alt="Error">
+					</div>
+				</div>
 				<button type="button" 
 					class="search-button" 
 					onclick="addContact();"> Add Contact
