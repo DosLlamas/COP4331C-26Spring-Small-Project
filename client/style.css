@@ -552,7 +552,7 @@ a.register-button
 
 .edit-button:hover 
 {
-    background-color: rgba(33, 150, 243, 0.15);
+    background-color: rgba(33, 150, 243, 0.62);
     transform: scale(1.15);
     opacity: 1;
     color: #2196F3;
@@ -565,7 +565,7 @@ a.register-button
 
 .delete-button:hover 
 {
-    background-color: rgba(244, 67, 54, 0.15);
+    background-color: rgba(244, 67, 54, 0.6);
     transform: scale(1.15);
     opacity: 1;
     color: #F44336;
