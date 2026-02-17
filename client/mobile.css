@@ -100,11 +100,16 @@
         background: transparent !important;
     }
 
+    .card-input-search:focus
+    {
+        border-color: var(--border-outline);
+        box-shadow: 0 0 16px var(--focus-glow);
+    }
+
     .contact-grid > div:not(.grid-header) {
         width: 100%;
         padding: 0.5rem 1rem !important;
         border-bottom: none !important;
-        /*background-color: var(--bg-card) !important;*/
         color: var(--text-card) !important;
     }
 
