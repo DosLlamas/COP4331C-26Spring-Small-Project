@@ -549,7 +549,7 @@ function editContact(contact) // Edit the contact using modal
     if(contact.Last === "N/A" || !contact.Last)
         last.value = "";
     else {
-        lasts.value = contact.Last
+        last.value = contact.Last
     }
 
     const phone = document.getElementById("editPhone");
