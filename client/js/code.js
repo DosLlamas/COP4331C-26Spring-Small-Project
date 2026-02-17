@@ -288,6 +288,11 @@ function addContact()
     hideEmailError();
     phone = normalizePhoneNumber(phone);
 
+    if(first === "")
+        first = "N/A"
+    if(last === "")
+        last = "N/A"
+
     if(phone === "")
         phone = "N/A"
     if(email === "")
@@ -532,8 +537,20 @@ function editContact(contact) // Edit the contact using modal
     // Store ContactID
     document.getElementById("editContactId").value = contact.ID;
 
-    document.getElementById("editFirst").value = contact.FirstName;
-    document.getElementById("editLast").value = contact.LastName;
+    const first = document.getElementById("editFirst");
+    if(contact.First === "N/A" || !contact.First)
+        first.value = "";
+    else {
+        first.value = contact.First
+    }
+
+    const last = document.getElementById("editLast");
+
+    if(contact.Last === "N/A" || !contact.Last)
+        last.value = "";
+    else {
+        lasts.value = contact.Last
+    }
 
     const phone = document.getElementById("editPhone");
     if(contact.Phone === "N/A" || !contact.Phone)
@@ -591,6 +608,10 @@ function saveEdit() // Send edits to API
 
     phone = normalizePhoneNumber(phone);
 
+    if(first === "")
+        first = "N/A"
+    if(last === "")
+        last = "N/A"
     if(phone === "")
         phone = "N/A"
     if(email === "")
