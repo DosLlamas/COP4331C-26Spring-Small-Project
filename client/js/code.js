@@ -292,7 +292,6 @@ function addContact()
         first = "N/A"
     if(last === "")
         last = "N/A"
-
     if(phone === "")
         phone = "N/A"
     if(email === "")
@@ -538,18 +537,18 @@ function editContact(contact) // Edit the contact using modal
     document.getElementById("editContactId").value = contact.ID;
 
     const first = document.getElementById("editFirst");
-    if(contact.First === "N/A" || !contact.First)
+    if(contact.FirstName === "N/A" || !contact.FirstName)
         first.value = "";
     else {
-        first.value = contact.First
+        first.value = contact.FirstName
     }
 
     const last = document.getElementById("editLast");
 
-    if(contact.Last === "N/A" || !contact.Last)
+    if(contact.LastName === "N/A" || !contact.LastName)
         last.value = "";
     else {
-        last.value = contact.Last
+        last.value = contact.LastName
     }
 
     const phone = document.getElementById("editPhone");
