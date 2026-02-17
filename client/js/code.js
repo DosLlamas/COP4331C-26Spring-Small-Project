@@ -554,22 +554,16 @@ function saveEdit() // Send edits to API
 
         if(!validPhone && !validEmail){
             document.getElementById("editResult").innerHTML = "Invalid Phone Number & Email Address.";
-            showPhoneError();
-            showEmailError();
         }
         else if(!validPhone){
             document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
-            showPhoneError();
         }
         else if(!validEmail){
             document.getElementById("editResult").innerHTML = "Invalid Email Address.";
-            showEmailError();
         }
         return;
     }
 
-    hidePhoneError();
-    hideEmailError();
     phone = normalizePhoneNumber(phone);
 
     if(phone === "")
