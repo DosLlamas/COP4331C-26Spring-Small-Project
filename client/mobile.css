@@ -106,12 +106,12 @@
         box-shadow: 0 0 16px var(--focus-glow);
     }
 
-    .contact-grid > div:not(.grid-header) {
-        width: 100%;
-        padding: 0.5rem 1rem !important;
-        border-bottom: none !important;
-        color: var(--text-card) !important;
-    }
+    /*.contact-grid > div:not(.grid-header) {*/
+    /*    width: 100%;*/
+    /*    padding: 0.5rem 1rem !important;*/
+    /*    border-bottom: none !important;*/
+    /*    color: var(--text-card) !important;*/
+    /*}*/
 
     .contact-grid > div:nth-child(6n+1) {
         margin-top: 1rem;
