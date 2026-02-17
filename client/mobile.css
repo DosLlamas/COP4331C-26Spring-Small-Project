@@ -104,7 +104,7 @@
         width: 100%;
         padding: 0.5rem 1rem !important;
         border-bottom: none !important;
-        background-color: var(--bg-card) !important;
+        /*background-color: var(--bg-card) !important;*/
         color: var(--text-card) !important;
     }
 
