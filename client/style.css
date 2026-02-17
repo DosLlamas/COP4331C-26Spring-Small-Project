@@ -547,7 +547,7 @@ a.register-button
     color: var(--text-title);
     transition: all 0.2s ease;
     opacity: 0.6;
-    filter: drop-shadow(0 0 2px var(--bg-card));
+    filter: drop-shadow(0 0 2px var(--bg-inner-card));
 }
 
 .edit-button:hover 
