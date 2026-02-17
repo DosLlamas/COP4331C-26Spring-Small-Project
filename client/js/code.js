@@ -256,26 +256,30 @@ function addContact()
 	
     document.getElementById("contactAddResult").innerHTML = "";
 
-        // Validate Email
-        let validEmail = validateEmail(email);
-        if (!validEmail && email !== "") {
-            document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
-            showEmailError();
-            return;
-        }
-        hideEmailError();
+    // Validate Phone
+    let validPhone = validatePhoneNumber(phone);
+    // Validate Email
+    let validEmail = validateEmail(email);
 
-        // Validate Phone
-        let validPhone = validatePhoneNumber(phone);
-        if (!validPhone && phone !== "") {
+    if (!validPhone && phone !== "" || !validEmail && email !== ""){
+        if(!validPhone){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
             showPhoneError();
-            return;
         }
-        hidePhoneError();
-        phone = normalizePhoneNumber(phone);
+        if(!validEmail){
+            document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
+        }
+        return;
+    }
 
-        let tmp = {
+    hidePhoneError();
+    hideEmailError();
+    phone = normalizePhoneNumber(phone);
+
+
+
+    let tmp = {
             userId: userId,
             firstName: first,
             lastName: last,
