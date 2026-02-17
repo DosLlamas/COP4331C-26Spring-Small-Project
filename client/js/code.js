@@ -720,24 +720,42 @@ function toggleTheme() {
 
 }
 
-function showContactsNavPage(){
+function showContactsNavPage() {
+    if (document.getElementById("contactsLink")) {
+        return;
+    }
 
-    readCookie();
-
-    if( userId >= 0)
+    userId = -1;
+    let data = document.cookie;
+    let splits = data.split(",");
+    for(var i = 0; i < splits.length; i++)
     {
-        const navContainer = document.querySelector(".pages");
-        if(!document.getElementById("contactsLink")){
-            const contactsLink = `
-                <a href="contacts.html" id="contactsLink">
-                    Contacts
-                </a>`;
-
-            navContainer.insertAdjacentHTML('beforeend', contactsLink);
+        let thisOne = splits[i].trim();
+        let tokens = thisOne.split("=");
+        if( tokens[0] == "firstName" )
+        {
+            firstName = tokens[1];
+        }
+        else if( tokens[0] == "lastName" )
+        {
+            lastName = tokens[1];
+        }
+        else if( tokens[0] == "userId" )
+        {
+            userId = parseInt( tokens[1].trim() );
         }
     }
 
-
+    if (userId >= 0) {
+        const navContainer = document.querySelector(".pages");
+        if (navContainer) {
+            const newLink = document.createElement("a");
+            newLink.href = "contacts.html";
+            newLink.id = "contactsLink";
+            newLink.textContent = "Contacts";
+            navContainer.prepend(newLink);
+        }
+    }
 }
 
 
