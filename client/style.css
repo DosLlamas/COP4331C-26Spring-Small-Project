@@ -657,7 +657,7 @@ a.register-button
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    color: var(--text-card);
+    color: var(--text-card-register-title);
 }
 
 .close:hover 
