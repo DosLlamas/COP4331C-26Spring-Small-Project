@@ -844,19 +844,18 @@ body:has(.contactList) .card
     box-shadow: 0 0 16px var(--focus-glow);
 }
 
-/*.contact-grid > div:not(.grid-header) {*/
-/*    border-bottom: none !important;*/
-/*    background-color: var(--bg-card) !important;*/
-/*    color: var(--text-card) !important;*/
-/*}*/
+.contact-grid > div:not(.grid-header) {
+    border-bottom: none !important;
+    background-color: var(--bg-card) !important;
+    color: var(--text-card) !important;
+}
 
 .contact-grid > div:nth-child(6n+1) {
     border-radius: 8px 8px 0 0;
     border-left: 4px solid var(--border-outline);
 }
 
-.contact-grid > div:nth-child(6n+2) {
-    border-radius: 8px 8px 0 0;
-    border-left: 4px solid var(--bg-card);
+.contact-grid > div:nth-child(6n+6) {
+    border-radius: 0 0 8px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
-
