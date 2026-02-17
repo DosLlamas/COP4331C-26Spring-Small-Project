@@ -401,6 +401,7 @@ function searchContact()
                 const editBtn = document.createElement("button");
                 editBtn.className = "edit-button";
                 editBtn.ariaLabel = "Edit contact";
+
                 const editImg = document.createElement("img");
                 editImg.src = "images/edit.png";
                 editImg.alt = "";
@@ -410,15 +411,16 @@ function searchContact()
                 editBtn.onclick = () => editContact(contact);
                 resultsContainer.appendChild(editBtn);
 
-
                 const deleteBtn = document.createElement("button");
                 deleteBtn.className = "delete-button";
                 deleteBtn.ariaLabel = "Delete contact";
+
                 const deleteImg = document.createElement("img");
                 deleteImg.src = "images/delete.png";
                 deleteImg.alt = "";
                 deleteImg.style.width = "16px";
                 deleteImg.style.height = "16px";
+
                 deleteBtn.appendChild(deleteImg);
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
