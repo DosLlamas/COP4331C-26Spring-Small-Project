@@ -98,14 +98,12 @@ function doLogin()
 
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
-//	var hash = md5( password );
 
     const loginMessage = document.getElementById("login-message");
     loginMessage.textContent = "";
 
 
     let tmp = {username: username,password: password};
-//	var tmp = {login:login,password:hash};
     let jsonPayload = JSON.stringify( tmp );
 
     let url = urlBase + '/Login.' + extension;
@@ -155,10 +153,8 @@ function doRegister()
     const password = document.getElementById("register-password").value;
     const registerMessage = document.getElementById("register-message");
     registerMessage.textContent = "";
-//	var hash = md5( password );
 
     const tmp = {username: username, password: password};
-//	var tmp = {login:login,password:hash};
     const jsonPayload = JSON.stringify( tmp );
     const url = urlBase + '/Register.' + extension;
 
