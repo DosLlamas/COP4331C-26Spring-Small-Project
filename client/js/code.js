@@ -468,7 +468,7 @@ function getContacts(){
                 editBtn.ariaLabel = "Edit contact";
 
                 const editImg = document.createElement("img");
-                editImg.src = "/images/edit.png";
+                editImg.src = "images/edit.png";
                 editImg.alt = "";
                 editImg.style.width = "16px";
                 editImg.style.height = "16px";
@@ -483,7 +483,7 @@ function getContacts(){
                 deleteBtn.ariaLabel = "Delete contact";
 
                 const deleteImg = document.createElement("img");
-                deleteImg.src = "/images/delete.png";
+                deleteImg.src = "images/delete.png";
                 deleteImg.alt = "";
                 deleteImg.style.width = "16px";
                 deleteImg.style.height = "16px";
