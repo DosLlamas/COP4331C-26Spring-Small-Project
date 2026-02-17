@@ -1,4 +1,5 @@
-:root {
+:root 
+{
     --font-multiplier: 1;
     font-size: calc(100% * var(--font-multiplier));
     
@@ -20,13 +21,22 @@
     --border-outline: #fff573;
 
     --focus-glow: rgba(255, 255, 255, 0.37);
+
+    --grid-header-bg: rgba(0, 0, 0, 0.05);
+    --grid-header-border: rgba(0, 0, 0, 0.15);
+    --grid-row-border: rgba(0, 0, 0, 0.08);
+    --grid-row-alt-bg: rgba(0, 0, 0, 0.02);
+    --grid-row-hover-bg: rgba(0, 0, 0, 0.06);
+    --grid-container-bg: var(--bg-main);
 }
 
-html {
+html 
+{
     transition: font-size .3s ease;
 }
 
-[data-theme="alternate1"] {
+[data-theme="alternate1"] 
+{
     --bg-main: #ffffff;
     --bg-card: rgb(255, 255, 255);
     --bg-inner-card: rgba(37, 55, 39, 0.96);
@@ -44,9 +54,17 @@ html {
     --border-input: #ccc;
     --border-outline: #253727;
     --focus-glow: rgba(37, 55, 39, 0.96);
+
+    --grid-header-bg: rgba(37, 55, 39, 0.1);
+    --grid-header-border: rgba(37, 55, 39, 0.25);
+    --grid-row-border: rgba(37, 55, 39, 0.08);
+    --grid-row-alt-bg: rgba(37, 55, 39, 0.04);
+    --grid-row-hover-bg: rgba(37, 55, 39, 0.1);
+    --grid-container-bg: var(--bg-main);
 }
 
-[data-theme="alternate2"] {
+[data-theme="alternate2"] 
+{
     --bg-main: #000000;
     --bg-card: #fff6ee;
     --bg-inner-card: rgba(183, 167, 255, 0.91);
@@ -64,6 +82,13 @@ html {
     --border-input: #ccc;
     --border-outline: #B7A7FF;
     --focus-glow: rgba(0, 0, 0, 0.58);
+
+    --grid-header-bg: rgba(183, 167, 255, 0.4);
+    --grid-header-border: rgba(183, 167, 255, 0.5);
+    --grid-row-border: rgba(183, 167, 255, 0.15);
+    --grid-row-alt-bg: rgba(183, 167, 255, 0.3);
+    --grid-row-hover-bg: rgba(183, 167, 255, 0.55);
+    --grid-container-bg: #1a1a1a;
 }
 
 * {
@@ -74,7 +99,8 @@ html {
             border-color 0.3s ease;
 }
 
-body {
+body 
+{
     font-family: Arial, sans-serif;
     background: var(--bg-main);
     display: flex;
@@ -87,14 +113,16 @@ body {
 }
 
 /* Typography */
-#title {
+#title 
+{
     color: var(--text-title);
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
 }
 
-#welcome {
+#welcome 
+{
     color: var(--text-inner-title);
     font-size: 3rem;
     font-weight: bold;
@@ -103,7 +131,8 @@ body {
 }
 
 /* Card Structure */
-.card {
+.card 
+{
     background: var(--bg-card);
     padding: 3rem 4rem;
     border-radius: 10px;
@@ -113,34 +142,40 @@ body {
     font-size: 1.1rem;
 }
 
-.card h1 {
+.card h1 
+{
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.card h2 {
+.card h2 
+{
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.card h3 {
+.card h3 
+{
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.card-columns {
+.card-columns 
+{
     display: flex;
     gap: 2rem;
     align-items: stretch;
 }
 
-.card-columns.vertical {
+.card-columns.vertical 
+{
     display: block;
     gap: 0;
 }
 
 /* Input Fields */
-.card-input {
+.card-input 
+{
     max-width: 900px;
     width: 100%;
     font-size: 1.0rem;
@@ -153,7 +188,8 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.card-input3 {
+.card-input3 
+{
     width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
@@ -165,7 +201,8 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.card-inputadd {
+.card-inputadd 
+{
     width: 70%;
     font-size: 0.9rem;
     padding: .7rem .9rem;
@@ -180,17 +217,20 @@ body {
 .card input:focus,
 .card-input:focus,
 .card-input3:focus,
-.card-inputadd:focus {
+.card-inputadd:focus 
+{
     border-color: var(--border-outline);
     box-shadow: 0 0 16px var(--focus-glow);
 }
 
-.input-container, .add-contact-container {
+.input-container, .add-contact-container 
+{
     position: relative;
     width: 100%;
 }
 
-.input-container img {
+.input-container img 
+{
     position: absolute;
     right: 10px;
     top: 8px;
@@ -201,7 +241,8 @@ body {
     background: none;
 }
 
-.add-contact-container img {
+.add-contact-container img 
+{
     position: absolute;
     right: 30px;
     top: 34px;
@@ -215,13 +256,15 @@ body {
 
 
 /* Sections */
-.login, .register, .search, .add, .logout {
+.login, .register, .search, .add, .logout 
+{
     flex: 1;
     padding: 2rem;
     border-radius: 10px;
 }
 
-.register, .search, .add {
+.register, .search, .add 
+{
     background-color: var(--bg-inner-card);
     color: var(--text-card);
     display: flex;
@@ -230,12 +273,14 @@ body {
     box-shadow: 0 0 20px var(--shadow-dark);
 }
 
-.register{
+.register
+{
     justify-content: center;
 }
 
 
-.search {
+.search 
+{
     flex: 8;
     padding: 2rem;
     min-width: 500px;
@@ -244,26 +289,30 @@ body {
     overflow: hidden;
 }
 
-.search h3 {
+.search h3 
+{
     color: var(--text-inner-title);
     text-shadow: 0 0 10px var(--shadow-dark);
     margin-bottom: 1.5rem;
 }
 
-.add {
+.add 
+{
     flex: 1.5;
     padding: 0.5rem 1.5rem;
     justify-content: center;
 }
 
-.add h3 {
+.add h3 
+{
     color: var(--text-inner-title);
     text-shadow: 0 0 10px var(--shadow-dark);
 }
 
 /* Labels */
 #login-form label,
-.add label {
+.add label 
+{
     display: block;
     text-align: left;
     font-weight: bold;
@@ -273,11 +322,13 @@ body {
     text-shadow: 0 0 12px var(--shadow-dark);
 }
 
-#login-form label {
+#login-form label 
+{
     color: var(--text-inner-title);
 }
 
-#register-form label {
+#register-form label 
+{
     min-width: 500px;
     display: block;
     text-align: left;
@@ -292,7 +343,8 @@ body {
 .login-button.log,
 .register-button,
 .search-button,
-.logout-button {
+.logout-button 
+{
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -306,27 +358,32 @@ body {
     box-shadow: 0 0 20px var(--shadow-dark);
 }
 
-.search-button {
+.search-button 
+{
     font-size: 1.2rem;
     margin-top: 1rem;
 }
 
-.logout-button {
+.logout-button 
+{
     display: inline-block;
 }
 
 .login-button:hover,
 .register-button:hover,
 .search-button:hover,
-.logout-button:hover {
+.logout-button:hover 
+{
     transform: scale(1.1);
 }
 
-a.register-button {
+a.register-button 
+{
     max-width: 90%;
 }
 
-.login-button.reg {
+.login-button.reg 
+{
     display: inline-block;
     background-color: transparent;
     border: none;
@@ -341,12 +398,14 @@ a.register-button {
     text-shadow: 0 0 10px var(--shadow-dark);
 }
 
-.login-button.reg:hover {
+.login-button.reg:hover 
+{
     transform: scale(1.1);
 }
 
 /* Register Section */
-#register-message {
+#register-message 
+{
     min-height: 1.4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -354,7 +413,8 @@ a.register-button {
     text-align: center;
 }
 
-#create-account {
+#create-account 
+{
     color: var(--text-card-register-title);
     font-size: 3rem;
     font-weight: bold;
@@ -362,7 +422,8 @@ a.register-button {
     text-shadow: 0 0 10px var(--shadow-dark);
 }
 
-#have-account {
+#have-account 
+{
     color: var(--text-card-register-title);
     font-size: 1rem;
     font-weight: bold;
@@ -370,8 +431,9 @@ a.register-button {
 }
 
 /* Contact Grid */
-.contact-columns {
-    background-color: var(--bg-main);
+.contact-columns 
+{
+    background-color: var(--grid-container-bg);
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1.5rem;
@@ -384,12 +446,14 @@ a.register-button {
     overflow: hidden;
 }
 
-.contactList {
+.contactList 
+{
     width: 100%;
     box-sizing: border-box;
 }
 
-.contact-grid {
+.contact-grid 
+{
     display: grid;
     grid-template-columns: 1.5fr 1.5fr 2fr 2.5fr 90px 90px;
     gap: 0;
@@ -401,41 +465,31 @@ a.register-button {
     box-sizing: border-box;
 }
 
-.grid-header {
+.grid-header 
+{
+    background-color: var(--grid-header-bg);
+    border-bottom: 2px solid var(--grid-header-border);
     font-weight: bold;
     padding: 1rem 0.75rem;
     color: var(--text-title);
     text-shadow: none;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     text-align: left;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.grid-header-edit {
-    font-weight: bold;
-    padding: 1rem 0.75rem;
-    color: var(--text-title);
-    text-shadow: none;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
-    text-align: center;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.contact-columns > div {
+.contact-columns > div 
+{
     text-align: left;
     color: var(--text-title);
 }
 
 /* Contact Row Styling */
-.contact-grid > div:not(.grid-header) {
+.contact-grid > div:not(.grid-header) 
+{
     padding: 0.85rem 0.75rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--grid-row-border);
     display: flex;
     align-items: center;
 }
@@ -446,22 +500,26 @@ a.register-button {
 .contact-grid > div:nth-child(12n+9),
 .contact-grid > div:nth-child(12n+10),
 .contact-grid > div:nth-child(12n+11),
-.contact-grid > div:nth-child(12n+12) {
-    background-color: rgba(0, 0, 0, 0.02);
+.contact-grid > div:nth-child(12n+12) 
+{
+    background-color: var(--grid-row-alt-bg);
 }
 
 /* Hover effect on rows */
-.contact-grid > div:not(.grid-header):hover {
-    background-color: rgba(0, 0, 0, 0.06);
+.contact-grid > div:not(.grid-header):hover 
+{
+    background-color: var(--grid-row-hover-bg);
 }
 
 /* Remove bottom border from last row */
-.contact-grid > div:nth-last-child(-n+6) {
+.contact-grid > div:nth-last-child(-n+6) 
+{
     border-bottom: none;
 }
 
 #contactSearchResult,
-#contactAddResult {
+#contactAddResult 
+{
     display: block;
     min-height: 1.4rem;
     margin-top: 0.5rem;
@@ -470,7 +528,8 @@ a.register-button {
 }
 
 /* Edit and Delete Buttons */
-.edit-button, .delete-button {
+.edit-button, .delete-button 
+{
     padding: 8px;
     border: none;
     border-radius: 4px;
@@ -485,18 +544,21 @@ a.register-button {
     opacity: 0.6;
 }
 
-.edit-button:hover {
+.edit-button:hover 
+{
     background-color: rgba(33, 150, 243, 0.15);
     transform: scale(1.15);
     opacity: 1;
     color: #2196F3;
 }
 
-.edit-button img, .delete-button img {
+.edit-button img, .delete-button img 
+{
     display: block;
 }
 
-.delete-button:hover {
+.delete-button:hover 
+{
     background-color: rgba(244, 67, 54, 0.15);
     transform: scale(1.15);
     opacity: 1;
@@ -504,7 +566,8 @@ a.register-button {
 }
 
 /* Modal */
-.modal {
+.modal 
+{
     display: none;
     position: fixed;
     z-index: 1000;
@@ -515,7 +578,8 @@ a.register-button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
+.modal-content 
+{
     background-color: var(--bg-card);
     color: var(--text-card);
     margin: 10% auto;
@@ -525,12 +589,14 @@ a.register-button {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.modal-content h3 {
+.modal-content h3 
+{
     color: var(--text-inner-title);
     text-shadow: 0 0 10px var(--shadow-dark);
 }
 
-.modal-content input {
+.modal-content input 
+{
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -542,12 +608,14 @@ a.register-button {
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.modal-content input:focus {
+.modal-content input:focus 
+{
     border-color: var(--border-outline);
     box-shadow: 0 0 16px var(--focus-glow);
 }
 
-.modal-content button {
+.modal-content button 
+{
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -562,11 +630,13 @@ a.register-button {
     margin: 0.5rem;
 }
 
-.modal-content button:hover {
+.modal-content button:hover 
+{
     transform: scale(1.1);
 }
 
-.close {
+.close 
+{
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -574,13 +644,15 @@ a.register-button {
     color: var(--text-card);
 }
 
-.close:hover {
+.close:hover 
+{
     color: var(--border-outline);
     transform: scale(1.2);
 }
 
 /* Navbar */
-.navbar {
+.navbar 
+{
     position: fixed;
     top: 0;
     left: 0;
@@ -593,7 +665,8 @@ a.register-button {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.settings-buttons button {
+.settings-buttons button 
+{
     display: inline-flex;
     align-items: center;
     font-size: 1.3rem;
@@ -604,7 +677,8 @@ a.register-button {
     background: transparent;
 }
 
-#cycle-theme {
+#cycle-theme 
+{
     display: inline-flex;
     align-items: center;
     font-size: 1.5rem;
@@ -615,19 +689,22 @@ a.register-button {
     background: transparent;
 }
 
-.settings-buttons img {
+.settings-buttons img 
+{
     width: 1.1em;
     height: 1.1em;
     display: block;
     transform: translateY(0.04em);
 }
 
-.settings-buttons button:hover {
+.settings-buttons button:hover 
+{
     transition: ease .3s;
     transform: scale(1.1);
 }
 
-.pages a {
+.pages a 
+{
     padding: .8rem .8rem;
     color: var(--text-navbar);
     text-decoration: none;
@@ -640,22 +717,26 @@ a.register-button {
     text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.pages a:hover {
+.pages a:hover 
+{
     transition: ease .3s;
     transform: scale(1.1);
 }
 
-#sample-text {
+#sample-text 
+{
     color: var(--text-inner-title);
 }
 
 #size-header,
-#theme-header {
+#theme-header 
+{
     color: var(--text-navbar);
 }
 
 /* About Page */
-.about-title {
+.about-title 
+{
     text-shadow: 0 0 10px var(--shadow-dark);
     font-size: 2.8rem;
     font-weight: bold;
@@ -663,7 +744,8 @@ a.register-button {
     margin-bottom: 1rem;
 }
 
-.title-card {
+.title-card 
+{
     padding: 1rem;
     border-radius: 10px;
     width: 100%;
@@ -677,7 +759,8 @@ a.register-button {
     background: var(--bg-card);
 }
 
-.about-card {
+.about-card 
+{
     background-color: var(--bg-inner-card);
     display: flex;
     flex-wrap: wrap;
@@ -690,7 +773,8 @@ a.register-button {
     max-width: 1000px;
 }
 
-.inner-card {
+.inner-card 
+{
     background: var(--bg-card);
     padding: 1rem;
     border-radius: 10px;
@@ -703,40 +787,47 @@ a.register-button {
     flex-direction: column;
 }
 
-.member-name {
+.member-name 
+{
     color: var(--text-navbar);
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-.member-role {
+.member-role 
+{
     color: var(--text-navbar);
     font-size: 1.1rem;
 }
 
-.git-link {
+.git-link 
+{
     color: var(--text-navbar);
     font-size: 1.0rem;
 }
 
 /* Increase card size for search*/
 body:has(.search) .card,
-body:has(.contactList) .card {
+body:has(.contactList) .card 
+{
     max-width: 1400px;
     width: 95%;
     padding: 3rem 5rem;
 }
 
 /* Search input container */
-.search-inputs {
+.search-inputs 
+{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr 0.1fr 1fr;
     gap: 1rem;
     width: 100%;
     margin-bottom: 1rem;
 }
 
-.card-input-search {
+.card-input-search 
+{
     width: 100%;
     font-size: 1.0rem;
     padding: .7rem .9rem;
@@ -747,7 +838,8 @@ body:has(.contactList) .card {
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.card-input-search:focus {
+.card-input-search:focus 
+{
     border-color: var(--border-outline);
     box-shadow: 0 0 16px var(--focus-glow);
 }

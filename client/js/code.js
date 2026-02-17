@@ -351,12 +351,6 @@ function searchContact()
     const headers = ["First", "Last", "Phone", "Email", "Edit", "Delete"];
     headers.forEach(header => {
         const headerDiv = document.createElement("div");
-        if(header == "Edit"){
-            headerDiv.className = "grid-header-edit";
-        }
-        else{
-            headerDiv.className = "grid-header";
-        }
         headerDiv.textContent = header;
         resultsContainer.appendChild(headerDiv);
     });
@@ -427,12 +421,6 @@ function getContacts(){
     const headers = ["First", "Last", "Phone", "Email", "Edit", "Delete"];
     headers.forEach(header => {
         const headerDiv = document.createElement("div");
-        if(header == "Edit"){
-            headerDiv.className = "grid-header-edit";
-        }
-        else{
-            headerDiv.className = "grid-header";
-        }
         headerDiv.textContent = header;
         resultsContainer.appendChild(headerDiv);
     });
