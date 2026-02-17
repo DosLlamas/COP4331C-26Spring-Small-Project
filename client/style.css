@@ -296,7 +296,7 @@ body
 
 .search h3 
 {
-    color: var(--text-inner-title);
+    color: var(--text-card);
     text-shadow: 0 0 10px var(--shadow-dark);
     margin-bottom: 1.5rem;
 }
