@@ -510,15 +510,18 @@ function editContact(contact) // Edit the contact using modal
     document.getElementById("editFirst").value = contact.FirstName;
     document.getElementById("editLast").value = contact.LastName;
 
-    if(contact.Phone === "N/A")
-        document.getElementById("editPhone").value = "";
+    const phone = document.getElementById("editPhone");
+    if(contact.Phone === "N/A" || !contact.Phone)
+        phone.value = "";
     else {
-        document.getElementById("editEmail").value = contact.Phone
+        phone.value = contact.Phone
     }
-    if(contact.Email === "N/A")
-        document.getElementById("editEmail").value = "";
+
+    const email = document.getElementById("editEmail");
+    if(contact.Email === "N/A" || !contact.Email)
+        email.value = "";
     else {
-        document.getElementById("editEmail").value = contact.Email
+        email.value = contact.Email
     }
 
 
@@ -547,7 +550,7 @@ function saveEdit() // Send edits to API
     let validEmail = validateEmail(email);
 
 
-    if (!validPhone && phone !== "" || !validEmail && email !== ""){
+    if ((!validPhone && phone !== "") || (!validEmail && email !== "")){
 
         if(!validPhone && !validEmail){
             document.getElementById("editResult").innerHTML = "Invalid Phone Number & Email Address.";
