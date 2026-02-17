@@ -470,18 +470,19 @@ function getContacts(){
                 });
                 
                 // Edit button
+                // Edit button
                 const editBtn = document.createElement("button");
-                editBtn.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
                 editBtn.className = "edit-button";
-                editBtn.setAttribute("aria-label", "Edit contact");
+                editBtn.ariaLabel = "Edit contact";
                 editBtn.onclick = () => editContact(contact);
                 resultsContainer.appendChild(editBtn);
 
                 // Delete button
                 const deleteBtn = document.createElement("button");
-                deleteBtn.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
                 deleteBtn.className = "delete-button";
-                deleteBtn.setAttribute("aria-label", "Delete contact");
+                deleteBtn.ariaLabel = "Delete contact";
                 deleteBtn.onclick = () => deleteContact(contact.ID);
                 resultsContainer.appendChild(deleteBtn);
             });
