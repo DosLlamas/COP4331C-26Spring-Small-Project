@@ -315,11 +315,21 @@ body
 }
 
 /* Labels */
-#login-form label,
-.add label 
+#login-form label
 {
     display: block;
     text-align: left;
+    font-weight: bold;
+    font-size: .9rem;
+    color: var(--text-card-register-label);
+    padding: .2rem;
+    text-shadow: 0 0 12px var(--shadow-dark);
+}
+
+.add label
+{
+    display: block;
+    text-align: center;
     font-weight: bold;
     font-size: .9rem;
     color: var(--text-card-register-label);
