@@ -535,7 +535,7 @@ a.register-button
 /* Edit and Delete Buttons */
 .edit-button, .delete-button 
 {
-    padding: 8px;
+    padding: 4px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
