@@ -597,7 +597,7 @@ a.register-button
 .modal-content 
 {
     background-color: var(--bg-card);
-    color: var(--bg-inner-card);
+    color: var(--text-card-register-title);
     margin: 10% auto;
     padding: 30px;
     border-radius: 10px;
