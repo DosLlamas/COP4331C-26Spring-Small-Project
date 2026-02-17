@@ -15,6 +15,7 @@
     --text-card-register-label: #ede6df;
     --text-card-register-logbutton: #fff573;
     --text-button: #fff573;
+    --text-contacts: #091d26;
 
     --shadow-dark: rgb(9, 29, 38);
     --border-input: #ccc;
@@ -49,6 +50,8 @@ html
     --text-card-register-label: #000000;
     --text-button: #ffffff;
     --text-card-register-logbutton: #253727;
+    --text-contacts: #253727;
+
 
     --shadow-dark: rgba(66, 66, 66, 0.62);
     --border-input: #ccc;
@@ -77,6 +80,8 @@ html
     --text-card-register-label: #000000;
     --text-button: #000000;
     --text-card-register-logbutton: #B7A7FF;
+    --text-contacts: #B7A7FF;
+
 
     --shadow-dark: rgba(0, 0, 0, 0.7);
     --border-input: #ccc;
@@ -482,7 +487,7 @@ a.register-button
 .contact-columns > div 
 {
     text-align: left;
-    color: var(--text-title);
+    color: var(--text-contacts);
 }
 
 /* Contact Row Styling */
