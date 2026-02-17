@@ -542,6 +542,22 @@ a.register-button
     color: var(--text-card);
 }
 
+#contactResults div {
+    white-space: nowrap;      /* Keeps text on one line */
+    overflow-x: auto;         /* Adds horizontal scroll if text is too long */
+    padding: 10px;            /* Gives text some breathing room */
+    scrollbar-width: thin;    /* Makes the scrollbar less bulky (Firefox) */
+}
+
+/* Custom scrollbar styling for Chrome/Edge/Safari */
+#contactResults div::-webkit-scrollbar {
+    height: 4px;
+}
+#contactResults div::-webkit-scrollbar-thumb {
+    background: var(--text-title); /* Matches your theme */
+    border-radius: 10px;
+}
+
 /* Edit and Delete Buttons */
 .edit-button, .delete-button 
 {
