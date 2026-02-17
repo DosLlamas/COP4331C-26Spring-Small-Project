@@ -332,7 +332,7 @@ body
     text-align: center;
     font-weight: bold;
     font-size: .9rem;
-    color: var(--text-card-register-label);
+    color: var(--text-card);
     padding: .2rem;
     text-shadow: 0 0 12px var(--shadow-dark);
 }
