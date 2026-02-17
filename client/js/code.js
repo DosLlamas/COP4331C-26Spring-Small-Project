@@ -258,7 +258,7 @@ function addContact()
 
         // Validate Email
         let validEmail = validateEmail(email);
-        if (!validEmail) {
+        if (!validEmail && email !== "") {
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
             showEmailError();
             return;
@@ -267,7 +267,7 @@ function addContact()
 
         // Validate Phone
         let validPhone = validatePhoneNumber(phone);
-        if (!validPhone) {
+        if (!validPhone && phone !== "") {
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
             showPhoneError();
             return;
