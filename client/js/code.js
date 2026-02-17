@@ -507,11 +507,20 @@ function editContact(contact) // Edit the contact using modal
     // Store ContactID
     document.getElementById("editContactId").value = contact.ID;
 
-    // Pre-fill the form fields with current data
     document.getElementById("editFirst").value = contact.FirstName;
     document.getElementById("editLast").value = contact.LastName;
-    document.getElementById("editPhone").value = contact.Phone;
-    document.getElementById("editEmail").value = contact.Email;
+
+    if(contact.Phone === "N/A")
+        document.getElementById("editPhone").value = "";
+    else {
+        document.getElementById("editEmail").value = contact.Phone
+    }
+    if(contact.Email === "N/A")
+        document.getElementById("editEmail").value = "";
+    else {
+        document.getElementById("editEmail").value = contact.Email
+    }
+
 
     // TODO: Fetch current contact data and populate fields
     // For now, just show the modal
@@ -532,18 +541,38 @@ function saveEdit() // Send edits to API
     let phone = document.getElementById("editPhone").value;
     let email = document.getElementById("editEmail").value;
 
-    let validEmail = validateEmail(email);
-        if (!validEmail) {
-            document.getElementById("editResult").innerHTML = "Invalid Email Address.";
-            return;
-        }
-
+    // Validate Phone
     let validPhone = validatePhoneNumber(phone);
-    if (!validPhone) {
-        document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
+    // Validate Email
+    let validEmail = validateEmail(email);
+
+
+    if (!validPhone && phone !== "" || !validEmail && email !== ""){
+
+        if(!validPhone && !validEmail){
+            document.getElementById("editResult").innerHTML = "Invalid Phone Number & Email Address.";
+            showPhoneError();
+            showEmailError();
+        }
+        else if(!validPhone){
+            document.getElementById("editResult").innerHTML = "Invalid Phone Number.";
+            showPhoneError();
+        }
+        else if(!validEmail){
+            document.getElementById("editResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
+        }
         return;
     }
+
+    hidePhoneError();
+    hideEmailError();
     phone = normalizePhoneNumber(phone);
+
+    if(phone === "")
+        phone = "N/A"
+    if(email === "")
+        email = "N/A"
 
     let tmp =
     {
