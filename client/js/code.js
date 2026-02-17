@@ -273,11 +273,15 @@ function addContact()
         return;
     }
 
+
     hidePhoneError();
     hideEmailError();
     phone = normalizePhoneNumber(phone);
 
-
+    if(phone === "")
+        phone = "N/A"
+    if(email === "")
+        email = "N/A"
 
     let tmp = {
             userId: userId,
