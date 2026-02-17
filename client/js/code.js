@@ -172,7 +172,7 @@ function doRegister()
                 if(res.error === ""){
                     hideRegUsernameError();
                     registerMessage.textContent = "Registration successful! Redirecting to login";
-                    registerMessage.style.color = "blue";
+                    registerMessage.style.color = "blue"; //TODO : fix color
 
                     setTimeout(() => {
                         window.location.href = "index.html";
@@ -180,7 +180,7 @@ function doRegister()
                 } else {
                     showRegUsernameError();
                     registerMessage.textContent = res.message || "Username taken.";
-                    registerMessage.style.color = "red";
+                    registerMessage.style.color = "red"; //TODO : fix color
 
                 }
             }
@@ -275,6 +275,11 @@ function addContact()
         else if(!validEmail){
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
         }
+        return;
+    }
+
+    if(first === "" && last === "" && phone === "" && email === ""){
+        document.getElementById("contactAddResult").innerHTML = "At-least One Field Required.";
         return;
     }
 
