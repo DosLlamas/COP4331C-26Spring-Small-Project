@@ -262,6 +262,11 @@ function addContact()
     let validEmail = validateEmail(email);
 
     if (!validPhone && phone !== "" || !validEmail && email !== ""){
+
+        if(!validPhone && !validEmail){
+            document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
+        }
+
         if(!validPhone){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
             showPhoneError();
