@@ -492,6 +492,10 @@ a.register-button {
     color: #2196F3;
 }
 
+.edit-button img, .delete-button img {
+    display: block;
+}
+
 .delete-button:hover {
     background-color: rgba(244, 67, 54, 0.15);
     transform: scale(1.15);
