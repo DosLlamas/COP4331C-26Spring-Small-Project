@@ -265,15 +265,15 @@ function addContact()
 
         if(!validPhone && !validEmail){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
+            showPhoneError();
+            showEmailError();
         }
-
-        if(!validPhone){
+        else if(!validPhone){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
             showPhoneError();
         }
-        if(!validEmail){
+        else if(!validEmail){
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
-            showEmailError();
         }
         return;
     }
