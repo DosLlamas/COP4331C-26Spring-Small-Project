@@ -261,31 +261,25 @@ function addContact()
     // Validate Email
     let validEmail = validateEmail(email);
 
-    if (!validPhone && phone !== "" || !validEmail && email !== ""){
+    const phoneError = !validPhone && phone !== "";
+    const emailError = !validEmail && email !== "";
 
-        if(!validPhone && !validEmail){
-            if(phone !== "" && email === "") {
-                document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
-                showPhoneError();
-            }
-            else if(email !== "" && phone === ""){
-                document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
-                showEmailError();
-            }
-            else{
-                document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
-                showPhoneError();
-                showEmailError();
-            }
-        }
-        else if(!validPhone){
-            document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
+    if (phoneError || emailError) {
+        let message = "";
+
+        if (phoneError && emailError) {
+            message = "Invalid Phone Number & Email Address.";
             showPhoneError();
-        }
-        else if(!validEmail){
-            document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
+        } else if (phoneError) {
+            message = "Invalid Phone Number.";
+            showPhoneError();
+        } else {
+            message = "Invalid Email Address.";
             showEmailError();
         }
+
+        document.getElementById("contactAddResult").innerHTML = message;
         return;
     }
 
