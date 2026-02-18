@@ -284,6 +284,7 @@ function addContact()
         }
         else if(!validEmail){
             document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
+            showEmailError();
         }
         return;
     }
