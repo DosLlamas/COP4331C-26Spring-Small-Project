@@ -265,8 +265,8 @@ function addContact()
 
         if(!validPhone && !validEmail){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
-            showPhoneError();
-            showEmailError();
+            if(phone !== "") showPhoneError();
+            if(email !== "") showEmailError();
         }
         else if(!validPhone){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
