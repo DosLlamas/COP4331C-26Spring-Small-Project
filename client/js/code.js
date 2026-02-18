@@ -264,9 +264,17 @@ function addContact()
     if (!validPhone && phone !== "" || !validEmail && email !== ""){
 
         if(!validPhone && !validEmail){
-            document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
-            if(phone !== "") showPhoneError();
-            if(email !== "") showEmailError();
+            if(phone !== "") {
+                showPhoneError();
+            }
+            else if(email !== ""){
+                showEmailError();
+            }
+            else{
+                document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number & Email Address.";
+                showPhoneError();
+                showEmailError();
+            }
         }
         else if(!validPhone){
             document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
