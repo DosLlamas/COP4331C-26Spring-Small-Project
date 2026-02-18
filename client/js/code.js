@@ -264,11 +264,11 @@ function addContact()
     if (!validPhone && phone !== "" || !validEmail && email !== ""){
 
         if(!validPhone && !validEmail){
-            if(phone !== "") {
+            if(phone !== "" && email === "") {
                 document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
                 showPhoneError();
             }
-            else if(email !== ""){
+            else if(email !== "" && phone === ""){
                 document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
                 showEmailError();
             }
