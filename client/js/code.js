@@ -265,9 +265,11 @@ function addContact()
 
         if(!validPhone && !validEmail){
             if(phone !== "") {
+                document.getElementById("contactAddResult").innerHTML = "Invalid Phone Number.";
                 showPhoneError();
             }
             else if(email !== ""){
+                document.getElementById("contactAddResult").innerHTML = "Invalid Email Address.";
                 showEmailError();
             }
             else{
