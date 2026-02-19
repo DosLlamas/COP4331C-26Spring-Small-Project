@@ -1,4 +1,4 @@
-const urlBase = 'http://dev.smallproject.nathanfoss.me/api';
+const urlBase = 'http://smallproject.nathanfoss.me/api';
 const extension = 'php';
 
 let userId = 0;
