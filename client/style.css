@@ -424,7 +424,7 @@ a.register-button
     min-height: 1.4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    color: red;
+    color: var(--text-card-register-label);
     text-align: center;
 }
 

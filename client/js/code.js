@@ -172,7 +172,6 @@ function doRegister()
                 if(res.error === ""){
                     hideRegUsernameError();
                     registerMessage.textContent = "Registration successful! Redirecting to login";
-                    registerMessage.style.color = "blue"; //TODO : fix color
 
                     setTimeout(() => {
                         window.location.href = "index.html";
@@ -180,7 +179,6 @@ function doRegister()
                 } else {
                     showRegUsernameError();
                     registerMessage.textContent = res.message || "Username taken.";
-                    registerMessage.style.color = "red"; //TODO : fix color
 
                 }
             }
