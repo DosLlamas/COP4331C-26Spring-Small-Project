@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="js/code.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      showContactsNavPage();
+    }, false);
+
+  </script>
+</head>
+<body>
+<main>
+
+
+  <div class="navbar">
+      <div class="menu">
+          <div class="pages">
+              <a href="about.html">
+                About Us
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <h1 id="title">Settings
+  </h1>
+
+  <div class="card">
+
+    <section class="change-font-size">
+
+		
+
+      <h2 id="size-header">Change Font Size</h2>
+
+      <div class="settings-buttons">
+        <button type="button" class="search-button" onclick="increaseTextSize('root')">Increase Size:
+          <img
+                  id="increase-font"
+                  src="images/increaseFont.png"
+                  alt="Increase Font Size"
+          >
+        </button>
+        <button type="button" class="search-button" onclick="decreaseTextSize('root')">Decrease Size:
+          <img
+                  id="decrease-font"
+                  src="images/decreaseFont.png"
+                  alt="Decrease Font Size"
+          >
+        </button>
+        <button type="button" class="search-button" onclick="resetTextSize('root')">Default Size:
+          <img
+                  id="reset-font"
+                  src="images/resetFont.png"
+                  alt="Reset Font Size"
+          >
+        </button>
+
+        <p id="sample-text"> The Contact Manager is a website that will contain all the contacts that will be added to a user's list. It will store information for the user. 
+        </p>
+      </div>
+
+    </section>
+
+    <section class="change-theme-color">
+      <h2 id="theme-header">Not feeling the colors?</h2>
+    	<button type="button"
+			class="search-button"
+			onclick="toggleTheme('root')"
+          	id="cycle-theme">Click Here
+		</button><br>
+    </section>
+  </div>
+
+</main>
+
+</body>
+</html>

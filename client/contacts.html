@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>COP 4331 Small Project Contacts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="mobile.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() 
+			{
+				readCookie();
+				getContacts();
+
+			}, false);
+			
+		</script>
+
+</head>
+<body>
+<main>
+
+	<div class="navbar">
+		<div class="menu">
+			<div class="pages">
+				<a href="about.html">
+					About Us
+				</a>
+				<a href="settings.html">
+					Settings
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+<div class="card">
+	<div class="card-columns">
+		<!--Search for contact-->
+			<section class="search">
+				<h3>Look Up Contact</h3>
+
+				<div class="search-inputs">
+					<div>First Name:</div>
+					<div>Last Name:</div>
+					<input type="text" id="searchFirst" class="card-input-search"
+						placeholder="First Name" />
+					<input type="text" id="searchLast" class="card-input-search"
+						placeholder="Last Name" />
+					<div>Phone:</div>
+					<div>Email:</div>
+					<input type="text" id="searchPhone" class="card-input-search"
+						placeholder="Phone" />
+					<input type="text" id="searchEmail" class="card-input-search"
+						placeholder="Email" />
+				</div>
+
+				<button type="button" class="search-button" onclick="searchContact();">
+					Search
+				</button>
+
+				<span id="contactSearchResult"></span>
+
+				<div id="contactList" class="contactList">
+					<div class="contact-columns">
+						<div class="contact-grid" id="contactResults">
+							<!-- Headers -->
+							<div class="grid-header">First</div>
+							<div class="grid-header">Last</div>
+							<div class="grid-header">Phone</div>
+							<div class="grid-header">Email</div>
+							<div class="grid-header"></div>
+							<div class="grid-header"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+		<!-- Add new contact -->
+		<section class = "add">
+			<h3>Create New Contact</h3>
+
+				<div class="add-contact-container">
+
+					<label for="addFirst">First Name:</label>
+					<input type="text" id="addFirst" class= "card-inputadd" placeholder="First Name">
+					<label for="addLast">Last Name:</label>
+					<input type="text" id="addLast" class= "card-inputadd" placeholder="Last Name">
+				</div>
+
+				<div class="add-contact-container">
+
+					<label for="addPhone">Phone:</label>
+					<input type="text" id="addPhone" class="card-inputadd" placeholder="Phone">
+					<img id="phone-error-img" src="images/invalidField.png" alt="Error">
+
+				</div>
+				<div class="add-contact-container">
+
+					<label for="addEmail">Email:</label>
+					<input type="text" id="addEmail" class="card-inputadd" placeholder="Email">
+					<img id="email-error-img" src="images/invalidField.png" alt="Error">
+
+				</div>
+
+				<button type="button" 
+					class="search-button" 
+					onclick="addContact();"> Add Contact
+				</button><br>
+			<span id="contactAddResult"></span>
+		</section>
+	</div>
+	
+			
+		<!--Logout-->
+		<br>
+		<a href="index.html" class="logout-button" onclick="doLogout();"> Log Out</a>
+</div>
+	<!-- Edit Contact Modal -->
+	<div id="editModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times; </span>
+			<h3>Edit Contact</h3>
+
+			First: <input type="text" id="editFirst" placeholder="First Name">
+			Last:<input type="text" id="editLast" placeholder="Last Name">
+			Phone:<input type="text" id="editPhone" placeholder="Phone">
+			Email:<input type="text" id="editEmail" placeholder="Email">
+			<span id="editResult"></span><br>
+
+			<button onclick="saveEdit()">Save Changes</button>
+			<button onclick="closeModal()">Cancel</button>
+
+			<input type="hidden" id="editContactId"> <!-- Store the ID -->
+		</div>
+	</div>
+</main>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+
+		document.getElementById('phone-error-img').style.display = 'none'; //hide error icon on load
+		document.getElementById('email-error-img').style.display = 'none'; //hide error icon on load
+
+		const phoneInput = document.getElementById('addPhone');
+		if (phoneInput) {
+			phoneInput.addEventListener('input', function() {
+				const icon = document.getElementById('phone-error-img');
+				if (icon) icon.style.display = 'none';
+			});
+		}
+
+		const emailInput = document.getElementById('addEmail');
+		if (emailInput) {
+			emailInput.addEventListener('input', function() {
+				const icon = document.getElementById('email-error-img');
+				if (icon) icon.style.display = 'none';
+			});
+		}
+
+
+	});
+</script>
+</body>
+
+

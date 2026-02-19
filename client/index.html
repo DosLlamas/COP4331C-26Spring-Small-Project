@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Project – COP 4331C Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/code.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            showContactsNavPage();
+        }, false);
+
+    </script>
+</head>
+<body>
+<main>
+
+    <div class="navbar">
+        <div class="menu">
+            <div class="pages">
+                <a href="about.html">
+                    About Us
+                </a>
+                <a href="settings.html">
+                    Settings
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+    <h1 id="title">Welcome to Contact Cruise</h1>
+    <h2 >Get started and access your account below!</h2>
+    
+    
+    <div class="card">
+        <div class="card-columns">
+
+            <!--LOGIN-->
+            <section class="login">
+                <h1 id="welcome">Welcome</h1>
+
+                <form id="login-form">
+                    <div>
+                        <label for="login-username">Username</label>
+                        <div class="input-container">
+                        <input id="login-username"
+                               name="username"
+                               placeholder="Username"
+                               class="card-input"
+                               autocapitalize="none"
+                               spellcheck="false"
+                               required
+                        >
+                        <img
+                                id="login-username-error-img"
+                                src="images/invalidField.png"
+                                alt="Error"
+                                style="display: none;"
+                        >
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="login-password">Password</label>
+                        <div class="input-container">
+                        <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Password"
+                                class="card-input"
+                                autocapitalize="none"
+                                spellcheck="false"
+                                required
+                        >
+                        <img
+                                id="login-password-error-img"
+                                src="images/invalidField.png"
+                                alt="Error"
+                                style="display: none;"
+                        >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-button log">Sign In</button>
+                    <p id="login-message"></p>
+                </form>
+            </section>
+
+            <!--REGISTER-->
+            <section class="register">
+                <h2>Don't Have An Account?</h2>
+                <p>Create an account to get started.</p>
+
+                <a href="register.html" class="register-button">
+                    Register Here
+                </a>
+            </section>
+
+
+        </div>
+    </div>
+
+
+
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        document.getElementById('login-username-error-img').style.display = 'none'; //hide error icon on load
+        document.getElementById('login-password-error-img').style.display = 'none'; //hide error icon on load
+
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                doLogin();
+            });
+        }
+
+        const usernameInput = document.getElementById('login-username');
+        if (usernameInput) {
+            usernameInput.addEventListener('input', function() {
+                const icon = document.getElementById('login-username-error-img');
+                if (icon) icon.style.display = 'none';
+            });
+        }
+
+        const passwordInput = document.getElementById('login-password');
+        if (passwordInput) {
+            passwordInput.addEventListener('input', function() {
+                const icon = document.getElementById('login-password-error-img');
+                if (icon) icon.style.display = 'none';
+            });
+        }
+
+    });
+</script>
+</body>
+</html>

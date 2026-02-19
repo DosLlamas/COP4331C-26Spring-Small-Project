@@ -1,0 +1,880 @@
+:root 
+{
+    --font-multiplier: 1;
+    font-size: calc(100% * var(--font-multiplier));
+    
+    --bg-main: #ede6df;
+    --bg-card: #094044;
+    --bg-inner-card: #091d26;
+
+    --text-navbar: #ede6df;
+    --text-title: #091d26;
+    --text-inner-title: #ede6df;
+    --text-card: #ede6df;
+    --text-card-register-title: #ede6df;
+    --text-card-register-label: #ede6df;
+    --text-card-register-logbutton: #fff573;
+    --text-button: #fff573;
+    --text-contacts: #091d26;
+
+    --shadow-dark: rgb(9, 29, 38);
+    --border-input: #ccc;
+    --border-outline: #fff573;
+
+    --focus-glow: rgba(255, 255, 255, 0.37);
+
+    --grid-header-bg: rgba(0, 0, 0, 0.05);
+    --grid-header-border: rgba(0, 0, 0, 0.15);
+    --grid-row-border: rgba(0, 0, 0, 0.08);
+    --grid-row-alt-bg: rgba(0, 0, 0, 0.02);
+    --grid-row-hover-bg: rgba(0, 0, 0, 0.06);
+    --grid-container-bg: var(--bg-main);
+}
+
+html 
+{
+    transition: font-size .3s ease;
+}
+
+[data-theme="alternate1"] 
+{
+    --bg-main: #ffffff;
+    --bg-card: rgb(255, 255, 255);
+    --bg-inner-card: rgba(37, 55, 39, 0.96);
+
+    --text-navbar: #000000;
+    --text-title: #222222;
+    --text-inner-title: rgba(0, 0, 0, 0.96);
+    --text-card: #FAF3E1;
+    --text-card-register-title: #000000;
+    --text-card-register-label: #000000;
+    --text-button: #ffffff;
+    --text-card-register-logbutton: #253727;
+    --text-contacts: #253727;
+
+
+    --shadow-dark: rgba(66, 66, 66, 0.62);
+    --border-input: #ccc;
+    --border-outline: #253727;
+    --focus-glow: rgba(37, 55, 39, 0.96);
+
+    --grid-header-bg: rgba(37, 55, 39, 0.1);
+    --grid-header-border: rgba(37, 55, 39, 0.25);
+    --grid-row-border: rgba(37, 55, 39, 0.08);
+    --grid-row-alt-bg: rgba(37, 55, 39, 0.04);
+    --grid-row-hover-bg: rgba(37, 55, 39, 0.1);
+    --grid-container-bg: var(--bg-main);
+}
+
+[data-theme="alternate2"] 
+{
+    --bg-main: #000000;
+    --bg-card: #fff6ee;
+    --bg-inner-card: rgba(183, 167, 255, 0.91);
+
+    --text-navbar: #000000;
+    --text-title: #ffffff;
+    --text-inner-title: #FFFFF;
+    --text-card: #000000;
+    --text-card-register-title: #000000;
+    --text-card-register-label: #000000;
+    --text-button: #000000;
+    --text-card-register-logbutton: #B7A7FF;
+    --text-contacts: #B7A7FF;
+
+
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+    --border-input: #ccc;
+    --border-outline: #B7A7FF;
+    --focus-glow: rgba(0, 0, 0, 0.58);
+
+    --grid-header-bg: rgba(183, 167, 255, 0.4);
+    --grid-header-border: rgba(183, 167, 255, 0.5);
+    --grid-row-border: rgba(183, 167, 255, 0.15);
+    --grid-row-alt-bg: rgba(183, 167, 255, 0.3);
+    --grid-row-hover-bg: rgba(183, 167, 255, 0.55);
+    --grid-container-bg: #1a1a1a;
+}
+
+* {
+    transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+}
+
+body 
+{
+    font-family: Arial, sans-serif;
+    background: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+/* Typography */
+#title 
+{
+    color: var(--text-title);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+#welcome 
+{
+    color: var(--text-inner-title);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--shadow-dark);
+}
+
+/* Card Structure */
+.card 
+{
+    background: var(--bg-card);
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.card h1 
+{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h2 
+{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 
+{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-columns 
+{
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.card-columns.vertical 
+{
+    display: block;
+    gap: 0;
+}
+
+/* Input Fields */
+.card-input 
+{
+    max-width: 900px;
+    width: 100%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.card-input3 
+{
+    width: 100%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.card-inputadd 
+{
+    width: 70%;
+    font-size: 0.9rem;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.card input:focus,
+.card-input:focus,
+.card-input3:focus,
+.card-inputadd:focus 
+{
+    border-color: var(--border-outline);
+    box-shadow: 0 0 16px var(--focus-glow);
+}
+
+.input-container, .add-contact-container 
+{
+    position: relative;
+    width: 100%;
+}
+
+.input-container img 
+{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border: none;
+    background: none;
+}
+
+.add-contact-container img 
+{
+    position: absolute;
+    right: 30px;
+    top: 34px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border: none;
+    background: none;
+}
+
+
+
+/* Sections */
+.login, .register, .search, .add, .logout 
+{
+    flex: 1;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.register, .search, .add 
+{
+    background-color: var(--bg-inner-card);
+    color: var(--text-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px var(--shadow-dark);
+}
+
+.register
+{
+    justify-content: center;
+}
+
+
+.search 
+{
+    flex: 8;
+    padding: 2rem;
+    min-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.search h3 
+{
+    color: var(--text-card);
+    text-shadow: 0 0 10px var(--shadow-dark);
+    margin-bottom: 1.5rem;
+}
+
+.add 
+{
+    flex: 1.5;
+    padding: 0.5rem 1.5rem;
+    justify-content: center;
+}
+
+.add h3 
+{
+    color: var(--text-card);
+    text-shadow: 0 0 10px var(--shadow-dark);
+}
+
+/* Labels */
+#login-form label
+{
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: .9rem;
+    color: var(--text-card-register-label);
+    padding: .2rem;
+    text-shadow: 0 0 12px var(--shadow-dark);
+}
+
+.add label
+{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: .9rem;
+    color: var(--text-card);
+    padding: .2rem;
+    text-shadow: 0 0 12px var(--shadow-dark);
+}
+
+#login-form label 
+{
+    color: var(--text-inner-title);
+}
+
+#register-form label 
+{
+    min-width: 500px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: .9rem;
+    color: var(--text-card-register-label);
+    padding: .2rem;
+    text-shadow: 0 0 12px var(--shadow-dark);
+}
+
+/* Buttons */
+.login-button.log,
+.register-button,
+.search-button,
+.logout-button 
+{
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--text-button);
+    color: var(--bg-inner-card);
+    padding: .8rem 2rem;
+    box-shadow: 0 0 20px var(--shadow-dark);
+}
+
+.search-button 
+{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.logout-button 
+{
+    display: inline-block;
+}
+
+.login-button:hover,
+.register-button:hover,
+.search-button:hover,
+.logout-button:hover 
+{
+    transform: scale(1.1);
+}
+
+a.register-button 
+{
+    max-width: 90%;
+}
+
+.login-button.reg 
+{
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    border-radius: 5px;
+    color: var(--text-card-register-logbutton);
+    padding: 1.2rem 0.2rem;
+    text-shadow: 0 0 10px var(--shadow-dark);
+}
+
+.login-button.reg:hover 
+{
+    transform: scale(1.1);
+}
+
+/* Register Section */
+#register-message 
+{
+    min-height: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-card-register-label);
+    text-align: center;
+}
+
+#create-account 
+{
+    color: var(--text-card-register-title);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--shadow-dark);
+}
+
+#have-account 
+{
+    color: var(--text-card-register-title);
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 0 12px var(--shadow-dark);
+}
+
+/* Contact Grid */
+.contact-columns 
+{
+    background-color: var(--grid-container-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    min-height: 350px;
+    width: 100%;
+    max-width: 100%;
+    align-content: start;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+    overflow: hidden;
+}
+
+.contactList 
+{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-grid 
+{
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 2fr 2.5fr 90px 90px;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.grid-header 
+{
+    background-color: var(--grid-header-bg);
+    border-bottom: 2px solid var(--grid-header-border);
+    font-weight: bold;
+    padding: 1rem 0.75rem;
+    color: var(--text-title);
+    text-shadow: none;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-columns > div 
+{
+    text-align: left;
+    color: var(--text-contacts);
+}
+
+/* Contact Row Styling */
+.contact-grid > div:not(.grid-header) 
+{
+    padding: 0.85rem 0.75rem;
+    border-bottom: 1px solid var(--grid-row-border);
+    display: flex;
+    align-items: center;
+}
+
+/* Alternating row colors */
+.contact-grid > div:nth-child(12n+7),
+.contact-grid > div:nth-child(12n+8),
+.contact-grid > div:nth-child(12n+9),
+.contact-grid > div:nth-child(12n+10),
+.contact-grid > div:nth-child(12n+11),
+.contact-grid > div:nth-child(12n+12) 
+{
+    background-color: var(--grid-row-alt-bg);
+}
+
+/* Hover effect on rows */
+.contact-grid > div:not(.grid-header):hover 
+{
+    background-color: var(--grid-row-hover-bg);
+}
+
+/* Remove bottom border from last row */
+.contact-grid > div:nth-last-child(-n+6) 
+{
+    border-bottom: none;
+}
+
+#contactSearchResult,
+#contactAddResult 
+{
+    display: block;
+    min-height: 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-card);
+}
+
+#contactResults div {
+    white-space: nowrap;      /* Keeps text on one line */
+    overflow-x: auto;         /* Adds horizontal scroll if text is too long */
+    padding: 10px;            /* Gives text some breathing room */
+    scrollbar-width: thin;    /* Makes the scrollbar less bulky (Firefox) */
+}
+
+
+/* Edit and Delete Buttons */
+.edit-button, .delete-button 
+{
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-title);
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px var(--bg-inner-card)) brightness(2);
+}
+
+.edit-button:hover 
+{
+    background-color: rgba(33, 150, 243, 0.4);
+    transform: scale(1.15);
+    opacity: 1;
+    color: #2196F3;
+}
+
+.edit-button img, .delete-button img 
+{
+    display: block;
+}
+
+.delete-button:hover 
+{
+    background-color: rgba(244, 67, 54, 0.4);
+    transform: scale(1.15);
+    opacity: 1;
+    color: #F44336;
+}
+
+/* Modal */
+.modal 
+{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content 
+{
+    background-color: var(--bg-card);
+    color: var(--text-card-register-title);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 
+{
+    color: var(--text-inner-title);
+    text-shadow: 0 0 10px var(--shadow-dark);
+}
+
+.modal-content input 
+{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal-content input:focus 
+{
+    border-color: var(--border-outline);
+    box-shadow: 0 0 16px var(--focus-glow);
+}
+
+.modal-content button 
+{
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--text-button);
+    color: var(--bg-inner-card);
+    padding: .8rem 2rem;
+    box-shadow: 0 0 20px var(--shadow-dark);
+    margin: 0.5rem;
+}
+
+.modal-content button:hover 
+{
+    transform: scale(1.1);
+}
+
+.close 
+{
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-card-register-title);
+}
+
+.close:hover 
+{
+    color: var(--border-outline);
+    transform: scale(1.2);
+}
+
+/* Navbar */
+.navbar 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.settings-buttons button 
+{
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--text-inner-title);
+    padding: .8rem .8rem;
+    border: none;
+    text-shadow: 0 0 1px var(--border-outline);
+    background: transparent;
+}
+
+#cycle-theme 
+{
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-inner-title);
+    padding: .8rem .8rem;
+    border: none;
+    text-shadow: 0 0 1px var(--border-outline);
+    background: transparent;
+}
+
+.settings-buttons img 
+{
+    width: 1.1em;
+    height: 1.1em;
+    display: block;
+    transform: translateY(0.04em);
+}
+
+.settings-buttons button:hover 
+{
+    transition: ease .3s;
+    transform: scale(1.1);
+}
+
+.pages a 
+{
+    padding: .8rem .8rem;
+    color: var(--text-navbar);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    display: inline-block;
+    align-items: center;
+    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.pages a:hover 
+{
+    transition: ease .3s;
+    transform: scale(1.1);
+}
+
+#sample-text 
+{
+    color: var(--text-inner-title);
+}
+
+#size-header,
+#theme-header 
+{
+    color: var(--text-navbar);
+}
+
+/* About Page */
+.about-title 
+{
+    text-shadow: 0 0 10px var(--shadow-dark);
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--text-inner-title);
+    margin-bottom: 1rem;
+}
+
+.title-card 
+{
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 290px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    background: var(--bg-card);
+}
+
+.about-card 
+{
+    background-color: var(--bg-inner-card);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 1000px;
+}
+
+.inner-card 
+{
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 290px;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name 
+{
+    color: var(--text-navbar);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.member-role 
+{
+    color: var(--text-navbar);
+    font-size: 1.1rem;
+}
+
+.git-link 
+{
+    color: var(--text-navbar);
+    font-size: 1.0rem;
+}
+
+/* Increase card size for search*/
+body:has(.search) .card,
+body:has(.contactList) .card 
+{
+    max-width: 1400px;
+    width: 95%;
+    padding: 3rem 5rem;
+}
+
+/* Search input container */
+.search-inputs 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr 0.1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.card-input-search 
+{
+    width: 100%;
+    font-size: 1.0rem;
+    padding: .7rem .9rem;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-input-search:focus 
+{
+    border-color: var(--border-outline);
+    box-shadow: 0 0 16px var(--focus-glow);
+}
+
+
+.contact-grid > div:nth-child(6n+1) {
+    border-radius: 8px 8px 0 0;
+    border-left: 4px solid var(--border-outline);
+}
+
+.contact-grid > div:nth-child(6n+6) {
+    border-radius: 0 0 8px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}

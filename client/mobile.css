@@ -1,0 +1,126 @@
+@media (max-width: 768px) {
+    body {
+        display: block;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .card {
+        box-sizing: border-box !important;
+        width: 95% !important;
+        padding: 1rem !important;
+        margin: 1rem auto !important;
+        display: block !important;
+    }
+
+    /*shrink card*/
+    .search, .add {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 1.5rem !important;
+        margin: 0 0 1.5rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+
+    /*change columns to be vertical*/
+    .card-columns {
+        flex-direction: column !important;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+
+    .card-columns.vertical {
+        display: block !important;
+        gap: 1rem;
+    }
+
+    /*shrink headers*/
+    .card h1 {
+        font-size: 2rem;
+    }
+    .card h2 {
+        font-size: 1.6rem;
+    }
+    .card h3 {
+        font-size: 1.3rem;
+    }
+
+    #register-form label {
+        min-width: 100%;
+        font-size: 0.85rem;
+    }
+
+    /*shrink buttons*/
+    .register-button, .login-button.log, .login-button.reg {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.5rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .login-button.reg{
+        display: inline-block;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        padding: 1.2rem 0.2rem;
+    }
+
+    #have-account {
+        font-size: 1.2rem;
+    }
+
+    .pages a{
+        padding: .8rem .8rem;
+        color: var(--text-navbar);
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        background: transparent;
+        display: inline-block;
+        align-items: center;
+        text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .search-inputs {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    .contact-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem;
+        border: none !important;
+        background: transparent !important;
+    }
+
+    .card-input-search:focus
+    {
+        border-color: var(--border-outline);
+        box-shadow: 0 0 16px var(--focus-glow);
+    }
+
+
+    .contact-grid > div:nth-child(6n+1) {
+        margin-top: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-left: 4px solid var(--border-outline);
+    }
+
+    .contact-grid > div:nth-child(6n+6) {
+        border-radius: 0 0 8px 8px;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+}
